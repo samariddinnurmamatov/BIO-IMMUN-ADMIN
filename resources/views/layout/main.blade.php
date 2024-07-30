@@ -16,7 +16,7 @@
 
     <!-- StarCode CSS -->
 
-
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="/assets/css/starcode2.css">
 </head>
 
@@ -349,6 +349,8 @@
 
 <!--dashboard ecommerce init js-->
 <script src="/assets/js/pages/dashboards-ecommerce.init.js"></script>
+<!-- Bootstrap Bundle JS (includes Popper) -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
 
 <!-- App js -->
 <script src="/assets/js/app.js"></script>

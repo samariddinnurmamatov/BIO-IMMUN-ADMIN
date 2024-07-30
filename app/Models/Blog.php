@@ -10,7 +10,10 @@ class Blog extends Model
     use HasFactory;
     protected $fillable=[
         'title',
+        'photos',
         'description',
-        'photo'
+    ];
+    protected $casts = [
+        'photos' => 'array',
     ];
 }
