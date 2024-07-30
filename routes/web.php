@@ -4,6 +4,8 @@ use App\Http\Controllers\BlogController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
 use App\Http\Middleware\Authenticate;
+use App\Http\Controllers\ProductController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -31,3 +33,4 @@ Route::post('login', [Authenticate::class, 'login']);
 Route::post('logout', [Authenticate::class, 'logout'])->name('logout');
 
 Route::resource('blogs', BlogController::class);
+Route::resource('products', ProductController::class);
