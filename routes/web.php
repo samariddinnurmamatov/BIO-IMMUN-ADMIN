@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\BlogController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Middleware\Authenticate;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,4 +17,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('dashboard')->middleware('auth');
+
+Route::get('login', [Authenticate::class, 'showLoginForm'])->name('login');
+Route::post('login', [Authenticate::class, 'login']);
+Route::post('logout', [Authenticate::class, 'logout'])->name('logout');
+
+Route::resource('blogs', BlogController::class);
