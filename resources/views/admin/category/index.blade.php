@@ -3,146 +3,22 @@
 @section('content')
 
 <div class="group-data-[sidebar-size=sm]:min-h-sm group-data-[sidebar-size=sm]:relative">
-<div id="cartSidePenal" drawer-end="" class="fixed inset-y-0 flex flex-col w-full transition-transform duration-300 ease-in-out transform bg-white shadow dark:bg-zink-600 ltr:right-0 rtl:left-0 md:w-96 z-drawer show">
-    <div class="flex items-center justify-between p-4 border-b border-slate-200 dark:border-zink-500">
-        <div class="grow">
-            <h5 class="mb-0 text-16">Shopping Cart <span class="inline-flex items-center justify-center w-5 h-5 ml-1 text-[11px] font-medium border rounded-full text-white bg-custom-500 border-custom-500">3</span></h5>
-        </div>
-        <div class="shrink-0">
-            <button data-drawer-close="cartSidePenal" class="transition-all duration-150 ease-linear text-slate-500 hover:text-slate-800"><i data-lucide="x" class="size-4"></i></button>
-        </div>
-    </div>
-    <div class="px-4 py-3 text-sm text-green-500 border border-transparent bg-green-50 dark:bg-green-400/20">
-        <span class="font-bold underline">starcode50</span> Coupon code applied successfully.
-    </div>
-    <div>
-        <div class="h-[calc(100vh_-_370px)] p-4 overflow-y-auto product-list">
-            <div class="flex flex-col gap-4">
-                <div class="flex gap-2 product">
-                    <div class="flex items-center justify-center w-12 h-12 rounded-md bg-slate-100 shrink-0 dark:bg-zink-500">
-                        <img src="assets/images/img-012.png" alt="" class="h-8">
-                    </div>
-                    <div class="overflow-hidden grow">
-                        <div class="ltr:float-right rtl:float-left">
-                            <button class="transition-all duration-150 ease-linear text-slate-500 dark:text-zink-200 hover:text-red-500 dark:hover:text-red-500"><i data-lucide="x" class="size-4"></i></button>
-                        </div>
-                        <a href="#!" class="transition-all duration-200 ease-linear hover:text-custom-500">
-                            <h6 class="mb-1 text-15">Cotton collar t-shirts for men</h6>
-                        </a>
-                        <div class="flex items-center mb-3">
-                            <h5 class="text-base product-price"> $<span>155.32</span></h5>
-                            <div class="font-normal rtl:mr-1 ltr:ml-1 text-slate-500 dark:text-zink-200">(Fashion)</div>
-                        </div>
-                        <div class="flex items-center justify-between gap-3">
-                            <div class="inline-flex text-center input-step">
-                                <button type="button" class="border w-9 h-9 leading-[15px] minus bg-white dark:bg-zink-700 dark:border-zink-500 ltr:rounded-l rtl:rounded-r transition-all duration-200 ease-linear border-slate-200 text-slate-500 dark:text-zink-200 hover:bg-custom-500 dark:hover:bg-custom-500 hover:text-custom-50 dark:hover:text-custom-50 hover:border-custom-500 dark:hover:border-custom-500 focus:bg-custom-500 dark:focus:bg-custom-500 focus:border-custom-500 dark:focus:border-custom-500 focus:text-custom-50 dark:focus:text-custom-50"><i data-lucide="minus" class="inline-block size-4"></i></button>
-                                <input type="number" class="w-12 text-center h-9 border-y product-quantity dark:bg-zink-700 focus:shadow-none dark:border-zink-500" value="2" min="0" max="100" readonly="">
-                                <button type="button" class="transition-all duration-200 ease-linear bg-white border dark:bg-zink-700 dark:border-zink-500 ltr:rounded-r rtl:rounded-l w-9 h-9 border-slate-200 plus text-slate-500 dark:text-zink-200 hover:bg-custom-500 dark:hover:bg-custom-500 hover:text-custom-50 dark:hover:text-custom-50 hover:border-custom-500 dark:hover:border-custom-500 focus:bg-custom-500 dark:focus:bg-custom-500 focus:border-custom-500 dark:focus:border-custom-500 focus:text-custom-50 dark:focus:text-custom-50"><i data-lucide="plus" class="inline-block size-4"></i></button>
-                            </div>
-                            <h6 class="product-line-price">310.64</h6>
-                        </div>
-                    </div>
-                </div>
-                <div class="flex gap-2 product">
-                    <div class="flex items-center justify-center w-12 h-12 rounded-md bg-slate-100 shrink-0 dark:bg-zink-500">
-                        <img src="assets/images/img-03.png" alt="" class="h-8">
-                    </div>
-                    <div class="overflow-hidden grow">
-                        <div class="ltr:float-right rtl:float-left">
-                            <button class="transition-all duration-150 ease-linear text-slate-500 dark:text-zink-200 hover:text-red-500 dark:hover:text-red-500"><i data-lucide="x" class="size-4"></i></button>
-                        </div>
-                        <a href="#!" class="transition-all duration-200 ease-linear hover:text-custom-500">
-                            <h6 class="mb-1 text-15">Like style travel black handbag</h6>
-                        </a>
-                        <div class="flex items-center mb-3">
-                            <h5 class="text-base product-price"> $<span>349.95</span></h5>
-                            <div class="font-normal rtl:mr-1 ltr:ml-1 text-slate-400 dark:text-zink-200">(Luggage)</div>
-                        </div>
-                        <div class="flex items-center justify-between gap-3">
-                            <div class="inline-flex text-center input-step">
-                                <button type="button" class="border w-9 h-9 leading-[15px] minus bg-white dark:bg-zink-700 dark:border-zink-500 ltr:rounded-l rtl:rounded-r transition-all duration-200 ease-linear border-slate-200 text-slate-500 dark:text-zink-200 hover:bg-custom-500 dark:hover:bg-custom-500 hover:text-custom-50 dark:hover:text-custom-50 hover:border-custom-500 dark:hover:border-custom-500 focus:bg-custom-500 dark:focus:bg-custom-500 focus:border-custom-500 dark:focus:border-custom-500 focus:text-custom-50 dark:focus:text-custom-50"><i data-lucide="minus" class="inline-block size-4"></i></button>
-                                <input type="number" class="w-12 text-center h-9 border-y product-quantity dark:bg-zink-700 focus:shadow-none dark:border-zink-500" value="1" min="0" max="100" readonly="">
-                                <button type="button" class="transition-all duration-200 ease-linear bg-white border dark:bg-zink-700 dark:border-zink-500 ltr:rounded-r rtl:rounded-l w-9 h-9 border-slate-200 plus text-slate-500 dark:text-zink-200 hover:bg-custom-500 dark:hover:bg-custom-500 hover:text-custom-50 dark:hover:text-custom-50 hover:border-custom-500 dark:hover:border-custom-500 focus:bg-custom-500 dark:focus:bg-custom-500 focus:border-custom-500 dark:focus:border-custom-500 focus:text-custom-50 dark:focus:text-custom-50"><i data-lucide="plus" class="inline-block size-4"></i></button>
-                            </div>
-                            <h6 class="product-line-price">349.95</h6>
-                        </div>
-                    </div>
-                </div>
-                <div class="flex gap-2 product">
-                    <div class="flex items-center justify-center w-12 h-12 rounded-md bg-slate-100 shrink-0 dark:bg-zink-500">
-                        <img src="assets/images/img-09.png" alt="" class="h-8">
-                    </div>
-                    <div class="overflow-hidden grow">
-                        <div class="ltr:float-right rtl:float-left">
-                            <button class="transition-all duration-150 ease-linear text-slate-500 dark:text-zink-200 hover:text-red-500 dark:hover:text-red-500"><i data-lucide="x" class="size-4"></i></button>
-                        </div>
-                        <a href="#!" class="transition-all duration-200 ease-linear hover:text-custom-500">
-                            <h6 class="mb-1 text-15">Blive Printed Men Round Neck</h6>
-                        </a>
-                        <div class="flex items-center mb-3">
-                            <h5 class="text-base product-price">$<span>546.74</span></h5>
-                            <div class="font-normal rtl:mr-1 ltr:ml-1 text-slate-400 dark:text-zink-200">(Fashion)</div>
-                        </div>
-                        <div class="flex items-center justify-between gap-3">
-                            <div class="inline-flex text-center input-step">
-                                <button type="button" class="border w-9 h-9 leading-[15px] minus bg-white dark:bg-zink-700 dark:border-zink-500 ltr:rounded-l rtl:rounded-r transition-all duration-200 ease-linear border-slate-200 text-slate-500 dark:text-zink-200 hover:bg-custom-500 dark:hover:bg-custom-500 hover:text-custom-50 dark:hover:text-custom-50 hover:border-custom-500 dark:hover:border-custom-500 focus:bg-custom-500 dark:focus:bg-custom-500 focus:border-custom-500 dark:focus:border-custom-500 focus:text-custom-50 dark:focus:text-custom-50"><i data-lucide="minus" class="inline-block size-4"></i></button>
-                                <input type="number" class="w-12 text-center h-9 border-y product-quantity dark:bg-zink-700 focus:shadow-none dark:border-zink-500" value="4" min="0" max="100" readonly="">
-                                <button type="button" class="transition-all duration-200 ease-linear bg-white border dark:bg-zink-700 dark:border-zink-500 ltr:rounded-r rtl:rounded-l w-9 h-9 border-slate-200 plus text-slate-500 dark:text-zink-200 hover:bg-custom-500 dark:hover:bg-custom-500 hover:text-custom-50 dark:hover:text-custom-50 hover:border-custom-500 dark:hover:border-custom-500 focus:bg-custom-500 dark:focus:bg-custom-500 focus:border-custom-500 dark:focus:border-custom-500 focus:text-custom-50 dark:focus:text-custom-50"><i data-lucide="plus" class="inline-block size-4"></i></button>
-                            </div>
-                            <h6 class="product-line-price end">2,186.96</h6>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="p-4 border-t border-slate-200 dark:border-zink-500">
-
-            <table class="w-full mb-3 ">
-                <tbody class="table-total">
-                    <tr>
-                        <td class="py-2">Sub Total :</td>
-                        <td class="text-right cart-subtotal">$2,847.55</td>
-                    </tr>
-                    <tr>
-                        <td class="py-2">Discount <span class="text-muted">(starcode50)</span>:</td>
-                        <td class="text-right cart-discount">-$476.00</td>
-                    </tr>
-                    <tr>
-                        <td class="py-2">Shipping Charge :</td>
-                        <td class="text-right cart-shipping">$89.00</td>
-                    </tr>
-                    <tr>
-                        <td class="py-2">Estimated Tax (12.5%) : </td>
-                        <td class="text-right cart-tax">$70.62</td>
-                    </tr>
-                    <tr class="font-semibold">
-                        <td class="py-2">Total : </td>
-                        <td class="text-right cart-total">$2,531.17</td>
-                    </tr>
-                </tbody>
-            </table>
-            <div class="flex items-center justify-between gap-3">
-                <a href="apps-ecommerce-product-grid.html" class="w-full text-white btn bg-slate-500 border-slate-500 hover:text-white hover:bg-slate-600 hover:border-slate-600 focus:text-white focus:bg-slate-600 focus:border-slate-600 focus:ring focus:ring-slate-100 active:text-white active:bg-slate-600 active:border-slate-600 active:ring active:ring-slate-100 dark:ring-slate-400/10">Continue Shopping</a>
-                <a href="apps-ecommerce-checkout.html" class="w-full text-white bg-red-500 border-red-500 btn hover:text-white hover:bg-red-600 hover:border-red-600 focus:text-white focus:bg-red-600 focus:border-red-600 focus:ring focus:ring-red-100 active:text-white active:bg-red-600 active:border-red-600 active:ring active:ring-red-100 dark:ring-custom-400/20">Checkout</a>
-            </div>
-        </div>
-    </div>
-</div>
+    @include('layout.cart')
 <div class="relative min-h-screen group-data-[sidebar-size=sm]:min-h-sm">
 
-    <div class="group-data-[sidebar-size=lg]:ltr:md:ml-vertical-menu group-data-[sidebar-size=lg]:rtl:md:mr-vertical-menu group-data-[sidebar-size=md]:ltr:ml-vertical-menu-md group-data-[sidebar-size=md]:rtl:mr-vertical-menu-md group-data-[sidebar-size=sm]:ltr:ml-vertical-menu-sm group-data-[sidebar-size=sm]:rtl:mr-vertical-menu-sm pt-[calc(theme('spacing.header')_*_1)] pb-[calc(theme('spacing.header')_*_0.8)] px-4 group-data-[navbar=bordered]:pt-[calc(theme('spacing.header')_*_1.3)] group-data-[navbar=hidden]:pt-0 group-data-[layout=horizontal]:mx-auto group-data-[layout=horizontal]:max-w-screen-2xl group-data-[layout=horizontal]:px-0 group-data-[layout=horizontal]:group-data-[sidebar-size=lg]:ltr:md:ml-auto group-data-[layout=horizontal]:group-data-[sidebar-size=lg]:rtl:md:mr-auto group-data-[layout=horizontal]:md:pt-[calc(theme('spacing.header')_*_1.6)] group-data-[layout=horizontal]:px-3 group-data-[layout=horizontal]:group-data-[navbar=hidden]:pt-[calc(theme('spacing.header')_*_0.9)]">        
+    <div class="group-data-[sidebar-size=lg]:ltr:md:ml-vertical-menu group-data-[sidebar-size=lg]:rtl:md:mr-vertical-menu group-data-[sidebar-size=md]:ltr:ml-vertical-menu-md group-data-[sidebar-size=md]:rtl:mr-vertical-menu-md group-data-[sidebar-size=sm]:ltr:ml-vertical-menu-sm group-data-[sidebar-size=sm]:rtl:mr-vertical-menu-sm pt-[calc(theme('spacing.header')_*_1)] pb-[calc(theme('spacing.header')_*_0.8)] px-4 group-data-[navbar=bordered]:pt-[calc(theme('spacing.header')_*_1.3)] group-data-[navbar=hidden]:pt-0 group-data-[layout=horizontal]:mx-auto group-data-[layout=horizontal]:max-w-screen-2xl group-data-[layout=horizontal]:px-0 group-data-[layout=horizontal]:group-data-[sidebar-size=lg]:ltr:md:ml-auto group-data-[layout=horizontal]:group-data-[sidebar-size=lg]:rtl:md:mr-auto group-data-[layout=horizontal]:md:pt-[calc(theme('spacing.header')_*_1.6)] group-data-[layout=horizontal]:px-3 group-data-[layout=horizontal]:group-data-[navbar=hidden]:pt-[calc(theme('spacing.header')_*_0.9)]">
         <div class="container-fluid group-data-[content=boxed]:max-w-boxed mx-auto">
 
             <div class="flex flex-col gap-2 py-4 md:flex-row md:items-center print:hidden">
                 <div class="grow">
-                    <h5 class="text-16">Products</h5>
+                    <h5 class="text-16">Category</h5>
                 </div>
                 <ul class="flex items-center gap-2 text-sm font-normal shrink-0">
                     <li class="relative before:content-['\ea54'] before:font-remix ltr:before:-right-1 rtl:before:-left-1  before:absolute before:text-[18px] before:-top-[3px] ltr:pr-4 rtl:pl-4 before:text-slate-400 dark:text-zink-200">
                         <a href="#!" class="text-slate-400 dark:text-zink-200">Tables</a>
                     </li>
                     <li class="text-slate-700 dark:text-zink-100">
-                        Products
+                        Category
                     </li>
                 </ul>
             </div>
@@ -156,8 +32,8 @@
                                 <i data-lucide="search" class="inline-block size-4 absolute ltr:left-2.5 rtl:right-2.5 top-2.5 text-slate-500 dark:text-zink-200 fill-slate-100 dark:fill-zink-600"></i>
                             </div>
                         </div>
-                        <div class="ltr:md:text-end rtl:md:text-start"> 
-                            <button type="button" data-modal-target="showModal" class="text-white btn bg-custom-500 border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:ring-custom-400/20 add-btn" data-bs-toggle="modal" id="create-btn" data-bs-target="#showModal"><i class="align-bottom ri-add-line me-1"></i> Add Products</button>
+                        <div class="ltr:md:text-end rtl:md:text-start">
+                            <button type="button" data-modal-target="showModal" class="text-white btn bg-custom-500 border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:ring-custom-400/20 add-btn" data-bs-toggle="modal" id="create-btn" data-bs-target="#showModal"><i class="align-bottom ri-add-line me-1"></i> Add Category</button>
                             {{-- <button type="button" class="text-white bg-red-500 border-red-500 btn hover:text-white hover:bg-red-600 hover:border-red-600 focus:text-white focus:bg-red-600 focus:border-red-600 focus:ring focus:ring-red-100 active:text-white active:bg-red-600 active:border-red-600 active:ring active:ring-red-100 dark:ring-custom-400/20" onclick="deleteMultiple()"><i class="ri-delete-bin-2-line"></i></button> --}}
                         </div>
                     </div>
@@ -169,32 +45,26 @@
                                     <th class="px-3.5 py-2.5 font-semibold border-b border-slate-200 dark:border-zink-500" scope="col" style="width: 50px;">
                                         <input class="border rounded-sm appearance-none cursor-pointer size-4 bg-slate-100 border-slate-200 dark:bg-zink-600 dark:border-zink-500 checked:bg-custom-500 checked:border-custom-500 dark:checked:bg-custom-500 dark:checked:border-custom-500 checked:disabled:bg-custom-400 checked:disabled:border-custom-400" type="checkbox" id="checkAll" value="option">
                                     </th>
-                                    <th class="sort px-3.5 py-2.5 font-semibold border-b border-slate-200 dark:border-zink-500 ltr:text-left rtl:text-right" data-sort="category_id">Category ID</th>
-                                    <th class="sort px-3.5 py-2.5 font-semibold border-b border-slate-200 dark:border-zink-500 ltr:text-left rtl:text-right" data-sort="name">Name</th>
-                                    <th class="sort px-3.5 py-2.5 font-semibold border-b border-slate-200 dark:border-zink-500 ltr:text-left rtl:text-right" data-sort="price">Price</th>
-                                    <th class="sort px-3.5 py-2.5 font-semibold border-b border-slate-200 dark:border-zink-500 ltr:text-left rtl:text-right" data-sort="desc">Description</th>
-                                    <th class="sort px-3.5 py-2.5 font-semibold border-b border-slate-200 dark:border-zink-500 ltr:text-left rtl:text-right" data-sort="quantity">Quantity</th>
-                                    <th class="sort px-3.5 py-2.5 font-semibold border-b border-slate-200 dark:border-zink-500 ltr:text-left rtl:text-right" data-sort="percent">Percentage</th>
-                                    <th class="sort px-3.5 py-2.5 font-semibold border-b border-slate-200 dark:border-zink-500 ltr:text-left rtl:text-right" data-sort="status">Product Status</th>
-                                    <th class="sort px-3.5 py-2.5 font-semibold border-b border-slate-200 dark:border-zink-500 ltr:text-left rtl:text-right" data-sort="photo">Photo</th>
+                                    <th class="sort px-3.5 py-2.5 font-semibold border-b border-slate-200 dark:border-zink-500 ltr:text-left rtl:text-right" data-sort="customer_name">ID</th>
+                                    <th class="sort px-3.5 py-2.5 font-semibold border-b border-slate-200 dark:border-zink-500 ltr:text-left rtl:text-right" data-sort="email">Name</th>
+                                    {{-- <th class="sort px-3.5 py-2.5 font-semibold border-b border-slate-200 dark:border-zink-500 ltr:text-left rtl:text-right" data-sort="phone">Phone</th> --}}
+                                    {{-- <th class="sort px-3.5 py-2.5 font-semibold border-b border-slate-200 dark:border-zink-500 ltr:text-left rtl:text-right" data-sort="date">Joining Date</th>
+                                    <th class="sort px-3.5 py-2.5 font-semibold border-b border-slate-200 dark:border-zink-500 ltr:text-left rtl:text-right" data-sort="status">Delivery Status</th> --}}
                                     <th class="sort px-3.5 py-2.5 font-semibold border-b border-slate-200 dark:border-zink-500 ltr:text-left rtl:text-right" data-sort="action">Action</th>
                                 </tr>
                             </thead>
                             <tbody class="list form-check-all">
-                                @foreach ($products as $product=>$value)
+                                @foreach ($categories as $category=>$value)
                                 <tr>
                                     <th class="px-3.5 py-2.5 border-y border-slate-200 dark:border-zink-500" scope="row">
                                         <input class="border rounded-sm appearance-none cursor-pointer size-4 bg-slate-100 border-slate-200 dark:bg-zink-600 dark:border-zink-500 checked:bg-custom-500 checked:border-custom-500 dark:checked:bg-custom-500 dark:checked:border-custom-500 checked:disabled:bg-custom-400 checked:disabled:border-custom-400" type="checkbox" name="chk_child">
                                     </th>
                                     <td class="px-3.5 py-2.5 border-y border-slate-200 dark:border-zink-500 id" style="display:none;"><a href="javascript:void(0);" class="fw-medium link-primary id">#VZ2101</a></td>
                                     <td class="px-3.5 py-2.5 border-y border-slate-200 dark:border-zink-500 customer_name">{{ $value->id }}</td>
-                                    <td class="px-3.5 py-2.5 border-y border-slate-200 dark:border-zink-500 name">{{ $value->name }}</td>
-                                    <td class="px-3.5 py-2.5 border-y border-slate-200 dark:border-zink-500 price">{{ $value->price }}</td>
-                                    <td class="px-3.5 py-2.5 border-y border-slate-200 dark:border-zink-500 desc">{{ $value->description }}</td>
-                                    <td class="px-3.5 py-2.5 border-y border-slate-200 dark:border-zink-500 quantity">{{ $value->quantity }}</td>
-                                    <td class="px-3.5 py-2.5 border-y border-slate-200 dark:border-zink-500 percentage">{{ $value->percentage }}</td>
-                                    <td class="px-3.5 py-2.5 border-y border-slate-200 dark:border-zink-500 status">{{ $value->status }}</td>
-                                    <td class="px-3.5 py-2.5 border-y border-slate-200 dark:border-zink-500 status"><img src="{{ $value->photo }}" alt="" style="height: 70px"></td>
+                                    <td class="px-3.5 py-2.5 border-y border-slate-200 dark:border-zink-500 email">{{ $value->name }}</td>
+                                    {{-- <td class="px-3.5 py-2.5 border-y border-slate-200 dark:border-zink-500 phone">580-464-4694</td>
+                                    <td class="px-3.5 py-2.5 border-y border-slate-200 dark:border-zink-500 date">06 Apr, 2021</td>
+                                    <td class="px-3.5 py-2.5 border-y border-slate-200 dark:border-zink-500 status"><span class="px-2.5 py-0.5 inline-block text-xs font-medium rounded border bg-green-100 border-transparent text-green-500 dark:bg-green-500/20 dark:border-transparent text-uppercase">Active</span></td> --}}
                                     <td class="px-3.5 py-2.5 border-y border-slate-200 dark:border-zink-500">
                                         <div class="flex gap-2">
                                             <div class="edit">
@@ -203,11 +73,11 @@
                                             <div id="editModal{{$value->id}}" modal-center="" class="fixed flex flex-col hidden transition-all duration-300 ease-in-out left-2/4 z-drawer -translate-x-2/4 -translate-y-2/4 show">
                                                 <div class="w-screen md:w-[30rem] bg-white shadow rounded-md dark:bg-zink-600">
                                                     <div class="flex items-center justify-between p-4 border-b border-slate-200 dark:border-zink-500">
-                                                        <h5 class="text-16" id="exampleModalLabel">Edit Product</h5>
+                                                        <h5 class="text-16" id="exampleModalLabel">Edit Category</h5>
                                                         <button data-modal-close="editModal{{$value->id}}" class="transition-all duration-200 ease-linear text-slate-400 hover:text-slate-500"><i data-lucide="x" class="size-5"></i></button>
                                                     </div>
                                                     <div class="max-h-[calc(theme('height.screen')_-_180px)] overflow-y-auto p-4">
-                                                        <form class="tablelist-form" action="{{ route('products.update', $value->id) }}" method="POST">
+                                                        <form class="tablelist-form" action="{{ route('category.update', $value->id) }}" method="POST">
                                                             @csrf
                                                             @method('PUT')
                                                             <div class="mb-3" id="modal-id" style="display: none;">
@@ -215,44 +85,8 @@
                                                                 <input type="text" id="id-field" class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="ID" readonly="">
                                                             </div>
                                                             <div class="mb-3">
-                                                                <label for="customername-field" class="inline-block mb-2 text-base font-medium">Category ID <span class="text-red-500">*</span></label>
-                                                                <select name="category_id" id="category_id" class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" >
-                                                                    <option value="{{ $value->id }}">{{ $value->id }}</option>
-                                                                </select>
-                                                            </div>
-                                                            <div class="mb-3">
-                                                                <label for="customername-field" class="inline-block mb-2 text-base font-medium">Product Name <span class="text-red-500">*</span></label>
-                                                                <input name="name" type="text" value="{{ $value->name }}" id="customername-field" class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Enter category name" required="">
-                                                            </div>
-                                                            <div class="mb-3">
-                                                                <label for="customername-field" class="inline-block mb-2 text-base font-medium">Price <span class="text-red-500">*</span></label>
-                                                                <input name="price" type="text" value="{{ $value->price }}" id="customername-field" class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Enter category name" required="">
-                                                            </div>
-                                                            <div>
-                                                                <div class="mb-3">
-                                                                    <label for="customername-field" class="inline-block mb-2 text-base font-medium">Description <span class="text-red-500">*</span></label>
-                                                                    <textarea name="description"   type="text" id="customername-field" class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Enter category name" required="">
-                                                                        {{ $value->description }}
-                                                                    </textarea>
-                                                                </div>
-                                                            </div>
-                                                            <div class="mb-3">
-                                                                <label for="customername-field" class="inline-block mb-2 text-base font-medium">Quantity <span class="text-red-500">*</span></label>
-                                                                <input name="quantity" type="text" value="{{ $value->quantity }}" id="customername-field" class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Enter category name" required="">
-                                                            </div>
-                                                            <div class="flex justify-between gap-5">
-                                                                <div class="mb-3">
-                                                                    <label for="customername-field" class="inline-block mb-2 text-base font-medium">Percentage <span class="text-red-500">*</span></label>
-                                                                    <input name="percentage" type="text" value="{{ $value->percentage }}" id="customername-field" class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Enter category name" required="">
-                                                                </div>
-                                                                <div class="mb-3">
-                                                                    <label for="customername-field" class="inline-block mb-2 text-base font-medium">Product Status<span class="text-red-500">*</span></label>
-                                                                    <input name="status" type="text" value="{{ $value->status }}" id="customername-field" class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Enter category name" required="">
-                                                                </div>
-                                                            </div>
-                                                            <div class="mb-3">
-                                                                <label for="customername-field" class="inline-block mb-2 text-base font-medium">Phote<span class="text-red-500">*</span></label>
-                                                                <input name="photo" type="file" value="{{ $value->photo }}" id="customername-field" class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Enter category name" required="">
+                                                                <label for="customername-field" class="inline-block mb-2 text-base font-medium">Edit Category Name <span class="text-red-500">*</span></label>
+                                                                <input name="name" type="text" value="{{ $value->name }}" id="customername-field" class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Edit Category Name" required="">
                                                             </div>
                                                             <div class="flex justify-end gap-2">
                                                                 <button type="button" data-modal-close="editModal{{$value->id}}" class="text-white btn bg-slate-500 border-slate-500 hover:text-white hover:bg-slate-600 hover:border-slate-600 focus:text-white focus:bg-slate-600 focus:border-slate-600 focus:ring focus:ring-slate-100 active:text-white active:bg-slate-600 active:border-slate-600 active:ring active:ring-slate-100 dark:ring-slate-400/10" data-modal-close="showModal">Close</button>
@@ -262,7 +96,7 @@
                                                     </div>
                                                 </div>
                                                 </div>
-                                                
+
                                             <div class="remove">
                                                 <button data-modal-target="deleteModal{{$value->id}}" id="delete-record" class="py-1 text-xs text-white bg-red-500 border-red-500 btn hover:text-white hover:bg-red-600 hover:border-red-600 focus:text-white focus:bg-red-600 focus:border-red-600 focus:ring focus:ring-red-100 active:text-white active:bg-red-600 active:border-red-600 active:ring active:ring-red-100 dark:ring-custom-400/20 remove-item-btn">Remove</button>
                                             </div>
@@ -277,7 +111,7 @@
                                                             <h5 class="mb-1">Are you sure?</h5>
                                                             <p class="text-slate-500 dark:text-zink-200">Are you certain you want to delete this record?</p>
                                                             <div class="flex justify-center gap-2 mt-6">
-                                                                <form action="{{ route('products.destroy', $value->id) }}" method="POST">
+                                                                <form action="{{ route('category.destroy', $value->id) }}" method="POST">
                                                                     @csrf
                                                                     @method('DELETE')
                                                                     <button type="button" data-modal-close="deleteModal{{$value->id}}" class="bg-white text-slate-500 btn hover:text-slate-500 hover:bg-slate-100 focus:text-slate-500 focus:bg-slate-100 active:text-slate-500 active:bg-slate-100 dark:bg-zink-600 dark:hover:bg-slate-500/10 dark:focus:bg-slate-500/10 dark:active:bg-slate-500/10">Cancel</button>
@@ -290,7 +124,7 @@
                                             </div>
                                         </div>
                                     </td>
-                                </tr>   
+                                </tr>
                                 @endforeach
                             </tbody>
                         </table>
@@ -321,7 +155,7 @@
     </div>
     <!-- End Page-content -->
 
-    
+
     <footer class="ltr:md:left-vertical-menu rtl:md:right-vertical-menu group-data-[sidebar-size=md]:ltr:md:left-vertical-menu-md group-data-[sidebar-size=md]:rtl:md:right-vertical-menu-md group-data-[sidebar-size=sm]:ltr:md:left-vertical-menu-sm group-data-[sidebar-size=sm]:rtl:md:right-vertical-menu-sm absolute right-0 bottom-0 px-4 h-14 group-data-[layout=horizontal]:ltr:left-0  group-data-[layout=horizontal]:rtl:right-0 left-0 border-t py-3 flex items-center dark:border-zink-600">
         <div class="group-data-[layout=horizontal]:mx-auto group-data-[layout=horizontal]:max-w-screen-2xl w-full">
             <div class="grid items-center grid-cols-1 text-center lg:grid-cols-2 text-slate-400 dark:text-zink-200 ltr:lg:text-left rtl:lg:text-right">
@@ -337,70 +171,30 @@
         </div>
     </footer>
 </div>
-    
+
 </div>
 <!-- end main content -->
 
 <div id="showModal" modal-center="" class="fixed flex flex-col hidden transition-all duration-300 ease-in-out left-2/4 z-drawer -translate-x-2/4 -translate-y-2/4 show">
 <div class="w-screen md:w-[30rem] bg-white shadow rounded-md dark:bg-zink-600">
     <div class="flex items-center justify-between p-4 border-b border-slate-200 dark:border-zink-500">
-        <h5 class="text-16" id="exampleModalLabel">Add Products</h5>
+        <h5 class="text-16" id="exampleModalLabel">Add Category</h5>
         <button data-modal-close="showModal" class="transition-all duration-200 ease-linear text-slate-400 hover:text-slate-500"><i data-lucide="x" class="size-5"></i></button>
     </div>
     <div class="max-h-[calc(theme('height.screen')_-_180px)] overflow-y-auto p-4">
-        <form class="tablelist-form" action="{{ route('products.store') }}" method="POST" enctype="multipart/form-data">
+        <form class="tablelist-form" action="{{ route('category.store') }}" method="POST">
             @csrf
             <div class="mb-3" id="modal-id" style="display: none;">
                 <label for="id-field" class="inline-block mb-2 text-base font-medium">ID</label>
-                <input type="text"  name="category_id" id="id-field" class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="ID" readonly="">
+                <input type="text" id="id-field" class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="ID" readonly="">
             </div>
             <div class="mb-3">
-                <label for="customername-field" class="inline-block mb-2 text-base font-medium">Category ID <span class="text-red-500">*</span></label>
-                <select name="category_id" id="category_id" class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" >
-                    <option value="">Select Category</option>
-                    @foreach($categories as $category)
-                            <option value="{{ $category->id }}">{{ $category->name }}</option>
-                    @endforeach
-                </select>
-            </div>
-            <div class="mb-3">
-                <label for="customername-field" class="inline-block mb-2 text-base font-medium">Product Name <span class="text-red-500">*</span></label>
+                <label for="customername-field" class="inline-block mb-2 text-base font-medium">Customer Name <span class="text-red-500">*</span></label>
                 <input name="name" type="text" id="customername-field" class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Enter category name" required="">
-            </div>
-            <div class="mb-3">
-                <label for="customername-field" class="inline-block mb-2 text-base font-medium">Price <span class="text-red-500">*</span></label>
-                <input name="price" type="text" id="customername-field" class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Enter category name" required="">
-            </div>
-            <div>
-                <div class="mb-3">
-                    <label for="customername-field" class="inline-block mb-2 text-base font-medium">Description <span class="text-red-500">*</span></label>
-                    <textarea name="description" type="text" id="customername-field" class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Enter category name">
-
-                    </textarea>
-                </div>
-            </div>
-            <div class="mb-3">
-                <label for="customername-field" class="inline-block mb-2 text-base font-medium">Quantity <span class="text-red-500">*</span></label>
-                <input name="quantity" type="text" id="customername-field" class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Enter category name" required="">
-            </div>
-            <div class="flex justify-between gap-5">
-                <div class="mb-3">
-                    <label for="customername-field" class="inline-block mb-2 text-base font-medium">Percentage <span class="text-red-500">*</span></label>
-                    <input name="percentage" type="text" id="customername-field" class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Enter category name" required="">
-                </div>
-                <div class="mb-3">
-                    <label for="customername-field" class="inline-block mb-2 text-base font-medium">Product Status<span class="text-red-500">*</span></label>
-                    <input name="status" type="text" id="customername-field" class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Enter category name" required="">
-                </div>
-            </div>
-
-            <div class="mb-3">
-                    <label for="customername-field" class="inline-block mb-2 text-base font-medium">Phote<span class="text-red-500">*</span></label>
-                    <input name="photo" type="file" id="customername-field" class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Enter category name" required="">
             </div>
             <div class="flex justify-end gap-2">
                 <button type="button" data-modal-close="showModal" class="text-white btn bg-slate-500 border-slate-500 hover:text-white hover:bg-slate-600 hover:border-slate-600 focus:text-white focus:bg-slate-600 focus:border-slate-600 focus:ring focus:ring-slate-100 active:text-white active:bg-slate-600 active:border-slate-600 active:ring active:ring-slate-100 dark:ring-slate-400/10" data-modal-close="showModal">Close</button>
-                <button type="submit" data-modal-close="showModal" class="text-white bg-green-500 border-green-500 btn hover:text-white hover:bg-green-600 hover:border-green-600 focus:text-white focus:bg-green-600 focus:border-green-600 focus:ring focus:ring-green-100 active:text-white active:bg-green-600 active:border-green-600 active:ring active:ring-green-100 dark:ring-green-400/10" id="add-btn">Add Products</button>
+                <button type="submit" data-modal-close="showModal" class="text-white bg-green-500 border-green-500 btn hover:text-white hover:bg-green-600 hover:border-green-600 focus:text-white focus:bg-green-600 focus:border-green-600 focus:ring focus:ring-green-100 active:text-white active:bg-green-600 active:border-green-600 active:ring active:ring-green-100 dark:ring-green-400/10" id="add-btn">Add Category</button>
             </div>
         </form>
     </div>
@@ -524,7 +318,7 @@
                 </label>
                 <h5 class="mt-2 text-center text-15">Default</h5>
             </div>
-    
+
             <div class="relative">
                 <input id="layoutSkitTwo" name="dataLayoutSkin" class="absolute w-4 h-4 border rounded-full appearance-none cursor-pointer ltr:right-2 rtl:left-2 top-2 vertical-menu-btn bg-slate-100 border-slate-300 checked:bg-custom-500 checked:border-custom-500 dark:bg-zink-400 dark:border-zink-500" type="radio" value="bordered" checked="">
                 <label class="block w-full h-24 p-0 overflow-hidden border rounded-lg cursor-pointer border-slate-200 dark:border-zink-500" for="layoutSkitTwo">
@@ -549,7 +343,7 @@
             </div>
         </div>
     </div>
-    
+
     <div class="mt-6">
         <!-- data-mode="" -->
         <h5 class="mb-3 underline capitalize text-15">Light & Dark</h5>
@@ -608,7 +402,7 @@
             <button type="button" id="sidebarColorFour" name="sidebarColor" value="modern" class="flex items-center justify-center w-10 h-10 border rounded-md border-purple-950 bg-gradient-to-t from-red-400 to-purple-500 group"><i data-lucide="check" class="w-5 h-5 hidden group-[.active]:inline-block text-white"></i></button>
         </div>
     </div>
-    
+
     <div class="mt-6">
         <!-- data-topbar="" light, dark, brand, modern-->
         <h5 class="mb-3 underline capitalize text-15">Topbar Colors</h5>
@@ -618,7 +412,7 @@
             <button type="button" id="topbarColorThree" name="topbarColor" value="brand" class="flex items-center justify-center w-10 h-10 border rounded-md border-custom-800 bg-custom-800 group"><i data-lucide="check" class="w-5 h-5 hidden group-[.active]:inline-block text-white"></i></button>
         </div>
     </div>
-    
+
 </div>
 
 <div class="flex items-center justify-between gap-3 p-4 border-t border-slate-200 dark:border-zink-500">

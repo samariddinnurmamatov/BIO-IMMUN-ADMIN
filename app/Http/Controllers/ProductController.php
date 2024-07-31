@@ -12,7 +12,7 @@ class ProductController extends Controller
     {
         $categories = Category::all();
         $products = Product::all();
-        return view('products.index', compact('products', 'categories'));
+        return view('admin.products.index', compact('products', 'categories'));
     }
 
 
@@ -62,26 +62,26 @@ class ProductController extends Controller
             'category_id' => 'required|numeric',
             'description' => 'nullable',
         ]);
-    
+
         $data = $request->only(['name', 'price', 'quantity', 'status', 'percentage', 'category_id', 'description']);
-        
+
         if ($request->hasFile('photo')) {
             $file = $request->file('photo');
             $filename = time() . '_' . $file->getClientOriginalName();
             $file->storeAs('photos', $filename, 'public');
             $data['photo'] = 'storage/photos/' . $filename;
         }
-        
+
         $product->update($data);
-    
+
         return redirect()->route('products.index')->with('success', 'Product updated successfully.');
     }
-    
+
     public function destroy(Product $product)
     {
         $product->delete();
 
         return redirect()->route('products.index')->with('success', 'Product deleted successfully.');
     }
-    
+
 }

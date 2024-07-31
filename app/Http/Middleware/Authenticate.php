@@ -16,7 +16,7 @@ class Authenticate extends Middleware
         return $request->expectsJson() ? null : route('login');
     }
     public function showLoginForm(Request $request){
-        return view('auth.login');
+        return view('admin.auth.login');
     }
     public function login(Request $request)
     {

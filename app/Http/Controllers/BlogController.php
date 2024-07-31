@@ -10,12 +10,12 @@ class BlogController extends Controller
     public function index()
     {
         $blogs = Blog::all();
-        return view('blog.index', compact('blogs'));
+        return view('admin.blog.index', compact('blogs'));
     }
 
     public function create()
     {
-        return view('blog.create');
+        return view('admin.blog.create');
     }
 
     public function store(Request $request)
@@ -50,13 +50,13 @@ class BlogController extends Controller
     public function show($id)
     {
         $blog=Blog::findOrFail($id);
-        return view('blog.show', compact('blog'));
+        return view('admin.blog.show', compact('blog'));
     }
 
     public function edit($id)
     {
         $blog = Blog::findOrFail($id);
-        return view('blog.edit', compact('blog'));
+        return view('admin.blog.edit', compact('blog'));
     }
 
     public function update(Request $request, $id)
