@@ -5,10 +5,11 @@
             class="grid items-center grid-cols-1 text-center lg:grid-cols-2 text-slate-400 dark:text-zink-200 ltr:lg:text-left rtl:lg:text-right">
             <div>
                 <script>document.write(new Date().getFullYear())</script>
+                © DORA
             </div>
             <div class="hidden lg:block">
                 <div class="ltr:text-right rtl:text-left">
-                    Develop by Xalilov Mexriddin
+                    <a href="https://dora.uz/" target="_blank" class="font-bold">DORA</a> - International & Marketing Company
                 </div>
             </div>
         </div>

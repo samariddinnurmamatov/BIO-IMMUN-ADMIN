@@ -21,7 +21,21 @@
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-x-5">
                 <div class="lg:col-span-5">
                     <div class="relative before:absolute before:h-full before:w-full before:border-[15px] before:border-double before:border-green-500/10 before:-top-16 lg:before:-right-16 aos-init" data-aos="zoom-out-up">
-                        <img src="{{ url('uploads/' . $blog->photo) }}" alt="" class="relative inline-block rounded-md aos-init" data-aos="zoom-out-up" data-aos-delay="500">
+                        <div id="carousel-{{ $blog->id }}" class="custom-carousel">
+                            <div class="carousel-inner">
+                                @foreach($blog->photos as $index => $photo)
+                                    <div class="carousel-item {{ $index === 0 ? 'active' : '' }}">
+                                        <img src="{{ url('storage/uploads/'.$photo) }}" class="d-block w-100" alt="Blog Photo">
+                                    </div>
+                                @endforeach
+                            </div>
+                            <button class="carousel-control-prev" onclick="prevSlide({{ $blog->id }})" style="padding: 2px 11px; border-radius: 20px;">
+                                <span class="carousel-control-prev-icon" aria-hidden="true">&#10094;</span>
+                            </button>
+                            <button class="carousel-control-next" onclick="nextSlide({{ $blog->id }})" style="padding: 2px 11px; border-radius: 20px;">
+                                <span class="carousel-control-next-icon" aria-hidden="true">&#10095;</span>
+                            </button>
+                        </div>
                     </div>
                 </div>
 
@@ -42,3 +56,69 @@
         <!-- container-fluid -->
     </div>
 @endsection
+
+<style>
+    .custom-carousel {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+    }
+    .carousel-inner {
+        display: flex;
+        transition: transform 0.5s ease;
+    }
+    .carousel-item {
+        min-width: 100%;
+        box-sizing: border-box;
+    }
+    .carousel-control-prev, .carousel-control-next {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: rgba(0, 0, 0, 0.5);
+        color: white;
+        border: none;
+        font-size: 18px;
+        cursor: pointer;
+    }
+    .carousel-control-prev {
+        left: 10px;
+    }
+    .carousel-control-next {
+        right: 10px;
+    }
+</style>
+
+<script>
+    let currentSlide = {};
+
+    function initCarousel(id) {
+        currentSlide[id] = 0;
+    }
+
+    function showSlide(id, index) {
+        const carousel = document.getElementById(`carousel-${id}`);
+        const slides = carousel.querySelectorAll('.carousel-item');
+        if (index >= slides.length) {
+            currentSlide[id] = 0;
+        } else if (index < 0) {
+            currentSlide[id] = slides.length - 1;
+        } else {
+            currentSlide[id] = index;
+        }
+        const offset = -currentSlide[id] * 100;
+        carousel.querySelector('.carousel-inner').style.transform = `translateX(${offset}%)`;
+    }
+
+    function nextSlide(id) {
+        showSlide(id, currentSlide[id] + 1);
+    }
+
+    function prevSlide(id) {
+        showSlide(id, currentSlide[id] - 1);
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        initCarousel({{ $blog->id }});
+    });
+</script>
