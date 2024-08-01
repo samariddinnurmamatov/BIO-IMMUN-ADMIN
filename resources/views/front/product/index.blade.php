@@ -15,7 +15,6 @@
     </div>
     <!-- Page Header End -->
 
-
     <!-- Product Start -->
     <div class="container-xxl py-5">
         <div class="container">
@@ -29,35 +28,54 @@
                     <div class="col-md-6 col-lg-4 col-xl-3">
                         <div class="product-item">
                             <div class="position-relative">
-                                <img class="img-fluid" src="/{{ $product->photo }}" alt="">
+                                <img class="img-fluid" style="height: 200px; width: 100%" src="/{{ $product->photo }}" alt="">
                             </div>
                             <div class="text-center p-4">
                                 <a class="d-block h5" href="">{{ $product->name }}</a>
                                 <p>{{ $product->description }}</p>
-                                <span
-                                    class="text-primary me-1">${{ ($product->price) * (100 - $product->percentage) / 100 }}</span>
-                                @if($product->percentage == 0)
-                                @else
+                                <span class="text-primary me-1">${{ ($product->price) * (100 - $product->percentage) / 100 }}</span>
+                                @if($product->percentage != 0)
                                     <span class="text-decoration-line-through">${{ $product->price }}</span>
                                 @endif
-                                <form class="add-to-cart-form mt-2" method="POST"
-                                      action="{{ route('cart.addItem', ['id'=>$product->id]) }}">
+                                <form class="add-to-cart-form mt-2" method="POST" action="{{ route('cart.addItem', ['id'=>$product->id]) }}">
                                     @csrf
                                     <input type="hidden" name="product_id" value="{{ $product->id }}">
                                     <label for="quantity{{ $product->id }}"></label>
-                                    <input hidden type="number" id="quantity{{ $product->id }}" name="quantity" min="1"
-                                           value="1">
+                                    <input hidden type="number" id="quantity{{ $product->id }}" name="quantity" min="1" value="1">
                                     <button type="submit" class="btn btn-primary mt-2">Add to Cart</button>
                                 </form>
                             </div>
                         </div>
                     </div>
                 @endforeach
-
-
             </div>
         </div>
     </div>
     <!-- Product End -->
 
+    <!-- Include jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('.add-to-cart-form').on('submit', function(event) {
+                event.preventDefault();
+
+                var form = $(this);
+                var url = form.attr('action');
+                var formData = form.serialize();
+
+                $.ajax({
+                    type: 'POST',
+                    url: url,
+                    data: formData,
+                    // success: function(response) {
+                    // },
+                    // error: function(response) {
+                    //     alert('Failed to add product to cart. Please try again.');
+                    // }
+                });
+            });
+        });
+    </script>
 @endsection
