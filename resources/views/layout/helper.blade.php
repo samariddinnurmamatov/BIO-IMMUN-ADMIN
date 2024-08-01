@@ -89,20 +89,16 @@
             <a href="{{route('about')}}" class="nav-item nav-link">About</a>
             <a href="contact.html" class="nav-item nav-link">Contact</a>
             @php
-                use App\Http\Controllers\CartController;
-                $itemCount = CartController::getCartItemCount();
-            @endphp
+            use App\Http\Controllers\CartController;
+            $itemCount = CartController::getCartItemCount();
+        @endphp
 
-            <a href="{{ route('cart.index') }}" class="nav-item nav-link">
-                <button type="button" class="btn btn-primary position-relative">
-                    <i class="bi bi-cart"></i>
-                    @if($itemCount > 0)
-                        <span class="badge bg-danger position-absolute top-0 start-100 translate-middle rounded-pill">
-                {{ $itemCount }}
-            </span>
-                    @endif
-                </button>
-            </a>
+<a href="{{ route('cart.index') }}" class="nav-item nav-link">
+    <button type="button" class="btn btn-primary position-relative">
+        <i class="bi bi-cart"></i>
+        <span id="cartCountBadge" class="badge bg-danger position-absolute top-0 start-100 translate-middle rounded-pill">{{ $itemCount }}</span>
+    </button>
+</a>
             <a href="{{route('login')}}" class="nav-item nav-link">
                 <button type="button" class="btn btn-primary">Sign In</button>
             </a>

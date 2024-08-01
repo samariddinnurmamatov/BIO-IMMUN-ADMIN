@@ -20,25 +20,20 @@
                     <tr>
                         <td>{{ $item['name'] ?? 'Unknown' }}</td>
                         <td>
-
-                            <form id="cart-form-{{ $item['product_id'] }}" action="{{ route('cart.update', $item['product_id']) }}" method="POST" style="display: inline;">
-                                @csrf
-                                <div class="input-group mb-3 d-flex align-items-center quantity-container" style="max-width: 120px;">
-                                    <div class="input-group-prepend">
-                                        <button class="btn btn-outline-black decrease" type="button" onclick="changeQuantity('{{ $item['product_id'] }}', -1)">−</button>
-                                    </div>
-                                    <input type="text" id="quantity-{{ $item['product_id'] }}" name="quantity" class="form-control text-center quantity-amount" value="{{ $item['quantity'] ?? 1 }}" aria-label="Example text with button addon" aria-describedby="button-addon1">
-                                    <div class="input-group-append">
-                                        <button class="btn btn-outline-black increase" type="button" onclick="changeQuantity('{{ $item['product_id'] }}', 1)">+</button>
-                                    </div>
-                                    <input type="hidden" name="update" value="1"> <!-- Dummy input to trigger update -->
+                            <div class="input-group mb-3 d-flex align-items-center quantity-container" style="max-width: 120px;">
+                                <div class="input-group-prepend">
+                                    <button class="btn btn-outline-black decrease" type="button" onclick="changeQuantity('{{ $item['product_id'] }}', -1)">−</button>
                                 </div>
-                            </form>
+                                <input type="text" id="quantity-{{ $item['product_id'] }}" name="quantity" class="form-control text-center quantity-amount" value="{{ $item['quantity'] ?? 1 }}" aria-label="Example text with button addon" aria-describedby="button-addon1">
+                                <div class="input-group-append">
+                                    <button class="btn btn-outline-black increase" type="button" onclick="changeQuantity('{{ $item['product_id'] }}', 1)">+</button>
+                                </div>
+                            </div>
                         </td>
                         <td>${{ $item['price'] ?? '0.00' }}</td>
                         <td>${{ ($item['price'] ?? 0) * ($item['quantity'] ?? 1) }}</td>
                         <td>
-                            <form action="{{ route('cart.remove') }}" method="POST" style="display: inline;">
+                            <form action="{{ route('cart.remove') }}" method="POST" style="display: inline;" onsubmit="removeItem('{{ $item['product_id'] }}')">
                                 @csrf
                                 <input type="hidden" name="product_id" value="{{ $item['product_id'] }}">
                                 <button type="submit" class="btn btn-danger btn-sm">Remove</button>
@@ -52,7 +47,7 @@
             <div>
                 <strong>Total: ${{ $total }}</strong>
             </div>
-            <button class="btn btn-primary" data-toggle="modal" data-target="checkoutModal">Checkout</button>
+            <button class="btn btn-primary" data-toggle="modal" data-target="#checkoutModal">Checkout</button>
         @else
             <p>Your cart is empty!</p>
         @endif
@@ -88,7 +83,18 @@
             </div>
         </div>
     </div>
+
     <script>
+        // Load quantities from localStorage on page load
+        document.addEventListener("DOMContentLoaded", function() {
+            @foreach($cart as $item)
+                let quantity = localStorage.getItem('quantity-{{ $item['product_id'] }}');
+                if (quantity) {
+                    document.getElementById('quantity-{{ $item['product_id'] }}').value = quantity;
+                }
+            @endforeach
+        });
+
         function changeQuantity(productId, change) {
             var quantityInput = document.getElementById('quantity-' + productId);
             var currentQuantity = parseInt(quantityInput.value);
@@ -100,9 +106,29 @@
 
             quantityInput.value = newQuantity;
 
-            // Automatically submit the form when quantity is updated
-            var form = document.getElementById('cart-form-' + productId);
-            form.submit();
+            // Save the updated quantity to localStorage
+            localStorage.setItem('quantity-' + productId, newQuantity);
+
+            // Update the total price for the item
+            var price = parseFloat(document.querySelector(`#quantity-${productId}`).closest('tr').querySelector('td:nth-child(3)').innerText.replace('$', ''));
+            document.querySelector(`#quantity-${productId}`).closest('tr').querySelector('td:nth-child(4)').innerText = '$' + (price * newQuantity).toFixed(2);
+
+            // Update the total price for the cart
+            updateCartTotal();
+        }
+
+        function updateCartTotal() {
+            var total = 0;
+            @foreach($cart as $item)
+                var quantity = parseInt(localStorage.getItem('quantity-{{ $item['product_id'] }}')) || {{ $item['quantity'] ?? 1 }};
+                var price = parseFloat('{{ $item['price'] ?? 0 }}');
+                total += price * quantity;
+            @endforeach
+            document.querySelector('strong').innerText = 'Total: $' + total.toFixed(2);
+        }
+
+        function removeItem(productId) {
+            localStorage.removeItem('quantity-' + productId);
         }
     </script>
 
