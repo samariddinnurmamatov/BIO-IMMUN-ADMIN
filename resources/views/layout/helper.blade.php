@@ -14,7 +14,9 @@
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@700&family=Open+Sans:wght@400;500;600&display=swap"
+        rel="stylesheet">
 
     <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
@@ -33,11 +35,11 @@
 </head>
 
 <body>
-<!-- Spinner Start -->
-<div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-    <div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem;"></div>
-</div>
-<!-- Spinner End -->
+{{--<!-- Spinner Start -->--}}
+{{--<div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">--}}
+{{--    <div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem;"></div>--}}
+{{--</div>--}}
+{{--<!-- Spinner End -->--}}
 
 
 <!-- Topbar Start -->
@@ -81,24 +83,29 @@
                     <a href="gallery.html" class="dropdown-item">Gallery</a>
                 </div>
             </div>
-            <a href="{{route('product')}}" class="nav-item nav-link">Products</a>
+            <a href="{{route('product.page')}}" class="nav-item nav-link">Products</a>
             <a href="" class="nav-item nav-link">Blogs</a>
-                <a href="{{route('advice.page')}}" class="nav-item nav-link">Advices</a>
+            <a href="{{route('advice.page')}}" class="nav-item nav-link">Advices</a>
             <a href="{{route('about')}}" class="nav-item nav-link">About</a>
-            <div class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
-                <div class="dropdown-menu bg-light m-0">
-                    <a href="gallery.html" class="dropdown-item">Gallery</a>
-                    <a href="feature.html" class="dropdown-item">Features</a>
-                    <a href="team.html" class="dropdown-item">Our Team</a>
-                    <a href="testimonial.html" class="dropdown-item">Testimonial</a>
-                    <a href="404.html" class="dropdown-item">404 Page</a>
-                </div>
-            </div>
             <a href="contact.html" class="nav-item nav-link">Contact</a>
+            @php
+                use App\Http\Controllers\CartController;
+                $itemCount = CartController::getCartItemCount();
+            @endphp
+
+            <a href="{{ route('cart.index') }}" class="nav-item nav-link">
+                <button type="button" class="btn btn-primary position-relative">
+                    <i class="bi bi-cart"></i>
+                    @if($itemCount > 0)
+                        <span class="badge bg-danger position-absolute top-0 start-100 translate-middle rounded-pill">
+                {{ $itemCount }}
+            </span>
+                    @endif
+                </button>
+            </a>
             <a href="{{route('login')}}" class="nav-item nav-link">
                 <button type="button" class="btn btn-primary">Sign In</button>
-             </a>
+            </a>
         </div>
         <div class="border-start ps-4 d-none d-lg-block">
             <button type="button" class="btn btn-sm p-0"><i class="fa fa-search"></i></button>
@@ -111,7 +118,7 @@
 
 
 <!-- Footer Start -->
-<div class="container-fluid bg-dark footer mt-5 py-5 wow fadeIn" data-wow-delay="0.1s">
+<div class="container-fluid bg-dark footer mt-5 py-5" >
     <div class="container py-5">
         <div class="row g-5">
             <div class="col-lg-3 col-md-6">
@@ -120,10 +127,14 @@
                 <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+012 345 67890</p>
                 <p class="mb-2"><i class="fa fa-envelope me-3"></i>info@example.com</p>
                 <div class="d-flex pt-3">
-                    <a class="btn btn-square btn-secondary rounded-circle me-2" href=""><i class="fab fa-twitter"></i></a>
-                    <a class="btn btn-square btn-secondary rounded-circle me-2" href=""><i class="fab fa-facebook-f"></i></a>
-                    <a class="btn btn-square btn-secondary rounded-circle me-2" href=""><i class="fab fa-youtube"></i></a>
-                    <a class="btn btn-square btn-secondary rounded-circle me-2" href=""><i class="fab fa-linkedin-in"></i></a>
+                    <a class="btn btn-square btn-secondary rounded-circle me-2" href=""><i
+                            class="fab fa-twitter"></i></a>
+                    <a class="btn btn-square btn-secondary rounded-circle me-2" href=""><i
+                            class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-square btn-secondary rounded-circle me-2" href=""><i
+                            class="fab fa-youtube"></i></a>
+                    <a class="btn btn-square btn-secondary rounded-circle me-2" href=""><i
+                            class="fab fa-linkedin-in"></i></a>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6">
@@ -147,8 +158,11 @@
                 <h5 class="text-white mb-4">Newsletter</h5>
                 <p>Dolor amet sit justo amet elitr clita ipsum elitr est.</p>
                 <div class="position-relative w-100">
-                    <input class="form-control bg-transparent w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email">
-                    <button type="button" class="btn btn-secondary py-2 position-absolute top-0 end-0 mt-2 me-2">SignUp</button>
+                    <input class="form-control bg-transparent w-100 py-3 ps-4 pe-5" type="text"
+                           placeholder="Your email">
+                    <button type="button" class="btn btn-secondary py-2 position-absolute top-0 end-0 mt-2 me-2">
+                        SignUp
+                    </button>
                 </div>
             </div>
         </div>

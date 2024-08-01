@@ -16,8 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('cart_id');
             $table->unsignedBigInteger('product_id');
             $table->integer('quantity');
-            $table->decimal('price', 15, 2); // Mahsulotning narxi
-            $table->decimal('total', 15, 2); // Miqdor x narx
+            $table->decimal('price', 10, 2);
             $table->timestamps();
             $table->foreign('cart_id')->references('id')->on('carts')->onDelete('cascade');
             $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');

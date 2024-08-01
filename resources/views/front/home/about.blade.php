@@ -29,13 +29,13 @@
                             </div>
                         </div>
                         <div class="col-6 wow fadeIn" data-wow-delay="0.1s">
-                            <img class="img-fluid rounded" src="img/service-1.jpg">
+                            <img class="img-fluid rounded" src="/assets/home/img/service-1.jpg">
                         </div>
                         <div class="col-6 wow fadeIn" data-wow-delay="0.3s">
-                            <img class="img-fluid rounded" src="img/service-2.jpg">
+                            <img class="img-fluid rounded" src="/assets/home/img/service-2.jpg">
                         </div>
                         <div class="col-6 wow fadeIn" data-wow-delay="0.5s">
-                            <img class="img-fluid rounded" src="img/service-3.jpg">
+                            <img class="img-fluid rounded" src="/assets/home/img/service-3.jpg">
                         </div>
                     </div>
                 </div>
@@ -45,12 +45,12 @@
                     <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet</p>
                     <div class="row g-5 pt-2 mb-5">
                         <div class="col-sm-6">
-                            <img class="img-fluid mb-4" src="img/service.png" alt="">
+                            <img class="img-fluid mb-4" src="/assets/home/img/service.png" alt="">
                             <h5 class="mb-3">Dedicated Services</h5>
                             <span>Clita erat ipsum et lorem et sit, sed stet lorem sit clita</span>
                         </div>
                         <div class="col-sm-6">
-                            <img class="img-fluid mb-4" src="img/product.png" alt="">
+                            <img class="img-fluid mb-4" src="/assets/home/img/product.png" alt="">
                             <h5 class="mb-3">Organic Products</h5>
                             <span>Clita erat ipsum et lorem et sit, sed stet lorem sit clita</span>
                         </div>
@@ -62,41 +62,6 @@
     </div>
     <!-- About End -->
 
-
-    <!-- Banner Start -->
-    <div class="container-fluid banner my-5 py-5" data-parallax="scroll" data-image-src="img/banner.jpg">
-        <div class="container py-5">
-            <div class="row g-5">
-                <div class="col-lg-6 wow fadeIn" data-wow-delay="0.3s">
-                    <div class="row g-4 align-items-center">
-                        <div class="col-sm-4">
-                            <img class="img-fluid rounded" src="img/banner-1.jpg" alt="">
-                        </div>
-                        <div class="col-sm-8">
-                            <h2 class="text-white mb-3">We Sell Best Dairy Products</h2>
-                            <p class="text-white mb-4">Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet</p>
-                            <a class="btn btn-secondary rounded-pill py-2 px-4" href="">Read More</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
-                    <div class="row g-4 align-items-center">
-                        <div class="col-sm-4">
-                            <img class="img-fluid rounded" src="img/banner-2.jpg" alt="">
-                        </div>
-                        <div class="col-sm-8">
-                            <h2 class="text-white mb-3">We Deliver Fresh Mild Worldwide</h2>
-                            <p class="text-white mb-4">Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet</p>
-                            <a class="btn btn-secondary rounded-pill py-2 px-4" href="">Read More</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Banner End -->
-
-
     <!-- Team Start -->
     <div class="container-xxl py-5">
         <div class="container">
@@ -107,7 +72,7 @@
             <div class="row g-4">
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="team-item rounded p-4">
-                        <img class="img-fluid rounded mb-4" src="img/team-1.jpg" alt="">
+                        <img class="img-fluid rounded mb-4" src="/assets/home/img/team-1.jpg" alt="">
                         <h5>Adam Crew</h5>
                         <p class="text-primary">Founder</p>
                         <div class="d-flex justify-content-center">
@@ -119,7 +84,7 @@
                 </div>
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
                     <div class="team-item rounded p-4">
-                        <img class="img-fluid rounded mb-4" src="img/team-2.jpg" alt="">
+                        <img class="img-fluid rounded mb-4" src="/assets/home/img/team-2.jpg" alt="">
                         <h5>Doris Jordan</h5>
                         <p class="text-primary">Veterinarian</p>
                         <div class="d-flex justify-content-center">
@@ -131,7 +96,7 @@
                 </div>
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
                     <div class="team-item rounded p-4">
-                        <img class="img-fluid rounded mb-4" src="img/team-3.jpg" alt="">
+                        <img class="img-fluid rounded mb-4" src="/assets/home/img/team-3.jpg" alt="">
                         <h5>Jack Dawson</h5>
                         <p class="text-primary">Farmer</p>
                         <div class="d-flex justify-content-center">

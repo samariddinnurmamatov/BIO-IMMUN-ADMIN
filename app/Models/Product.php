@@ -25,5 +25,7 @@ class Product extends Model
     public function orderLines() {
         return $this->hasMany(OrderLine::class);
     }
+
+
 }
 

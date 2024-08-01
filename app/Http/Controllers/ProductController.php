@@ -84,4 +84,11 @@ class ProductController extends Controller
         return redirect()->route('products.index')->with('success', 'Product deleted successfully.');
     }
 
+
+    public function product_page()
+    {
+        $products = Product::all();
+        return view('front.product.index', compact('products'));
+    }
+
 }

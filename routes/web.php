@@ -30,12 +30,12 @@ Route::get('/', function (){
 })->name('home');
 
 Route::get('/about', function (){
-    return view('home.about');
+    return view('front.home.about');
 })->name('about');
 
-Route::get('/product', function (){
-    return view('home.product');
-})->name('product');
+
+
+Route::get('/product', [ProductController::class, 'product_page'])->name('product.page');
 
 
 
@@ -44,8 +44,18 @@ Route::get('/advice', [AdviceController::class, 'advice_page'])->name('advice.pa
 
 Route::get('category', [CategoryController::class, 'index'])-> name('category.index');
 Route::post('category', [CategoryController::class, 'store']) -> name("category.store");
+Route::get('/cart', [CartController::class, 'show'])->name('cart.show');
 Route::put('category/{category}', [CategoryController::class, 'update'])->name('category.update');
 Route::delete('category/{category}', [CategoryController::class, 'destroy'])->name('category.destroy');
+
+
+
+Route::get('cart', [CartController::class, 'showCart'])->name('cart.index');
+Route::post('cart/add/{id}', [CartController::class, 'addProductToCart'])->name('cart.addItem');
+Route::post('/cart/update/{product_id}', [CartController::class, 'updateCartProductQuantity'])->name('cart.update');
+Route::post('/cart/remove', [CartController::class, 'removeProductFromCart'])->name('cart.remove');
+
+
 
 
 Route::get('login', [Authenticate::class, 'showLoginForm'])->name('login');
@@ -64,7 +74,6 @@ Route::resource('stocks', StockController::class);
 
 
 
-Route::get('cart', [CartController::class, 'index'])->name('cart.index');
 
 Route::get('order', [OrderController::class, 'index'])->name('orders.index');
 Route::post('order', [OrderController::class, 'store'])->name('orders.store');
