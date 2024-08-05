@@ -27,9 +27,16 @@ use App\Http\Controllers\CartController;
 //    return view('admin.welcome');
 //})->name('dashboard')->middleware('auth');
 Route::get('/dashboard', [\App\Http\Controllers\OrderLineController::class, 'dashboard_page'])->name('dashboard')->middleware('auth');
+<<<<<<< HEAD
 Route::get('/', function (){
     return view('front.home.home');
 })->name('home');
+=======
+//Route::get('/', function (){
+//    return view('front.home.home');
+//})->name('home');
+Route::get('/', [ProductController::class, 'product_page'])->name('home');
+>>>>>>> 1fb21c7f4512d105ce5cfc9e08de50b84aaac469
 
 Route::get('/about', function (){
     return view('front.home.about');

@@ -87,8 +87,14 @@ class ProductController extends Controller
 
     public function product_page()
     {
+<<<<<<< HEAD
         $products = Product::all()->where('status', '1');
         return view('front.product.index', compact('products'));
+=======
+        $categories = Category::all();
+        $products = Product::all()->where('status', '1');
+        return view('front.home.home', compact('products', 'categories'));
+>>>>>>> 1fb21c7f4512d105ce5cfc9e08de50b84aaac469
     }
 
 }
