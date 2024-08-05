@@ -22,4 +22,8 @@ class Order extends Model
     public function client(){
         return $this->belongsTo(Client::class);
     }
+    public function orders()
+    {
+        $this->hasMany(OrderLine::class);
+    }
 }

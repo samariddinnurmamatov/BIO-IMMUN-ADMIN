@@ -11,7 +11,7 @@ class ProductController extends Controller
     public function index()
     {
         $categories = Category::all();
-        $products = Product::all();
+        $products = Product::paginate(10);
         return view('admin.products.index', compact('products', 'categories'));
     }
 
@@ -87,8 +87,9 @@ class ProductController extends Controller
 
     public function product_page()
     {
-        $products = Product::all();
-        return view('front.product.index', compact('products'));
+        $categories = Category::all();
+        $products = Product::all()->where('status', '1');
+        return view('front.home.home', compact('products', 'categories'));
     }
 
 }

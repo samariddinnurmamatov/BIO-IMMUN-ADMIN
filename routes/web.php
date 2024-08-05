@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdviceController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\ClientController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\StockController;
 use Illuminate\Support\Facades\Route;
@@ -22,12 +23,14 @@ use App\Http\Controllers\CartController;
 |
 */
 
-Route::get('/dashboard', function () {
-    return view('front.welcome');
-})->name('dashboard')->middleware('auth');
-Route::get('/', function (){
-    return view('front.home.home');
-})->name('home');
+//Route::get('/dashboard', function () {
+//    return view('admin.welcome');
+//})->name('dashboard')->middleware('auth');
+Route::get('/dashboard', [\App\Http\Controllers\OrderLineController::class, 'dashboard_page'])->name('dashboard')->middleware('auth');
+//Route::get('/', function (){
+//    return view('front.home.home');
+//})->name('home');
+Route::get('/', [ProductController::class, 'product_page'])->name('home');
 
 Route::get('/about', function (){
     return view('front.home.about');
@@ -36,9 +39,6 @@ Route::get('/about', function (){
 
 
 Route::get('/product', [ProductController::class, 'product_page'])->name('product.page');
-
-
-
 Route::get('/advice', [AdviceController::class, 'advice_page'])->name('advice.page');
 
 
@@ -52,15 +52,20 @@ Route::delete('category/{category}', [CategoryController::class, 'destroy'])->na
 
 Route::get('cart', [CartController::class, 'showCart'])->name('cart.index');
 Route::post('cart/add/{id}', [CartController::class, 'addProductToCart'])->name('cart.addItem');
-Route::post('/cart/update/{product_id}', [CartController::class, 'updateCartProductQuantity'])->name('cart.update');
+Route::post('/cart/updateQuantity', [CartController::class, 'updateCartProductQuantity'])->name('cart.updateQuantity');
 Route::post('/cart/remove', [CartController::class, 'removeProductFromCart'])->name('cart.remove');
+Route::post('/cart/checkout', [CartController::class, 'checkout'])->name('cart.checkout');
 
-
+Route::put('/orders/{orderId}/status', [OrderController::class, 'updateOrderStatus'])->name('orders.updateStatus');
+Route::post('/update-stock', [OrderController::class, 'updateStock']);
 
 
 Route::get('login', [Authenticate::class, 'showLoginForm'])->name('login');
 Route::post('login', [Authenticate::class, 'login']);
 Route::post('logout', [Authenticate::class, 'logout'])->name('logout');
+Route::get('user/{id}', [Authenticate::class, 'showUserProfile'])->name('users.edit');
+Route::put('user/{id}', [Authenticate::class, 'updateUserProfile'])->name('users.update');
+
 
 Route::resource('blogs', BlogController::class);
 
@@ -82,3 +87,7 @@ Route::post('order', [OrderController::class, 'store'])->name('orders.store');
 
 Route::get('orders', [\App\Http\Controllers\OrderLineController::class, 'index'])->name('orders_list.index');
 Route::post('orders', [\App\Http\Controllers\OrderLineController::class, 'store'])->name('orders_list.store');
+
+Route::get('clients', [\App\Http\Controllers\ClientController::class, 'index'])->name('clients.index');
+Route::put('clients/{client}', [ClientController::class, 'update'])->name('clients.update');
+Route::delete('clients/{client}', [ClientController::class, 'destroy'])->name('clients.destroy');

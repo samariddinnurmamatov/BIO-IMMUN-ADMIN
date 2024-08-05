@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\CartItem;
 use App\Models\Cart;
+use App\Models\OrderLine;
+use App\Models\Client;
+use App\Models\Order;
 use App\Models\Product;
 
 class CartController extends Controller
@@ -14,19 +17,19 @@ class CartController extends Controller
         $cart = session()->get('cart', []);
         return count($cart);
     }
-    public function addProductToCart(Request $request)
+
+    public function addProductToCart(Request $request, $id)
     {
-        $product = Product::findOrFail($request->product_id);
+        $product = Product::findOrFail($id);
         $cart = session()->get('cart', []);
-        $discountedPrice = $product->price * (100 - $product->percentage) / 100;
-        if (isset($cart[$request->product_id])) {
-            $cart[$request->product_id]['quantity'] += $request->quantity;
-            $cart[$request->product_id]['price'] = $discountedPrice;
+
+        if (isset($cart[$id])) {
+            $cart[$id]['quantity'] += $request->quantity;
         } else {
-            $cart[$request->product_id] = [
-                'product_id' => $request->product_id,
+            $cart[$id] = [
+                'product_id' => $id,
                 'quantity' => $request->quantity,
-                'price' => $discountedPrice,
+                'price' => $product->price * (100 - $product->percentage) / 100,
                 'name' => $product->name,
                 'photo' => $product->photo
             ];
@@ -36,6 +39,7 @@ class CartController extends Controller
 
         return redirect()->back()->with('success', 'Product added to cart successfully!');
     }
+
     public function updateCartProductQuantity(Request $request)
     {
         $cart = session()->get('cart');
@@ -47,16 +51,12 @@ class CartController extends Controller
         $product_id = $request->product_id;
         $quantity = $request->quantity;
 
-        // Mahsulotni olish
         $product = Product::findOrFail($product_id);
-
-        // Chegirmali narxni hisoblash
         $discountedPrice = $product->price * (100 - $product->percentage) / 100;
 
-        // Agar $cart massivi bo'lsa, uni tekshirib chiqing va yangilanishni amalga oshiring
         if (isset($cart[$product_id])) {
             $cart[$product_id]['quantity'] = $quantity;
-            $cart[$product_id]['price'] = $discountedPrice; // Narxni yangilash
+            $cart[$product_id]['price'] = $discountedPrice;
             session()->put('cart', $cart);
         } else {
             return redirect()->back()->with('error', 'Product not found in cart!');
@@ -65,7 +65,6 @@ class CartController extends Controller
         return redirect()->back()->with('success', 'Cart updated successfully!');
     }
 
-    // app/Http/Controllers/CartController.php
     public function removeProductFromCart(Request $request)
     {
         $cart = session()->get('cart');
@@ -76,11 +75,8 @@ class CartController extends Controller
 
         $product_id = $request->input('product_id');
 
-        // Agar $cart da mahsulot mavjud bo'lsa, o'chirib tashlang
         if (isset($cart[$product_id])) {
-            // Mahsulotni o'chiring
             unset($cart[$product_id]);
-            // Yangilangan savatni saqlang
             session()->put('cart', $cart);
             return redirect()->back()->with('success', 'Product removed from cart successfully!');
         }
@@ -93,7 +89,6 @@ class CartController extends Controller
         $cart = session()->get('cart', []);
         $total = 0;
 
-        // Agar cart massivi bo'lsa, har bir element to'g'ri formatda ekanligini tekshirish
         foreach ($cart as $key => $item) {
             if (is_array($item)) {
                 $total += $item['price'] * $item['quantity'];
@@ -103,5 +98,47 @@ class CartController extends Controller
         return view('front.cart.index', ['cart' => $cart, 'total' => $total]);
     }
 
+    public function checkout(Request $request)
+    {
+        $request->validate([
+            'first_name' => 'required|string|max:255',
+            'last_name' => 'required|string|max:255',
+            'phone_number' => 'required|string|max:20',
+        ]);
 
+        $client = Client::create([
+            'first_name' => $request->input('first_name'),
+            'last_name' => $request->input('last_name'),
+            'phone_number' => $request->input('phone_number'),
+        ]);
+
+        $order = Order::create([
+            'client_id' => $client->id,
+            'order_date' => now(),
+            'order_status' => 'yangi',
+            'order_amount' => 0,
+        ]);
+
+        $cart = session()->get('cart', []);
+        $orderAmount = 0;
+
+        foreach ($cart as $item) {
+            $total = $item['price'] * $item['quantity'];
+            OrderLine::create([
+                'order_id' => $order->id,
+                'product_id' => $item['product_id'],
+                'quantity' => $item['quantity'],
+                'price' => $item['price'],
+                'total' => $total,
+            ]);
+            $orderAmount += $total;
+        }
+
+        $order->update(['order_amount' => $orderAmount]);
+
+        // Savatchani tozalash
+        session()->forget('cart');
+
+        return redirect()->route('cart.index')->with('success', 'Order placed successfully!');
+    }
 }
