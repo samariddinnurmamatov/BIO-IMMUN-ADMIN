@@ -1,931 +1,770 @@
-<!DOCTYPE html>
-<html class="no-js" lang="zxx">
+@extends('layout.helper')
+@section('content')
+<main>
+    <!-- slider-area -->
+    <section id="home" class="slider-area fix p-relative">
 
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="x-ua-compatible" content="ie=edge" />
-    <title>ShopGrids - Bootstrap 5 eCommerce HTML Template.</title>
-    <meta name="description" content="" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.svg" />
+        <div class="slider-active" style="background: #141b22;">
+            <div class="single-slider slider-bg d-flex align-items-center" style="background-image: url(/assets/front/img/slider/slider_bg.png); background-size: cover;">
+                <div class="container">
+                    <div class="row">
 
-    <!-- ========================= CSS here ========================= -->
-    <link rel="stylesheet" href="assets/front/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="assets/front/css/LineIcons.3.0.css" />
-    <link rel="stylesheet" href="assets/front/css/tiny-slider.css" />
-    <link rel="stylesheet" href="assets/front/css/glightbox.min.css" />
-    <link rel="stylesheet" href="assets/front/css/main.css" />
+                        <div class="col-lg-7 col-md-6">
+                            <div class="slider-content s-slider-content">
+                                <h5 data-animation="fadeInUp" data-delay=".4s">Pure & organic milk products</h5>
+                                <h2 data-animation="fadeInUp" data-delay=".4s">We Are The Best Milk <span>Dairy Farm</span></h2>
+                                <p data-animation="fadeInUp" data-delay=".6s">Fusce accumsan nulla ac iaculis posuere. Suspendisse potenti. Vivamus lorem lectus.</p>
 
-</head>
+                                <div class="slider-btn mt-30">
+                                    <a href="about.html" class="btn ss-btn mr-15" data-animation="fadeInLeft" data-delay=".4s">Discover More <i class="fal fa-long-arrow-right"></i></a>
+                                </div>
 
-<body>
-<!--[if lte IE 9]>
-<p class="browserupgrade">
-    You are using an <strong>outdated</strong> browser. Please
-    <a href="https://browsehappy.com/">upgrade your browser</a> to improve
-    your experience and security.
-</p>
-<![endif]-->
+                            </div>
+                        </div>
+                        <div class="col-lg-5 col-md-6 p-relative">
+                        </div>
 
-<!-- Preloader -->
-<div class="preloader">
-    <div class="preloader-inner">
-        <div class="preloader-icon">
-            <span></span>
-            <span></span>
+                    </div>
+                </div>
+            </div>
+            <div class="single-slider slider-bg d-flex align-items-center" style="background-image: url(/assets/front/img/slider/slider_bg_4.png); background-size: cover;">
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-lg-7 col-md-6">
+                            <div class="slider-content s-slider-content">
+                                <h5 data-animation="fadeInUp" data-delay=".4s">Pure & organic milk products</h5>
+                                <h2 data-animation="fadeInUp" data-delay=".4s">We Are The Best Milk <span>Dairy Farm</span></h2>
+                                <p data-animation="fadeInUp" data-delay=".6s">Fusce accumsan nulla ac iaculis posuere. Suspendisse potenti. Vivamus lorem lectus.</p>
+
+                                <div class="slider-btn mt-30">
+                                    <a href="about.html" class="btn ss-btn mr-15" data-animation="fadeInLeft" data-delay=".4s">Discover More <i class="fal fa-long-arrow-right"></i></a>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-lg-5 col-md-6 p-relative">
+                        </div>
+
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-</div>
-<!-- /End Preloader -->
 
-<!-- Start Header Area -->
-<header class="header navbar-area">
-    <!-- Start Topbar -->
-    <div class="topbar">
+
+    </section>
+    <!-- slider-area-end -->
+
+    <!-- about-area -->
+    <section class="about-area about-p pt-120 pb-120 p-relative fix">
+        <div class="container">
+            <div class="row justify-content-center align-items-center">
+                <div class="col-lg-5 col-md-12 col-sm-12">
+                    <div class="s-about-img p-relative  wow fadeInLeft animated" data-animation="fadeInLeft" data-delay=".4s">
+                        <img src="/assets/front/img/features/about_img_02.png" alt="img">
+
+                        <div class="about-text second-about">
+                            <img src="/assets/front/img/features/about-play.png" alt="img">
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="col-lg-7 col-md-12 col-sm-12">
+                    <div class="about-content s-about-content pl-60 wow fadeInRight  animated" data-animation="fadeInRight" data-delay=".4s">
+                        <div class="about-title second-title pb-25">
+                            <h5>About Us</h5>
+                            <h2>We Have Been Milk Harvesting</h2>
+                        </div>
+                        <p >Our community is being called to reimagine the future. As the only university where a renowned design school comes together with premier colleges, we are making learning more relevant and transformational Aliquam at magna et mi interdum rhoncus quis sit amet lorem.</p>
+                        <p>We are proud to offer top ranige in employment services such and asser payroll and benefits administrato managemen and asistance with global business range ployment employer  readings from religious texts or literature are also commonly inc compliance.</p>
+                        <div class="about-content2">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <ul class="green2">
+                                        <li><div class="abcontent"><div class="ano"><span><img src="/assets/front/img/icon/ab-icon-01.png" alt="img">   </span></div> <div class="text"><h3>Best Ingredients</h3> <p>consectetur adipiscing elit sed do eiusmod tem incid idunt.</p></div></div></li>
+                                        <li><div class="abcontent"><div class="ano"><span><img src="/assets/front/img/icon/ab-icon-02.png" alt="img"> </span></div> <div class="text"><h3>Big Milk Farm</h3> <p>consectetur adipiscing elit sed do eiusmod tem incid idunt.</p></div></div></li>
+
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!-- about-area-end -->
+    <!-- services-five-area -->
+    <section id="services-05" class="services-05 pt-120 pb-100 p-relative fix" style="background: url(img/bg/services-bg.png); background-repeat: no-repeat;">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-lg-4 col-md-4 col-12">
-                    <div class="top-left">
-                        <ul class="menu-top-link">
-                            <li>
-                                <div class="select-position">
-                                    <select id="select4">
-                                        <option value="0" selected>$ USD</option>
-                                        <option value="1">sum UZB</option>
-                                    </select>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="select-position">
-                                    <select id="select5">
-                                        <option value="0" selected>English</option>
-                                        <option value="1">O'zbek</option>
-
-                                    </select>
-                                </div>
-                            </li>
-                        </ul>
+                <div class="col-lg-6 col-md-12">
+                    <div class="section-title center-align mb-20">
+                        <h5>Our Services</h5>
+                        <h2>
+                            What We Provide
+                        </h2>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-4 col-12">
-                    <div class="top-middle">
-                        <ul class="useful-links">
-                            <li><a href="index.html">Products</a></li>
-                            <li><a href="about-us.html">About Us</a></li>
-                            <li><a href="contact.html">Contact Us</a></li>
-                        </ul>
-                    </div>
+                <div class="col-lg-6 col-md-6 text-right  d-none d-lg-block">
+                    <a href="#contact" class="btn ss-btn wow fadeInDown animated" data-animation="fadeInDown" data-delay=".4s">View Al Services</a>
                 </div>
-                <div class="col-lg-4 col-md-4 col-12">
-                    <div class="top-end">
-                        <div class="user">
-                            <i class="lni lni-user"></i>
-                            Hello
+                <div class="col-lg-12">
+                    <div class="services-active">
+                        <div class="services-box-05 wow fadeInUp  animated" data-animation="fadeInUp" data-delay=".4s">
+                            <div class="services-icon-05">
+                                <a href="single-service.html"><img src="/assets/front/img/bg/services-05.jpg" alt="icon01"></a>
+                            </div>
+                            <div class="services-content-05">
+                                <div class="icon">
+                                    <span><img src="/assets/front/img/icon/sve-icon1.png" alt="icon01"></span>
+                                    <h4> <a href="single-service.html">Top Quality Milk Products</a></h4>
+                                </div>
+                                <p>Seamlessly visualize quality ellectual capital without superior collaboration and idea such and asser sharing listically</p>
+                            </div>
                         </div>
-                        <ul class="user-login">
-                            <li>
-                                <a href="login.html">Sign In</a>
-                            </li>
-                            <li>
-                                <a href="register.html">Register</a>
-                            </li>
-                        </ul>
+                        <div class="services-box-05 wow fadeInUp  animated" data-animation="fadeInUp" data-delay=".4s">
+                            <div class="services-icon-05">
+                                <a href="single-service.html"><img src="/assets/front/img/bg/services-06.jpg" alt="icon01"></a>
+                            </div>
+                            <div class="services-content-05">
+                                <div class="icon">
+                                    <span><img src="/assets/front/img/icon/sve-icon2.png" alt="icon01"></span>
+                                    <h4> <a href="single-service.html">Natural Feeds For Cow’s</a></h4>
+                                </div>
+                                <p>Seamlessly visualize quality ellectual capital without superior collaboration and idea such and asser sharing listically</p>
+                            </div>
+                        </div>
+                        <div class="services-box-05 wow fadeInUp  animated" data-animation="fadeInUp" data-delay=".4s">
+                            <div class="services-icon-05">
+                                <a href="single-service.html"><img src="img/bg/services-07.jpg" alt="icon01"></a>
+                            </div>
+                            <div class="services-content-05">
+                                <div class="icon">
+                                    <span><img src="img/icon/sve-icon3.png" alt="icon01"></span>
+                                    <h4> <a href="single-service.html">Hand Milking Cow Milk</a></h4>
+                                </div>
+                                <p>Seamlessly visualize quality ellectual capital without superior collaboration and idea such and asser sharing listically</p>
+                            </div>
+                        </div>
+                        <div class="services-box-05 wow fadeInUp  animated" data-animation="fadeInUp" data-delay=".4s">
+                            <div class="services-icon-05">
+                                <a href="single-service.html"><img src="img/bg/services-06.jpg" alt="icon01"></a>
+                            </div>
+                            <div class="services-content-05">
+                                <div class="icon">
+                                    <span><img src="img/icon/sve-icon2.png" alt="icon01"></span>
+                                    <h4> <a href="single-service.html">Natural Feeds For Cow’s</a></h4>
+                                </div>
+                                <p>Seamlessly visualize quality ellectual capital without superior collaboration and idea such and asser sharing listically</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- End Topbar -->
-    <!-- Start Header Middle -->
-    <div class="header-middle">
+    </section>
+    <!-- services-three-area -->
+
+    <!-- frequently-area -->
+    <section class="faq-area pb-120 p-relative fix">
         <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-3 col-md-3 col-7">
-                    <!-- Start Header Logo -->
-                    <a class="navbar-brand" href="index.html">
-                        <img src="assets/front/images/logo/logo.svg" alt="Logo">
-                    </a>
-                    <!-- End Header Logo -->
-                </div>
-                <div class="col-lg-5 col-md-7 d-xs-none">
-                    <!-- Start Main Menu Search -->
-                    <div class="main-menu-search">
-                        <!-- navbar search start -->
-                        <div class="navbar-search search-style-5">
-                            <div class="search-select">
-                                <div class="select-position">
-                                    <select id="select1">
-                                        <option selected>All</option>
+            <div class="row justify-content-center">
 
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="search-input">
-                                <input type="text" placeholder="Search">
-                            </div>
-                            <div class="search-btn">
-                                <button><i class="lni lni-search-alt"></i></button>
-                            </div>
-                        </div>
-                        <!-- navbar search Ends -->
-                    </div>
-                    <!-- End Main Menu Search -->
-                </div>
-                <div class="col-lg-4 col-md-2 col-5">
-                    <div class="middle-right-area">
-                        <div class="nav-hotline">
-                            <i class="lni lni-phone"></i>
-                            <h3>Hotline:
-                                <span>(+100) 123 456 7890</span>
-                            </h3>
-                        </div>
-                        <div class="navbar-cart">
-                            <div class="wishlist">
-                                <a href="javascript:void(0)">
-                                    <i class="lni lni-heart"></i>
-                                    <span class="total-items">0</span>
-                                </a>
-                            </div>
-                            <div class="cart-items">
-                                <a href="javascript:void(0)" class="main-btn">
-                                    <i class="lni lni-cart"></i>
-                                    <span class="total-items">2</span>
-                                </a>
-                                <!-- Shopping Item -->
-                                <div class="shopping-item">
-                                    <div class="dropdown-cart-header">
-                                        <span>2 Items</span>
-                                        <a href="cart.html">View Cart</a>
-                                    </div>
-                                    <ul class="shopping-list">
-                                        <li>
-                                            <a href="javascript:void(0)" class="remove" title="Remove this item"><i
-                                                    class="lni lni-close"></i></a>
-                                            <div class="cart-img-head">
-                                                <a class="cart-img" href="product-details.html"><img
-                                                        src="assets/front/images/header/cart-items/item1.jpg" alt="#"></a>
-                                            </div>
-
-                                            <div class="content">
-                                                <h4><a href="product-details.html">
-                                                        Apple Watch Series 6</a></h4>
-                                                <p class="quantity">1x - <span class="amount">$99.00</span></p>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:void(0)" class="remove" title="Remove this item"><i
-                                                    class="lni lni-close"></i></a>
-                                            <div class="cart-img-head">
-                                                <a class="cart-img" href="product-details.html"><img
-                                                        src="assets/front/images/header/cart-items/item2.jpg" alt="#"></a>
-                                            </div>
-                                            <div class="content">
-                                                <h4><a href="product-details.html">Wi-Fi Smart Camera</a></h4>
-                                                <p class="quantity">1x - <span class="amount">$35.00</span></p>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                    <div class="bottom">
-                                        <div class="total">
-                                            <span>Total</span>
-                                            <span class="total-amount">$134.00</span>
-                                        </div>
-                                        <div class="button">
-                                            <a href="checkout.html" class="btn animate">Checkout</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--/ End Shopping Item -->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- End Header Middle -->
-    <!-- Start Header Bottom -->
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-lg-8 col-md-6 col-12">
-                <div class="nav-inner">
-                    <!-- Start Mega Category Menu -->
-                    <div class="mega-category-menu">
-                        <span class="cat-button"><i class="lni lni-menu"></i>All Categories</span>
-                        <ul class="sub-category">
-                            @foreach($categories as $category)
-                                <li><a href="">{{$category->name}}</a></li>
-                            @endforeach
-                        </ul>
-                    </div>
-                    <!-- End Mega Category Menu -->
-                    <!-- Start Navbar -->
-                    <nav class="navbar navbar-expand-lg">
-                        <button class="navbar-toggler mobile-menu-btn" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                                aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="toggler-icon"></span>
-                            <span class="toggler-icon"></span>
-                            <span class="toggler-icon"></span>
-                        </button>
-                        <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
-                            <ul id="nav" class="navbar-nav ms-auto">
-                                <li class="nav-item">
-                                    <a href="index.html" class="active" aria-label="Toggle navigation">Product</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="dd-menu collapsed" href="javascript:void(0)" data-bs-toggle="collapse"
-                                       data-bs-target="#submenu-1-2" aria-controls="navbarSupportedContent"
-                                       aria-expanded="false" aria-label="Toggle navigation">Pages</a>
-                                    <ul class="sub-menu collapse" id="submenu-1-2">
-                                        <li class="nav-item"><a href="about-us.html">About Us</a></li>
-                                        <li class="nav-item"><a href="faq.html">Faq</a></li>
-                                        <li class="nav-item"><a href="login.html">Login</a></li>
-                                        <li class="nav-item"><a href="register.html">Register</a></li>
-                                        <li class="nav-item"><a href="mail-success.html">Mail Success</a></li>
-                                        <li class="nav-item"><a href="404.html">404 Error</a></li>
-                                    </ul>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="dd-menu collapsed" href="javascript:void(0)" data-bs-toggle="collapse"
-                                       data-bs-target="#submenu-1-3" aria-controls="navbarSupportedContent"
-                                       aria-expanded="false" aria-label="Toggle navigation">Shop</a>
-                                    <ul class="sub-menu collapse" id="submenu-1-3">
-                                        <li class="nav-item"><a href="product-grids.html">Shop Grid</a></li>
-                                        <li class="nav-item"><a href="product-list.html">Shop List</a></li>
-                                        <li class="nav-item"><a href="product-details.html">shop Single</a></li>
-                                        <li class="nav-item"><a href="cart.html">Cart</a></li>
-                                        <li class="nav-item"><a href="checkout.html">Checkout</a></li>
-                                    </ul>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="dd-menu collapsed" href="javascript:void(0)" data-bs-toggle="collapse"
-                                       data-bs-target="#submenu-1-4" aria-controls="navbarSupportedContent"
-                                       aria-expanded="false" aria-label="Toggle navigation">Blog</a>
-                                    <ul class="sub-menu collapse" id="submenu-1-4">
-                                        <li class="nav-item"><a href="blog-grid-sidebar.html">Blog Grid Sidebar</a>
-                                        </li>
-                                        <li class="nav-item"><a href="blog-single.html">Blog Single</a></li>
-                                        <li class="nav-item"><a href="blog-single-sidebar.html">Blog Single
-                                                Sibebar</a></li>
-                                    </ul>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="contact.html" aria-label="Toggle navigation">Contact Us</a>
-                                </li>
-                            </ul>
-                        </div> <!-- navbar collapse -->
-                    </nav>
-                    <!-- End Navbar -->
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 col-12">
-                <!-- Start Nav Social -->
-                <div class="nav-social">
-                    <h5 class="title">Follow Us:</h5>
-                    <ul>
-                        <li>
-                            <a href="javascript:void(0)"><i class="lni lni-facebook-filled"></i></a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0)"><i class="lni lni-twitter-original"></i></a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0)"><i class="lni lni-instagram"></i></a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0)"><i class="lni lni-skype"></i></a>
-                        </li>
-                    </ul>
-                </div>
-                <!-- End Nav Social -->
-            </div>
-        </div>
-    </div>
-    <!-- End Header Bottom -->
-</header>
-<!-- End Header Area -->
-
-<!-- Start Hero Area -->
-<section class="hero-area">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-12 custom-padding-right">
-                <div class="slider-head">
-                    <!-- Start Hero Slider -->
-                    <div class="hero-slider">
-                        <!-- Start Single Slider -->
-                        @foreach($products as $product=>$value)
-                            <div class="single-slider"
-                                 style="background-image: url(/{{ $value->photo }});">
-                                <div class="content">
-                                    <h2>
-                                        {{$value->name}}
+                <div class="col-lg-6">
+                    <div class="faq-wrap pr-30 wow fadeInUp animated" data-animation="fadeInUp" data-delay=".4s">
+                        <div class="accordion" id="accordionExample">
+                            <div class="card">
+                                <div class="card-header" id="headingThree">
+                                    <h2 class="mb-0">
+                                        <button class="faq-btn" type="button" data-bs-toggle="collapse"
+                                                data-bs-target="#collapseThree"  >
+                                            01 Cras turpis felis, elementum sed mi at arcu ?
+                                        </button>
                                     </h2>
-                                    <p>{{$value->description}}.</p>
-                                    <h3><span>Combo Only:</span> ${{$value->price}}</h3>
-                                    <div class="button">
-                                        <a href="" class="btn">Shop Now</a>
+                                </div>
+                                <div id="collapseThree" class="collapse show"
+                                     data-bs-parent="#accordionExample">
+                                    <div class="card-body">
+                                        Our community is being called to reimagine the future. As the only university where a renowned design school comes together with premier colleges, we are making learning more relevant and transformational. We are enriched by the wide range.
                                     </div>
                                 </div>
                             </div>
-                        @endforeach
-                    </div>
-                    <!-- End Hero Slider -->
-                </div>
-            </div>
-            <div class="col-lg-4 col-12">
-                <div class="row">
-                    <div class="col-lg-12 col-md-6 col-12 md-custom-padding">
-                        <!-- Start Small Banner -->
-                        <div class="hero-small-banner"
-                             style="background-image: url('assets/front/images/hero/slider-bnr.jpg');">
-                            <div class="content">
-                                <h2>
-                                    <span>New line required</span>
-                                    iPhone 12 Pro Max
-                                </h2>
-                                <h3>$259.99</h3>
+                            <div class="card">
+                                <div class="card-header" id="headingOne">
+                                    <h2 class="mb-0">
+                                        <button class="faq-btn collapsed" type="button" data-bs-toggle="collapse"
+                                                data-bs-target="#collapseOne"  >
+                                            02 Vestibulum nibh risus, in neque eleifendulputate sem ?
+                                        </button>
+                                    </h2>
+                                </div>
+                                <div id="collapseOne" class="collapse" data-bs-parent="#accordionExample">
+                                    <div class="card-body">
+                                        Our community is being called to reimagine the future. As the only university where a renowned design school comes together with premier colleges, we are making learning more relevant and transformational. We are enriched by the wide range.
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <!-- End Small Banner -->
-                    </div>
-                    <div class="col-lg-12 col-md-6 col-12">
-                        <!-- Start Small Banner -->
-                        <div class="hero-small-banner style2">
-                            <div class="content">
-                                <h2>Weekly Sale!</h2>
-                                <p>Saving up to 50% off all online store items this week.</p>
-                                <div class="button">
-                                    <a class="btn" href="product-grids.html">Shop Now</a>
+                            <div class="card">
+                                <div class="card-header" id="headingTwo">
+                                    <h2 class="mb-0">
+                                        <button class="faq-btn collapsed" type="button" data-bs-toggle="collapse"
+                                                data-bs-target="#collapseTwo"  >
+                                            03 Donec maximus, sapien id auctor ornare ?
+                                        </button>
+                                    </h2>
+                                </div>
+                                <div id="collapseTwo" class="collapse" data-bs-parent="#accordionExample">
+                                    <div class="card-body">
+                                        Our community is being called to reimagine the future. As the only university where a renowned design school comes together with premier colleges, we are making learning more relevant and transformational. We are enriched by the wide range.
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <!-- Start Small Banner -->
                     </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="section-title wow fadeInLeft animated mb-20" data-animation="fadeInDown animated" data-delay=".2s">
+                        <h5>Our FAQ</h5>
+                        <h2>Get every single answer here.</h2>
+                    </div>
+                    <p>Aliquam at magna et mi interdum rhoncus quis sit amet lorem. Mauris aliquet, nunc blandit viverra aliquam, odio quam ultrices felis, eget aliquam ipsum libero ut enim. Sed sodales, tortor eget lacinia lacinia.</p>
+                    <p>usce vel pulvinar enim. Donec mollis augue sit amet venenatis eleifend. Duis nisl arcu, posuere nec ullamcorper nec, viverra nec nisi.</p>
                 </div>
             </div>
         </div>
-    </div>
-</section>
-<!-- End Hero Area -->
+    </section>
+    <!-- frequently-area-end -->
+    <!-- newslater-area -->
+    <section class="newslater-area pt-120 pb-200" style="background:url(img/bg/newslater-bg.png); background-repeat: no-repeat; background-size: contain;">
+        <div class="container" >
+            <div class="row align-items-center">
+                <div class="col-xl-7 col-lg-7">
+                    <div class="section-title newslater-title wow fadeInDown  animated" data-animation="fadeInDown" data-delay=".4s">
+                        <div class="text">
+                            <h5>Newsletter</h5>
+                            <h2>Join Us & Get Special Offers From Us</h2>
+                        </div>
 
-<!-- Start Trending Product Area -->
-<section class="trending-product section" style="margin-top: 12px;">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <div class="section-title">
-                    <h2>Trending Product</h2>
-                    <p>There are many variations of passages of Lorem Ipsum available, but the majority have
-                        suffered alteration in some form.</p>
+                    </div>
+                </div>
+                <div class="col-xl-5 col-lg-5">
+                    <form name="ajax-form" id="contact-form4" action="#" method="post" class="contact-form newslater wow fadeInDown  animated" data-animation="fadeInDown" data-delay=".4s">
+                        <div class="form-group p-relative">
+                            <input class="form-control" id="email2" name="email" type="email" placeholder="Email Address..." value="" required="">
+                            <button type="submit" class="btn btn-custom" id="send2">Subscribe Now</button>
+                        </div>
+                        <!-- /Form-email -->
+                    </form>
                 </div>
             </div>
+
         </div>
-        <div class="row">
-            <div class="col-lg-3 col-md-6 col-12">
-                <!-- Start Single Product -->
-                <div class="single-product">
-                    <div class="product-image">
-                        <img src="assets/front/images/products/product-1.jpg" alt="#">
-                        <div class="button">
-                            <a href="product-details.html" class="btn"><i class="lni lni-cart"></i> Add to Cart</a>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <span class="category">Watches</span>
-                        <h4 class="title">
-                            <a href="product-grids.html">Xiaomi Mi Band 5</a>
-                        </h4>
-                        <ul class="review">
-                            <li><i class="lni lni-star-filled"></i></li>
-                            <li><i class="lni lni-star-filled"></i></li>
-                            <li><i class="lni lni-star-filled"></i></li>
-                            <li><i class="lni lni-star-filled"></i></li>
-                            <li><i class="lni lni-star"></i></li>
-                            <li><span>4.0 Review(s)</span></li>
-                        </ul>
-                        <div class="price">
-                            <span>$199.00</span>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Single Product -->
-            </div>
-            <div class="col-lg-3 col-md-6 col-12">
-                <!-- Start Single Product -->
-                <div class="single-product">
-                    <div class="product-image">
-                        <img src="assets/front/images/products/product-2.jpg" alt="#">
-                        <span class="sale-tag">-25%</span>
-                        <div class="button">
-                            <a href="product-details.html" class="btn"><i class="lni lni-cart"></i> Add to Cart</a>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <span class="category">Speaker</span>
-                        <h4 class="title">
-                            <a href="product-grids.html">Big Power Sound Speaker</a>
-                        </h4>
-                        <ul class="review">
-                            <li><i class="lni lni-star-filled"></i></li>
-                            <li><i class="lni lni-star-filled"></i></li>
-                            <li><i class="lni lni-star-filled"></i></li>
-                            <li><i class="lni lni-star-filled"></i></li>
-                            <li><i class="lni lni-star-filled"></i></li>
-                            <li><span>5.0 Review(s)</span></li>
-                        </ul>
-                        <div class="price">
-                            <span>$275.00</span>
-                            <span class="discount-price">$300.00</span>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Single Product -->
-            </div>
-            <div class="col-lg-3 col-md-6 col-12">
-                <!-- Start Single Product -->
-                <div class="single-product">
-                    <div class="product-image">
-                        <img src="assets/front/images/products/product-3.jpg" alt="#">
-                        <div class="button">
-                            <a href="product-details.html" class="btn"><i class="lni lni-cart"></i> Add to Cart</a>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <span class="category">Camera</span>
-                        <h4 class="title">
-                            <a href="product-grids.html">WiFi Security Camera</a>
-                        </h4>
-                        <ul class="review">
-                            <li><i class="lni lni-star-filled"></i></li>
-                            <li><i class="lni lni-star-filled"></i></li>
-                            <li><i class="lni lni-star-filled"></i></li>
-                            <li><i class="lni lni-star-filled"></i></li>
-                            <li><i class="lni lni-star-filled"></i></li>
-                            <li><span>5.0 Review(s)</span></li>
-                        </ul>
-                        <div class="price">
-                            <span>$399.00</span>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Single Product -->
-            </div>
-            <div class="col-lg-3 col-md-6 col-12">
-                <!-- Start Single Product -->
-                <div class="single-product">
-                    <div class="product-image">
-                        <img src="assets/front/images/products/product-4.jpg" alt="#">
-                        <span class="new-tag">New</span>
-                        <div class="button">
-                            <a href="product-details.html" class="btn"><i class="lni lni-cart"></i> Add to Cart</a>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <span class="category">Phones</span>
-                        <h4 class="title">
-                            <a href="product-grids.html">iphone 6x plus</a>
-                        </h4>
-                        <ul class="review">
-                            <li><i class="lni lni-star-filled"></i></li>
-                            <li><i class="lni lni-star-filled"></i></li>
-                            <li><i class="lni lni-star-filled"></i></li>
-                            <li><i class="lni lni-star-filled"></i></li>
-                            <li><i class="lni lni-star-filled"></i></li>
-                            <li><span>5.0 Review(s)</span></li>
-                        </ul>
-                        <div class="price">
-                            <span>$400.00</span>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Single Product -->
-            </div>
-            <div class="col-lg-3 col-md-6 col-12">
-                <!-- Start Single Product -->
-                <div class="single-product">
-                    <div class="product-image">
-                        <img src="assets/front/images/products/product-5.jpg" alt="#">
-                        <div class="button">
-                            <a href="product-details.html" class="btn"><i class="lni lni-cart"></i> Add to Cart</a>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <span class="category">Headphones</span>
-                        <h4 class="title">
-                            <a href="product-grids.html">Wireless Headphones</a>
-                        </h4>
-                        <ul class="review">
-                            <li><i class="lni lni-star-filled"></i></li>
-                            <li><i class="lni lni-star-filled"></i></li>
-                            <li><i class="lni lni-star-filled"></i></li>
-                            <li><i class="lni lni-star-filled"></i></li>
-                            <li><i class="lni lni-star-filled"></i></li>
-                            <li><span>5.0 Review(s)</span></li>
-                        </ul>
-                        <div class="price">
-                            <span>$350.00</span>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Single Product -->
-            </div>
-            <div class="col-lg-3 col-md-6 col-12">
-                <!-- Start Single Product -->
-                <div class="single-product">
-                    <div class="product-image">
-                        <img src="assets/front/images/products/product-6.jpg" alt="#">
-                        <div class="button">
-                            <a href="product-details.html" class="btn"><i class="lni lni-cart"></i> Add to Cart</a>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <span class="category">Speaker</span>
-                        <h4 class="title">
-                            <a href="product-grids.html">Mini Bluetooth Speaker</a>
-                        </h4>
-                        <ul class="review">
-                            <li><i class="lni lni-star-filled"></i></li>
-                            <li><i class="lni lni-star-filled"></i></li>
-                            <li><i class="lni lni-star-filled"></i></li>
-                            <li><i class="lni lni-star-filled"></i></li>
-                            <li><i class="lni lni-star"></i></li>
-                            <li><span>4.0 Review(s)</span></li>
-                        </ul>
-                        <div class="price">
-                            <span>$70.00</span>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Single Product -->
-            </div>
-            <div class="col-lg-3 col-md-6 col-12">
-                <!-- Start Single Product -->
-                <div class="single-product">
-                    <div class="product-image">
-                        <img src="assets/front/images/products/product-7.jpg" alt="#">
-                        <span class="sale-tag">-50%</span>
-                        <div class="button">
-                            <a href="product-details.html" class="btn"><i class="lni lni-cart"></i> Add to Cart</a>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <span class="category">Headphones</span>
-                        <h4 class="title">
-                            <a href="product-grids.html">PX7 Wireless Headphones</a>
-                        </h4>
-                        <ul class="review">
-                            <li><i class="lni lni-star-filled"></i></li>
-                            <li><i class="lni lni-star-filled"></i></li>
-                            <li><i class="lni lni-star-filled"></i></li>
-                            <li><i class="lni lni-star-filled"></i></li>
-                            <li><i class="lni lni-star"></i></li>
-                            <li><span>4.0 Review(s)</span></li>
-                        </ul>
-                        <div class="price">
-                            <span>$100.00</span>
-                            <span class="discount-price">$200.00</span>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Single Product -->
-            </div>
-            <div class="col-lg-3 col-md-6 col-12">
-                <!-- Start Single Product -->
-                <div class="single-product">
-                    <div class="product-image">
-                        <img src="assets/front/images/products/product-8.jpg" alt="#">
-                        <div class="button">
-                            <a href="product-details.html" class="btn"><i class="lni lni-cart"></i> Add to Cart</a>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <span class="category">Laptop</span>
-                        <h4 class="title">
-                            <a href="product-grids.html">Apple MacBook Air</a>
-                        </h4>
-                        <ul class="review">
-                            <li><i class="lni lni-star-filled"></i></li>
-                            <li><i class="lni lni-star-filled"></i></li>
-                            <li><i class="lni lni-star-filled"></i></li>
-                            <li><i class="lni lni-star-filled"></i></li>
-                            <li><i class="lni lni-star-filled"></i></li>
-                            <li><span>5.0 Review(s)</span></li>
-                        </ul>
-                        <div class="price">
-                            <span>$899.00</span>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Single Product -->
-            </div>
-        </div>
-    </div>
-</section>
-<!-- End Trending Product Area -->
-
-<!-- Start Call Action Area -->
-<section class="call-action section">
-    <div class="container">
-        <div class="row ">
-            <div class="col-lg-8 offset-lg-2 col-12">
-                <div class="inner">
-                    <div class="content">
-                        <h2 class="wow fadeInUp" data-wow-delay=".4s">Currently You are using free<br>
-                            Lite version of ShopGrids</h2>
-                        <p class="wow fadeInUp" data-wow-delay=".6s">Please, purchase full version of the template
-                            to get all pages,<br> features and commercial license.</p>
-                        <div class="button wow fadeInUp" data-wow-delay=".8s">
-                            <a href="javascript:void(0)" class="btn">Purchase Now</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- End Call Action Area -->
-
-<!-- Start Banner Area -->
-<section class="banner section">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-6 col-md-6 col-12">
-                <div class="single-banner" style="background-image:url('assets/front/images/banner/banner-1-bg.jpg')">
-                    <div class="content">
-                        <h2>Smart Watch 2.0</h2>
-                        <p>Space Gray Aluminum Case with <br>Black/Volt Real Sport Band </p>
-                        <div class="button">
-                            <a href="product-grids.html" class="btn">View Details</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-6 col-md-6 col-12">
-                <div class="single-banner custom-responsive-margin"
-                     style="background-image:url('assets/front/front/images/banner/banner-2-bg.jpg')">
-                    <div class="content">
-                        <h2>Smart Headphone</h2>
-                        <p>Lorem ipsum dolor sit amet, <br>eiusmod tempor
-                            incididunt ut labore.</p>
-                        <div class="button">
-                            <a href="product-grids.html" class="btn">Shop Now</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- End Banner Area -->
-
-<!-- Start Shipping Info -->
-<section class="shipping-info">
-    <div class="container">
-        <ul>
-            <!-- Free Shipping -->
-            <li>
-                <div class="media-icon">
-                    <i class="lni lni-delivery"></i>
-                </div>
-                <div class="media-body">
-                    <h5>Free Shipping</h5>
-                    <span>On order over $99</span>
-                </div>
-            </li>
-            <!-- Money Return -->
-            <li>
-                <div class="media-icon">
-                    <i class="lni lni-support"></i>
-                </div>
-                <div class="media-body">
-                    <h5>24/7 Support.</h5>
-                    <span>Live Chat Or Call.</span>
-                </div>
-            </li>
-            <!-- Support 24/7 -->
-            <li>
-                <div class="media-icon">
-                    <i class="lni lni-credit-cards"></i>
-                </div>
-                <div class="media-body">
-                    <h5>Online Payment.</h5>
-                    <span>Secure Payment Services.</span>
-                </div>
-            </li>
-            <!-- Safe Payment -->
-            <li>
-                <div class="media-icon">
-                    <i class="lni lni-reload"></i>
-                </div>
-                <div class="media-body">
-                    <h5>Easy Return.</h5>
-                    <span>Hassle Free Shopping.</span>
-                </div>
-            </li>
-        </ul>
-    </div>
-</section>
-<!-- End Shipping Info -->
-
-<!-- Start Footer Area -->
-<footer class="footer">
-    <!-- Start Footer Top -->
-    <div class="footer-top">
+    </section>
+    <!-- newslater-aread-end -->
+    <!-- video-area -->
+    <section id="video" class="video-area p-relative wow fadeInUp  animated" data-animation="fadeInUp" data-delay=".4s">
         <div class="container">
-            <div class="inner-content">
-                <div class="row">
-                    <div class="col-lg-3 col-md-4 col-12">
-                        <div class="footer-logo">
-                            <a href="index.html">
-                                <img src="assets/front/images/logo/white-logo.svg" alt="#">
-                            </a>
+            <div class="row">
+                <div class="col-12">
+                    <div class="s-video-wrap" style="background-image:url(img/bg/video-img.png)">
+                        <div class="s-video-content text-center">
+                            <h6><a href="https://www.youtube.com/watch?v=7e90gBu4pas" class="popup-video mb-50"><img src="img/bg/play-button2.png" alt="circle_right"></a></h6>
+
                         </div>
                     </div>
-                    <div class="col-lg-9 col-md-8 col-12">
-                        <div class="footer-newsletter">
-                            <h4 class="title">
-                                Subscribe to our Newsletter
-                                <span>Get all the latest information, Sales and Offers.</span>
-                            </h4>
-                            <div class="newsletter-form-head">
-                                <form action="#" method="get" target="_blank" class="newsletter-form">
-                                    <input name="EMAIL" placeholder="Email address here..." type="email">
-                                    <div class="button">
-                                        <button class="btn">Subscribe<span class="dir-part"></span></button>
-                                    </div>
-                                </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!-- video-area-end -->
+    <!-- product-slider -->
+    <section id="editor-choice" class="product-slider pt-120 pb-90 fix" style="background: url(img/bg/product-bg.png); background-size: contain; background-position: center center; background-repeat: no-repeat;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title center-align mb-50 text-center wow fadeInDown  animated" data-animation="fadeInDown" data-delay=".4s">
+                        <h5>Our Products</h5>
+                        <h2>
+                            Best For Skin Care
+                        </h2>
+
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="row home-blog-active">
+                <div class="col-lg-4 col-md-12">
+
+                    <div class="product mb-40">
+                        <div class="product__img">
+                            <a href="shop-details.html"><img src="/assets/front/img/shop/img1.jpg" alt=""></a>
+                            <div class="product-action text-center">
+
+                                <a href="shop-details.html">Add Cart</a>
+
+                            </div>
+                        </div>
+                        <div class="product__content pt-30">
+
+                            <h4 class="pro-title"><a href="shop-details.html">Balancing Gel</a></h4>
+                            <div class="price">
+                                <span class="old-price">$20</span>
+                                <span>$15</span>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="col-lg-4 col-md-12">
+
+                    <div class="product mb-40">
+                        <div class="product__img">
+                            <a href="shop-details.html"><img src="img/shop/img2.jpg" alt=""></a>
+                            <div class="product-action text-center">
+
+                                <a href="shop-details.html">Add Cart</a>
+
+                            </div>
+                        </div>
+                        <div class="product__content pt-30">
+
+                            <h4 class="pro-title"><a href="shop-details.html">Beauty Cream</a></h4>
+                            <div class="price">
+                                <span class="old-price">$20</span>
+                                <span>$15</span>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </div>
+                <div class="col-lg-4 col-md-12">
+
+                    <div class="product mb-40">
+                        <div class="product__img">
+                            <a href="shop-details.html"><img src="img/shop/img3.jpg" alt=""></a>
+                            <div class="product-action text-center">
+
+                                <a href="shop-details.html">Add Cart</a>
+
+                            </div>
+                        </div>
+                        <div class="product__content pt-30">
+
+                            <h4 class="pro-title"><a href="shop-details.html">Dry Skin</a></h4>
+                            <div class="price">
+                                <span class="old-price">$20</span>
+                                <span>$15</span>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </div>
+                <div class="col-lg-4 col-md-12">
+
+                    <div class="product mb-40">
+                        <div class="product__img">
+                            <a href="shop-details.html"><img src="img/shop/img4.jpg" alt=""></a>
+                            <div class="product-action text-center">
+
+                                <a href="shop-details.html">Add Cart</a>
+
+                            </div>
+                        </div>
+                        <div class="product__content pt-30">
+
+                            <h4 class="pro-title"><a href="shop-details.html">Fairness Cream</a></h4>
+                            <div class="price">
+                                <span class="old-price">$20</span>
+                                <span>$15</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-lg-4 col-md-12">
+
+                    <div class="product mb-40">
+                        <div class="product__img">
+                            <a href="shop-details.html"><img src="img/shop/img5.jpg" alt=""></a>
+                            <div class="product-action text-center">
+
+                                <a href="shop-details.html">Add Cart</a>
+
+                            </div>
+                        </div>
+                        <div class="product__content pt-30">
+
+                            <h4 class="pro-title"><a href="shop-details.html">Agrofarm Onion</a></h4>
+                            <div class="price">
+                                <span class="old-price">$20</span>
+                                <span>$15</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-lg-4 col-md-12">
+
+                    <div class="product mb-40">
+                        <div class="product__img">
+                            <a href="shop-details.html"><img src="img/shop/img6.jpg" alt=""></a>
+                            <div class="product-action text-center">
+
+                                <a href="shop-details.html">Add Cart</a>
+
+                            </div>
+                        </div>
+                        <div class="product__content pt-30">
+
+                            <h4 class="pro-title"><a href="shop-details.html">Agrofarm Onion</a></h4>
+                            <div class="price">
+                                <span>$95.00</span>
+                                <span class="old-price">$120.00</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!-- product-slider -->
+    <!-- testimonial-area -->
+    <section class="testimonial-area pt-120 pb-100 p-relative fix"  style="background: url(img/bg/services-bg.png); background-repeat: no-repeat;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title mb-50 wow fadeInDown animated text-center" data-animation="fadeInDown" data-delay=".4s">
+                        <h5>Our Testimonial</h5>
+                        <h2>
+                            What Our Clients Says
+                        </h2>
+                    </div>
+
+                </div>
+
+                <div class="col-lg-12">
+                    <div class="testimonial-active">
+                        <div class="single-testimonial">
+                            <div class="testi-author">
+                                <img src="img/testimonial/testi_avatar.png" alt="img">
+                                <div class="ta-info">
+                                    <h6>Jina Nilson</h6>
+                                    <span>Client</span>
+                                </div>
+                            </div>
+                            <p class="pt-10 pb-20"><img src="img/testimonial/review-icon.png" alt="img"></p>
+                            <p>“Phasellus aliquam quis lorem amet dapibus feugiat vitae purus vitae efficitur. Vestibulum sed elit id orci rhoncus ultricies. Morbi vitae semper consequat ipsum semper quam”.</p>
+
+                            <div class="qt-img">
+                                <img src="img/testimonial/qt-icon.png" alt="img">
+                            </div>
+                        </div>
+                        <div class="single-testimonial">
+                            <div class="testi-author">
+                                <img src="img/testimonial/testi_avatar_02.png" alt="img">
+                                <div class="ta-info">
+                                    <h6>Braitly Dcosta</h6>
+                                    <span>Client</span>
+                                </div>
+                            </div>
+                            <p class="pt-10 pb-20"><img src="img/testimonial/review-icon.png" alt="img"></p>
+                            <p>“Phasellus aliquam quis lorem amet dapibus feugiat vitae purus vitae efficitur. Vestibulum sed elit id orci rhoncus ultricies. Morbi vitae semper consequat ipsum semper quam”.</p>
+
+                            <div class="qt-img">
+                                <img src="img/testimonial/qt-icon.png" alt="img">
+                            </div>
+                        </div>
+                        <div class="single-testimonial">
+                            <div class="testi-author">
+                                <img src="img/testimonial/testi_avatar.png" alt="img">
+                                <div class="ta-info">
+                                    <h6>Jina Nilson</h6>
+                                    <span>Client</span>
+                                </div>
+                            </div>
+                            <p class="pt-10 pb-20"><img src="img/testimonial/review-icon.png" alt="img"></p>
+                            <p>“Phasellus aliquam quis lorem amet dapibus feugiat vitae purus vitae efficitur. Vestibulum sed elit id orci rhoncus ultricies. Morbi vitae semper consequat ipsum semper quam”.</p>
+
+                            <div class="qt-img">
+                                <img src="img/testimonial/qt-icon.png" alt="img">
+                            </div>
+                        </div>
+                        <div class="single-testimonial">
+                            <div class="testi-author">
+                                <img src="img/testimonial/testi_avatar_02.png" alt="img">
+                                <div class="ta-info">
+                                    <h6>Braitly Dcosta</h6>
+                                    <span>Client</span>
+                                </div>
+                            </div>
+                            <p class="pt-10 pb-20"><img src="img/testimonial/review-icon.png" alt="img"></p>
+                            <p>“Phasellus aliquam quis lorem amet dapibus feugiat vitae purus vitae efficitur. Vestibulum sed elit id orci rhoncus ultricies. Morbi vitae semper consequat ipsum semper quam”.</p>
+
+                            <div class="qt-img">
+                                <img src="img/testimonial/qt-icon.png" alt="img">
+                            </div>
+                        </div>
+                        <div class="single-testimonial">
+                            <div class="testi-author">
+                                <img src="img/testimonial/testi_avatar.png" alt="img">
+                                <div class="ta-info">
+                                    <h6>Jina Nilson</h6>
+                                    <span>Client</span>
+                                </div>
+                            </div>
+                            <p class="pt-10 pb-20"><img src="img/testimonial/review-icon.png" alt="img"></p>
+                            <p>“Phasellus aliquam quis lorem amet dapibus feugiat vitae purus vitae efficitur. Vestibulum sed elit id orci rhoncus ultricies. Morbi vitae semper consequat ipsum semper quam”.</p>
+
+                            <div class="qt-img">
+                                <img src="img/testimonial/qt-icon.png" alt="img">
+                            </div>
+                        </div>
+                        <div class="single-testimonial">
+                            <div class="testi-author">
+                                <img src="img/testimonial/testi_avatar_02.png" alt="img">
+                                <div class="ta-info">
+                                    <h6>Braitly Dcosta</h6>
+                                    <span>Client</span>
+                                </div>
+                            </div>
+                            <p class="pt-10 pb-20"><img src="img/testimonial/review-icon.png" alt="img"></p>
+                            <p>“Phasellus aliquam quis lorem amet dapibus feugiat vitae purus vitae efficitur. Vestibulum sed elit id orci rhoncus ultricies. Morbi vitae semper consequat ipsum semper quam”.</p>
+
+                            <div class="qt-img">
+                                <img src="img/testimonial/qt-icon.png" alt="img">
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- End Footer Top -->
-    <!-- Start Footer Middle -->
-    <div class="footer-middle">
+    </section>
+    <!-- testimonial-area-end -->
+    <!-- steps-area -->
+    <section class="steps-area p-relative pb-120">
         <div class="container">
-            <div class="bottom-inner">
-                <div class="row">
-                    <div class="col-lg-3 col-md-6 col-12">
-                        <!-- Single Widget -->
-                        <div class="single-footer f-contact">
-                            <h3>Get In Touch With Us</h3>
-                            <p class="phone">Phone: +1 (900) 33 169 7720</p>
-                            <ul>
-                                <li><span>Monday-Friday: </span> 9.00 am - 8.00 pm</li>
-                                <li><span>Saturday: </span> 10.00 am - 6.00 pm</li>
-                            </ul>
-                            <p class="mail">
-                                <a href="mailto:support@shopgrids.com">support@shopgrids.com</a>
-                            </p>
-                        </div>
-                        <!-- End Single Widget -->
+
+            <div class="row align-items-center">
+
+                <div class="col-lg-6 col-md-12">
+                    <div class="wow fadeInLeft animated" data-animation="fadeInLeft" data-delay=".4s">
+                        <img src="img/bg/steps-img.png" alt="class image">
                     </div>
-                    <div class="col-lg-3 col-md-6 col-12">
-                        <!-- Single Widget -->
-                        <div class="single-footer our-app">
-                            <h3>Our Mobile App</h3>
-                            <ul class="app-btn">
-                                <li>
-                                    <a href="javascript:void(0)">
-                                        <i class="lni lni-apple"></i>
-                                        <span class="small-title">Download on the</span>
-                                        <span class="big-title">App Store</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)">
-                                        <i class="lni lni-play-store"></i>
-                                        <span class="small-title">Download on the</span>
-                                        <span class="big-title">Google Play</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <!-- End Single Widget -->
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-12">
-                        <!-- Single Widget -->
-                        <div class="single-footer f-link">
-                            <h3>Information</h3>
-                            <ul>
-                                <li><a href="javascript:void(0)">About Us</a></li>
-                                <li><a href="javascript:void(0)">Contact Us</a></li>
-                                <li><a href="javascript:void(0)">Downloads</a></li>
-                                <li><a href="javascript:void(0)">Sitemap</a></li>
-                                <li><a href="javascript:void(0)">FAQs Page</a></li>
-                            </ul>
-                        </div>
-                        <!-- End Single Widget -->
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-12">
-                        <!-- Single Widget -->
-                        <div class="single-footer f-link">
-                            <h3>Shop Departments</h3>
-                            <ul>
-                                <li><a href="javascript:void(0)">Computers & Accessories</a></li>
-                                <li><a href="javascript:void(0)">Smartphones & Tablets</a></li>
-                                <li><a href="javascript:void(0)">TV, Video & Audio</a></li>
-                                <li><a href="javascript:void(0)">Cameras, Photo & Video</a></li>
-                                <li><a href="javascript:void(0)">Headphones</a></li>
-                            </ul>
-                        </div>
-                        <!-- End Single Widget -->
-                    </div>
+
                 </div>
-            </div>
-        </div>
-    </div>
-    <!-- End Footer Middle -->
-    <!-- Start Footer Bottom -->
-    <div class="footer-bottom">
-        <div class="container">
-            <div class="inner-content">
-                <div class="row align-items-center">
-                    <div class="col-lg-4 col-12">
-                        <div class="payment-gateway">
-                            <span>We Accept:</span>
-                            <img src="assets/front/images/footer/credit-cards-footer.png" alt="#">
+
+                <div class="col-lg-6 col-md-12">
+                    <div class="pl-60">
+                        <div class="section-title mb-50 wow fadeInDown animated" data-animation="fadeInDown" data-delay=".4s">
+                            <h5>Our Steps</h5>
+                            <h2>How We Work On Quality</h2>
                         </div>
-                    </div>
-                    <div class="col-lg-4 col-12">
-                        <div class="copyright">
-                            <p>Designed and Developed by<a href="https://graygrids.com/" rel="nofollow"
-                                                           target="_blank">GrayGrids</a></p>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-12">
-                        <ul class="socila">
+                        <ul>
                             <li>
-                                <span>Follow Us On:</span>
+                                <div class="step-box wow fadeInUp animated" data-animation="fadeInUp" data-delay=".4s">
+                                    <div class="dnumber">
+                                        <div class="date-box"><img src="img/icon/fea-icon01.png" alt="icon"></div>
+                                    </div>
+                                    <div class="text">
+                                        <h3>Get The Quality Milk</h3>
+                                        <p>Special wedding garments are often worn, and the ceremony is sttimes followed by a wedding reception. Music, poetry, prayers, or readings.</p>
+                                    </div>
+                                </div>
                             </li>
-                            <li><a href="javascript:void(0)"><i class="lni lni-facebook-filled"></i></a></li>
-                            <li><a href="javascript:void(0)"><i class="lni lni-twitter-original"></i></a></li>
-                            <li><a href="javascript:void(0)"><i class="lni lni-instagram"></i></a></li>
-                            <li><a href="javascript:void(0)"><i class="lni lni-google"></i></a></li>
+                            <li>
+                                <div class="step-box wow fadeInUp animated" data-animation="fadeInUp" data-delay=".4s">
+                                    <div class="dnumber">
+                                        <div class="date-box"><img src="img/icon/fea-icon02.png" alt="icon"></div>
+                                    </div>
+                                    <div class="text">
+                                        <h3>In Processing The Milk</h3>
+                                        <p>Special wedding garments are often worn, and the ceremony is sttimes followed by a wedding reception. Music, poetry, prayers, or readings.</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="step-box wow fadeInUp animated" data-animation="fadeInUp" data-delay=".4s">
+                                    <div class="dnumber">
+                                        <div class="date-box"><img src="img/icon/fea-icon03.png" alt="icon"></div>
+                                    </div>
+                                    <div class="text">
+                                        <h3>Get The Final Product</h3>
+                                        <p>Special wedding garments are often worn, and the ceremony is sttimes followed by a wedding reception. Music, poetry, prayers, or readings.</p>
+                                    </div>
+                                </div>
+                            </li>
                         </ul>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+    <!-- steps-area-end -->
+
+    <!-- blog-area -->
+    <section id="blog" class="blog-area p-relative fix pt-120 pb-90" style="background: url(img/bg/services-bg.png); background-repeat: no-repeat;">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-12">
+                    <div class="section-title center-align mb-50 text-center wow fadeInDown animated" data-animation="fadeInDown" data-delay=".4s">
+                        <h5>Our Blog</h5>
+                        <h2>
+                            Latest Blog & News
+                        </h2>
+
+                    </div>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="single-post2 hover-zoomin mb-30 wow fadeInUp animated" data-animation="fadeInUp" data-delay=".4s">
+                        <div class="blog-thumb2">
+                            <a href="blog-details.html"><img src="/assets/front/img/blog/inner_b1.jpg" alt="img"></a>
+                        </div>
+                        <div class="blog-content2">
+                            <div class="date-home">
+                                <i class="fal fa-calendar-alt"></i> 24th March 2023
+                            </div>
+                            <div class="b-meta">
+                                <div class="meta-info">
+                                    <ul>
+                                        <li><i class="fal fa-user"></i> By Admin </li>
+                                        <li><i class="fal fa-comments"></i> 3 Comments</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <h4><a href="blog-details.html">Cras accumsan nulla nec lacus ultricies placerat.</a></h4>
+                            <p>Curabitur sagittis libero tincidunt tempor finibus. Mauris at dignissim ligula, nec tristique orci.</p>
+                            <div class="blog-btn"><a href="blog-details.html">Read More <i class="fal fa-long-arrow-right"></i></a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="single-post2 mb-30 hover-zoomin wow fadeInUp animated" data-animation="fadeInUp" data-delay=".4s">
+                        <div class="blog-thumb2">
+                            <a href="blog-details.html"><img src="img/blog/inner_b2.jpg" alt="img"></a>
+                        </div>
+                        <div class="blog-content2">
+                            <div class="date-home">
+                                <i class="fal fa-calendar-alt"></i> 24th March 2023
+                            </div>
+                            <div class="b-meta">
+                                <div class="meta-info">
+                                    <ul>
+                                        <li><i class="fal fa-user"></i> By Admin </li>
+                                        <li><i class="fal fa-comments"></i> 3 Comments</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <h4><a href="blog-details.html">Dras accumsan nulla nec lacus ultricies placerat.</a></h4>
+                            <p>Curabitur sagittis libero tincidunt tempor finibus. Mauris at dignissim ligula, nec tristique orci.</p>
+                            <div class="blog-btn"><a href="blog-details.html">Read More <i class="fal fa-long-arrow-right"></i></a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="single-post2 mb-30 hover-zoomin wow fadeInUp animated" data-animation="fadeInUp" data-delay=".4s">
+                        <div class="blog-thumb2">
+                            <a href="blog-details.html"><img src="img/blog/inner_b3.jpg" alt="img"></a>
+                        </div>
+                        <div class="blog-content2">
+                            <div class="date-home">
+                                <i class="fal fa-calendar-alt"></i> 24th March 2023
+                            </div>
+                            <div class="b-meta">
+                                <div class="meta-info">
+                                    <ul>
+                                        <li><i class="fal fa-user"></i> By Admin </li>
+                                        <li><i class="fal fa-comments"></i> 3 Comments</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <h4><a href="blog-details.html">Seas accumsan nulla nec lacus ultricies placerat.</a></h4>
+                            <p>Curabitur sagittis libero tincidunt tempor finibus. Mauris at dignissim ligula, nec tristique orci.</p>
+                            <div class="blog-btn"><a href="blog-details.html">Read More <i class="fal fa-long-arrow-right"></i></a></div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+    <!-- blog-area-end -->
+
+    <!-- brand-area -->
+    <div class="brand-area pb-120">
+        <div class="container">
+            <div class="row brand-active">
+                <div class="col-xl-2">
+                    <div class="single-brand">
+                        <img src="img/brand/b-logo1.png" alt="img">
+                    </div>
+                </div>
+                <div class="col-xl-2">
+                    <div class="single-brand">
+                        <img src="img/brand/b-logo2.png" alt="img">
+                    </div>
+                </div>
+                <div class="col-xl-2">
+                    <div class="single-brand">
+                        <img src="img/brand/b-logo3.png" alt="img">
+                    </div>
+                </div>
+                <div class="col-xl-2">
+                    <div class="single-brand">
+                        <img src="img/brand/b-logo4.png" alt="img">
+                    </div>
+                </div>
+                <div class="col-xl-2">
+                    <div class="single-brand">
+                        <img src="img/brand/b-logo5.png" alt="img">
+                    </div>
+                </div>
+                <div class="col-xl-2">
+                    <div class="single-brand">
+                        <img src="img/brand/b-logo1.png" alt="img">
+                    </div>
+                </div>
+                <div class="col-xl-2">
+                    <div class="single-brand">
+                        <img src="img/brand/b-logo2.png" alt="img">
+                    </div>
+                </div>
+                <div class="col-xl-2">
+                    <div class="single-brand">
+                        <img src="img/brand/b-logo3.png" alt="img">
+                    </div>
+                </div>
+                <div class="col-xl-2">
+                    <div class="single-brand">
+                        <img src="img/brand/b-logo4.png" alt="img">
+                    </div>
+                </div>
+                <div class="col-xl-2">
+                    <div class="single-brand">
+                        <img src="img/brand/b-logo5.png" alt="img">
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- End Footer Bottom -->
-</footer>
-<!--/ End Footer Area -->
+    <!-- brand-area-end -->
 
-<!-- ========================= scroll-top ========================= -->
-<a href="#" class="scroll-top">
-    <i class="lni lni-chevron-up"></i>
-</a>
-
-<!-- ========================= JS here ========================= -->
-<script src="assets/front/js/bootstrap.min.js"></script>
-<script src="assets/front/js/tiny-slider.js"></script>
-<script src="assets/front/js/glightbox.min.js"></script>
-<script src="assets/front/js/main.js"></script>
-<script type="text/javascript">
-    //========= Hero Slider
-    tns({
-        container: '.hero-slider',
-        slideBy: 'page',
-        autoplay: true,
-        autoplayButtonOutput: false,
-        mouseDrag: true,
-        gutter: 0,
-        items: 1,
-        nav: false,
-        controls: true,
-        controlsText: ['<i class="lni lni-chevron-left"></i>', '<i class="lni lni-chevron-right"></i>'],
-    });
-
-    //======== Brand Slider
-    tns({
-        container: '.brands-logo-carousel',
-        autoplay: true,
-        autoplayButtonOutput: false,
-        mouseDrag: true,
-        gutter: 15,
-        nav: false,
-        controls: false,
-        responsive: {
-            0: {
-                items: 1,
-            },
-            540: {
-                items: 3,
-            },
-            768: {
-                items: 5,
-            },
-            992: {
-                items: 6,
-            }
-        }
-    });
-</script>
-</body>
-
-</html>
+</main>
+@endsection

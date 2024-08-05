@@ -1,214 +1,306 @@
-<!DOCTYPE html>
-<html lang="en">
-
+<!doctype html>
+<html class="no-js" lang="zxx">
 <head>
     <meta charset="utf-8">
-    <title>Bio Immun</title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="" name="keywords">
-    <meta content="" name="description">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Dcfarm - Agriculture and Dairy Farm  HTML Template</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/front/img/favicon.ico">
+    <!-- Place favicon.ico in the root directory -->
 
-
-    <!-- Favicon -->
-    <link href="/assets/home/img/favicon.ico" rel="icon">
-
-    <!-- Google Web Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@700&family=Open+Sans:wght@400;500;600&display=swap"
-        rel="stylesheet">
-
-    <!-- Icon Font Stylesheet -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Libraries Stylesheet -->
-    <link href="/assets/home/lib/animate/animate.min.css" rel="stylesheet">
-    <link href="/assets/home/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-    <link href="/assets/home/lib/lightbox/css/lightbox.min.css" rel="stylesheet">
-
-    <!-- Customized Bootstrap Stylesheet -->
-    <link href="/assets/home/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Template Stylesheet -->
-    <link href="/assets/home/css/style.css" rel="stylesheet">
+    <!-- CSS here -->
+    <link rel="stylesheet" href="/assets/front/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/front/css/animate.min.css">
+    <link rel="stylesheet" href="/assets/front/css/magnific-popup.css">
+    <link rel="stylesheet" href="/assets/front/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="/assets/front/css/dripicons.css">
+    <link rel="stylesheet" href="/assets/front/css/slick.css">
+    <link rel="stylesheet" href="/assets/front/css/meanmenu.css">
+    <link rel="stylesheet" href="/assets/front/css/default.css">
+    <link rel="stylesheet" href="/assets/front/css/style.css">
+    <link rel="stylesheet" href="/assets/front/css/responsive.css">
 </head>
-
 <body>
-{{--<!-- Spinner Start -->--}}
-{{--<div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">--}}
-{{--    <div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem;"></div>--}}
-{{--</div>--}}
-{{--<!-- Spinner End -->--}}
+<!-- Cursor -->
+<div class="cursor js-cursor"></div>
+<!-- header -->
+<header class="header-area header-three">
 
-
-<!-- Topbar Start -->
-<div class="container-fluid bg-dark px-0">
-    <div class="row g-0 d-none d-lg-flex">
-        <div class="col-lg-6 ps-5 text-start">
-            <div class="h-100 d-inline-flex align-items-center text-light">
-                <span>Follow Us:</span>
-                <a class="btn btn-link text-light" href=""><i class="fab fa-facebook-f"></i></a>
-                <a class="btn btn-link text-light" href=""><i class="fab fa-twitter"></i></a>
-                <a class="btn btn-link text-light" href=""><i class="fab fa-linkedin-in"></i></a>
-                <a class="btn btn-link text-light" href=""><i class="fab fa-instagram"></i></a>
-            </div>
-        </div>
-        <div class="col-lg-6 text-end">
-            <div class="h-100 bg-secondary d-inline-flex align-items-center text-dark py-2 px-4">
-                <span class="me-2 fw-semi-bold"><i class="fa fa-phone-alt me-2"></i>Call Us:</span>
-                <span>+012 345 6789</span>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Topbar End -->
-
-
-<!-- Navbar Start -->
-<nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top px-4 px-lg-5">
-    <a href="index.html" class="navbar-brand d-flex align-items-center">
-        <h1 class="m-0">Milky</h1>
-    </a>
-    <button type="button" class="navbar-toggler me-0" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarCollapse">
-        <div class="navbar-nav ms-auto p-4 p-lg-0">
-            <a href="{{route('home')}}" class="nav-item nav-link active">Home</a>
-            <div class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Categories</a>
-                <div class="dropdown-menu bg-light m-0">
-
-                    <a href="gallery.html" class="dropdown-item">Gallery</a>
+    <div class="header-mid d-none d-xl-block pt-25 pb-25">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-2 col-md-12 d-none d-md-block">
+                    <div class="logo">
+                        <a href="index.html"><img src="/assets/front/img/logo/logo.png" alt="logo"></a>
+                    </div>
+                </div>
+                <div class="col-lg-10 col-md-10 text-right d-none d-lg-block">
+                    <div class="header-cta">
+                        <ul>
+                            <li>
+                                <div class="call-box">
+                                    <div class="icon">
+                                        <img src="/assets/front/img/icon/phone-call.png" alt="img">
+                                    </div>
+                                    <div class="text">
+                                        <span>Call Now !</span>
+                                        <strong>+91 854 789-8746</strong>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="call-box">
+                                    <div class="icon">
+                                        <img src="/assets/front/img/icon/mailing.png" alt="img">
+                                    </div>
+                                    <div class="text">
+                                        <span>Email Now</span>
+                                        <strong>info@gmail.com</strong>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="header-social">
+                                 <span>
+                                 <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                                 <a href="#" title="LinkedIn"><i class="fab fa-instagram"></i></a>
+                                 <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+                                 </span>
+                                    <!--  /social media icon redux -->
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-            <a href="{{route('product.page')}}" class="nav-item nav-link">Products</a>
-            <a href="" class="nav-item nav-link">Blogs</a>
-            <a href="{{route('advice.page')}}" class="nav-item nav-link">Advices</a>
-            <a href="{{route('about')}}" class="nav-item nav-link">About</a>
-            <a href="contact.html" class="nav-item nav-link">Contact</a>
-            @php
-            use App\Http\Controllers\CartController;
-            $itemCount = CartController::getCartItemCount();
-             @endphp
-
-<a href="{{route('cart.index')}}" class="nav-item nav-link">
-    <button type="button" class="btn btn-primary position-relative">
-        <i class="bi bi-cart"></i>
-        <span id="cartCountBadge" class="badge bg-danger position-absolute top-0 start-100 translate-middle rounded-pill">{{ $itemCount }}</span>
-    </button>
-</a>
-            <a href="{{route('login')}}" class="nav-item nav-link">
-                <button type="button" class="btn btn-primary">Sign In</button>
-            </a>
-        </div>
-        <div class="border-start ps-4 d-none d-lg-block">
-            <button type="button" class="btn btn-sm p-0"><i class="fa fa-search"></i></button>
         </div>
     </div>
-</nav>
-<!-- Navbar End -->
+    <div id="header-sticky" class="menu-area">
+        <div class="second-menu">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-2 col-md-12 d-xl-none d-lg-none d-sm-block">
+                        <div class="logo">
+                            <a href="index.html"><img src="img/logo/logo.png" alt="logo"></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-12 d-sm-none d-xl-none d-md-block">
+                        <div class="logo">
+                            <a href="index.html"><img src="img/logo/f_logo.png" alt="logo"></a>
+                        </div>
+                    </div>
+                    <div class="col-xl-11 col-lg-10">
+                        <div class="main-menu">
+                            <nav id="mobile-menu">
+                                <ul>
+                                    <li class="has-sub">
+                                        <a href="{{route('home')}}">Home</a>
+                                    </li>
+                                    <li class="has-sub">
+                                        <a href="{{route('home')}}">About Us</a>
+                                    </li>
+                                    <li class="has-sub">
+                                        <a href="">Categories</a>
+                                        <ul>
+                                            <li><a href="projects.html">Gallery</a></li>
+
+                                        </ul>
+                                    </li>
+                                    <li><a href="">Products</a></li>
+                                    <li class="has-sub">
+                                        <a href="#">Blogs</a>
+                                    </li>
+                                    <li class="has-sub">
+                                        <a href="services.html">Advices</a>
+                                    </li>
+
+
+                                    <li><a href="contact.html">Contact Us</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="col-xl-1 col-lg-1 text-right d-none d-xl-block">
+                        <div class="header-cta3">
+                            <ul>
+                                <li><a href="#" class="top-btn menu-tigger"><i class="fal fa-search"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="mobile-menu"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- header-end -->
+<!-- offcanvas-area -->
+<div class="offcanvas-menu">
+    <span class="menu-close"><i class="fas fa-times"></i></span>
+    <form role="search" method="get" id="searchform"   class="searchform" action="http://wordpress.zcube.in/xconsulta/">
+        <input type="text" name="s" id="search" placeholder="Search"/>
+        <button><i class="fa fa-search"></i></button>
+    </form>
+    <div id="cssmenu3" class="menu-one-page-menu-container">
+        <ul  class="menu">
+            <li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="index.html">Home</a></li>
+            <li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="about.html">About Us</a></li>
+            <li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="services.html">Services</a></li>
+            <li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="pricing.html">Pricing </a></li>
+            <li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="team.html">Team </a></li>
+            <li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="projects.html">Cases Study</a></li>
+            <li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="blog.html">Blog</a></li>
+            <li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="contact.html">Contact</a></li>
+        </ul>
+    </div>
+    <div id="cssmenu2" class="menu-one-page-menu-container">
+        <ul id="menu-one-page-menu-12" class="menu">
+            <li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="#home"><span>+8 12 3456897</span></a></li>
+            <li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="#howitwork"><span>info@example.com</span></a></li>
+        </ul>
+    </div>
+</div>
+<div class="offcanvas-overly"></div>
+<!-- offcanvas-end -->
+
 @yield('content')
+<!-- footer -->
+<footer class="footer-bg footer-p pt-150" style="background-color: #fff; background-image: url(/assets/front/img/bg/footer-bg.png); background-position: 0 0;">
+    <div class="footer-top pb-70">
+        <div class="container">
+            <div class="row justify-content-between">
 
+                <div class="col-xl-4 col-lg-4 col-sm-6">
+                    <div class="footer-widget mb-30">
+                        <div class="f-widget-title mb-30">
+                            <a href="index.html"><img src="img/logo/f_logo.png" alt="img"></a>
+                        </div>
+                        <div class="f-contact">
+                            <p>Suspendisse non sem ante. Cras pretium gravida leo a convallis. Nam malesuada interdum metus, sit amet dictum ante congue eu. Maecenas ut maximus enim.</p>
 
-
-<!-- Footer Start -->
-<div class="container-fluid bg-dark footer mt-5 py-5" >
-    <div class="container py-5">
-        <div class="row g-5">
-            <div class="col-lg-3 col-md-6">
-                <h5 class="text-white mb-4">Our Office</h5>
-                <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>123 Street, New York, USA</p>
-                <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+012 345 67890</p>
-                <p class="mb-2"><i class="fa fa-envelope me-3"></i>info@example.com</p>
-                <div class="d-flex pt-3">
-                    <a class="btn btn-square btn-secondary rounded-circle me-2" href=""><i
-                            class="fab fa-twitter"></i></a>
-                    <a class="btn btn-square btn-secondary rounded-circle me-2" href=""><i
-                            class="fab fa-facebook-f"></i></a>
-                    <a class="btn btn-square btn-secondary rounded-circle me-2" href=""><i
-                            class="fab fa-youtube"></i></a>
-                    <a class="btn btn-square btn-secondary rounded-circle me-2" href=""><i
-                            class="fab fa-linkedin-in"></i></a>
+                        </div>
+                        <div class="footer-social mt-10">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <h5 class="text-white mb-4">Quick Links</h5>
-                <a class="btn btn-link" href="">About Us</a>
-                <a class="btn btn-link" href="">Contact Us</a>
-                <a class="btn btn-link" href="">Our Services</a>
-                <a class="btn btn-link" href="">Terms & Condition</a>
-                <a class="btn btn-link" href="">Support</a>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <h5 class="text-white mb-4">Business Hours</h5>
-                <p class="mb-1">Monday - Friday</p>
-                <h6 class="text-light">09:00 am - 07:00 pm</h6>
-                <p class="mb-1">Saturday</p>
-                <h6 class="text-light">09:00 am - 12:00 pm</h6>
-                <p class="mb-1">Sunday</p>
-                <h6 class="text-light">Closed</h6>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <h5 class="text-white mb-4">Newsletter</h5>
-                <p>Dolor amet sit justo amet elitr clita ipsum elitr est.</p>
-                <div class="position-relative w-100">
-                    <input class="form-control bg-transparent w-100 py-3 ps-4 pe-5" type="text"
-                           placeholder="Your email">
-                    <button type="button" class="btn btn-secondary py-2 position-absolute top-0 end-0 mt-2 me-2">
-                        SignUp
-                    </button>
+                <div class="col-xl-2 col-lg-2 col-sm-6">
+                    <div class="footer-widget mb-30">
+                        <div class="f-widget-title">
+                            <h2>Our Links</h2>
+                        </div>
+                        <div class="footer-link">
+                            <ul>
+                                <li><a href="index.html">Home</a></li>
+                                <li><a href="about.html"> About</a></li>
+                                <li><a href="services.html"> Services </a></li>
+                                <li><a href="contact.html"> Contact Us</a></li>
+                                <li><a href="blog.html">Blog </a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xl-3 col-lg-3 col-sm-6">
+                    <div class="footer-widget mb-30">
+                        <div class="f-widget-title">
+                            <h2>Contact Us</h2>
+                        </div>
+                        <div class="f-contact">
+                            <ul>
+                                <li>
+                                    <i class="icon fal fa-phone"></i>
+                                    <span><a href="tel:+14440008888">+1 (444) 000-8888</a><br><a href="tel:+917052101786">+91 7052 101 786</a></span>
+                                </li>
+                                <li><i class="icon fal fa-envelope"></i>
+                                    <span>
+                                            <a href="mailto:info@example.com">info@example.com</a>
+                                       <br>
+                                       <a href="mailto:help@example.com">help@example.com</a>
+                                       </span>
+                                </li>
+                                <li>
+                                    <i class="icon fal fa-map-marker-check"></i>
+                                    <span>1247/Plot No. 39, 15th Phase,<br> LHB Colony, Kanpur</span>
+                                </li>
+
+                            </ul>
+
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-3 col-sm-6">
+                    <div class="footer-widget mb-30">
+                        <div class="f-widget-title">
+                            <h2>Latest Post</h2>
+                        </div>
+                        <div class="recent-blog-footer">
+                            <ul>
+                                <li>
+                                    <div class="thum"> <img src="/assets/front/img/blog/s-blogimg-01.png" alt="img"></div>
+                                    <div class="text"> <a href="#">Nothing impossble to need hard work</a>
+                                        <span>7 March, 2020</span></div>
+                                </li>
+
+                                <li>
+                                    <div class="thum"> <img src="/assets/front/img/blog/s-blogimg-02.png" alt="img"></div>
+                                    <div class="text"> <a href="#">Nothing impossble to need hard work</a>
+                                        <span>7 March, 2020</span></div>
+                                </li>
+
+                            </ul>
+
+
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-<!-- Footer End -->
-
-
-<!-- Copyright Start -->
-<div class="container-fluid bg-secondary text-body copyright py-4">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                &copy; <a class="fw-semi-bold" href="#">Your Site Name</a>, All Right Reserved.
-            </div>
-            <div class="col-md-6 text-center text-md-end">
-                <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
-                Designed By <a class="fw-semi-bold" href="https://htmlcodex.com">HTML Codex</a>
+    <div class="copyright-wrap">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    Copyright &copy; Dcfarm 2023 . All rights reserved.
+                </div>
+                <div class="col-lg-6 text-right text-xl-right">
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms Of Service</a></li>
+                        <li><a href="#">Legal</a></li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
-</div>
-<!-- Copyright End -->
+</footer>
+<!-- footer-end -->
 
-
-<!-- Back to Top -->
-<a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i class="bi bi-arrow-up"></i></a>
-
-
-<!-- JavaScript Libraries -->
-<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-<script src="/assets/home/lib/wow/wow.min.js"></script>
-<script src="/assets/home/lib/easing/easing.min.js"></script>
-<script src="/assets/home/lib/waypoints/waypoints.min.js"></script>
-<script src="/assets/home/lib/owlcarousel/owl.carousel.min.js"></script>
-<script src="/assets/home/lib/counterup/counterup.min.js"></script>
-<script src="/assets/home/lib/parallax/parallax.min.js"></script>
-<script src="/assets/home/lib/lightbox/js/lightbox.min.js"></script>
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-
-<!-- Template Javascript -->
-<script src="/assets/home/js/main.js"></script>
+<!-- JS here -->
+<script src="/assets/front/js/vendor/modernizr-3.5.0.min.js"></script>
+<script src="/assets/front/js/vendor/jquery-3.6.4.min.js"></script>
+<script src="/assets/front/js/popper.min.js"></script>
+<script src="/assets/front/js/bootstrap.min.js"></script>
+<script src="/assets/front/js/slick.min.js"></script>
+<script src="/assets/front/js/ajax-form.js"></script>
+<script src="/assets/front/js/paroller.js"></script>
+<script src="/assets/front/js/wow.min.js"></script>
+<script src="/assets/front/js/js_isotope.pkgd.min.js"></script>
+<script src="/assets/front/js/imagesloaded.min.js"></script>
+<script src="/assets/front/js/parallax.min.js"></script>
+<script src="/assets/front/js/jquery.waypoints.min.js"></script>
+<script src="/assets/front/js/jquery.counterup.min.js"></script>
+<script src="/assets/front/js/jquery.scrollUp.min.js"></script>
+<script src="/assets/front/js/jquery.meanmenu.min.js"></script>
+<script src="/assets/front/js/parallax-scroll.js"></script>
+<script src="/assets/front/js/jquery.magnific-popup.min.js"></script>
+<script src="/assets/front/js/element-in-view.js"></script>
+<script src="/assets/front/js/main.js"></script>
 </body>
-
 </html>
-
