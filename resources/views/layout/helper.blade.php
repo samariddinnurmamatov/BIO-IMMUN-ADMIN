@@ -7,6 +7,8 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
 
     <!-- Favicon -->
     <link href="/assets/home/img/favicon.ico" rel="icon">
@@ -21,6 +23,7 @@
     <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Libraries Stylesheet -->
     <link href="/assets/home/lib/animate/animate.min.css" rel="stylesheet">
@@ -91,9 +94,9 @@
             @php
             use App\Http\Controllers\CartController;
             $itemCount = CartController::getCartItemCount();
-        @endphp
+             @endphp
 
-<a href="{{ route('cart.index') }}" class="nav-item nav-link">
+<a href="{{route('cart.index')}}" class="nav-item nav-link">
     <button type="button" class="btn btn-primary position-relative">
         <i class="bi bi-cart"></i>
         <span id="cartCountBadge" class="badge bg-danger position-absolute top-0 start-100 translate-middle rounded-pill">{{ $itemCount }}</span>
@@ -198,6 +201,10 @@
 <script src="/assets/home/lib/counterup/counterup.min.js"></script>
 <script src="/assets/home/lib/parallax/parallax.min.js"></script>
 <script src="/assets/home/lib/lightbox/js/lightbox.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
 
 <!-- Template Javascript -->
 <script src="/assets/home/js/main.js"></script>

@@ -59,7 +59,7 @@
     <script>
         $(document).ready(function() {
             $('.add-to-cart-form').on('submit', function(event) {
-                event.preventDefault();
+                // event.preventDefault();
 
                 var form = $(this);
                 var url = form.attr('action');

@@ -13,7 +13,7 @@ class StockController extends Controller
     {
         $categories = Category::all();
         $products = Product::all();
-        $stocks = Stock::all();
+        $stocks = Stock::paginate(10);
         return view('admin.stock.index', compact('stocks', 'categories', 'products'));
     }
 
