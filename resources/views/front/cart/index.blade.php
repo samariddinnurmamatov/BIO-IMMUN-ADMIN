@@ -1,170 +1,121 @@
 @extends('layout.helper')
 
 @section('content')
-    <body>
-
     <div class="container">
         <h2>Shopping Cart</h2>
 
-        <table class="table table-striped table-bordered">
-            <thead>
-            <tr>
-                <th>Mahsulot nomi</th>
-                <th>Soni</th>
-                <th>Narxi</th>
-                <th>Umumiy Narxi</th>
-                <th>O'chirish</th>
-            </tr>
-            </thead>
-            <tbody id="cart-items">
-            <!-- Cart items will be populated here by JavaScript -->
-            </tbody>
-        </table>
+        @if(count($cart) > 0)
+            <table class="table table-striped table-bordered">
+                <thead>
+                <tr>
+                    <th>Nomi</th>
+                    <th>Rasmi</th>
+                    <th>Soni</th>
+                    <th>Narxi</th>
+                    <th>Umumiy</th>
+                    <th>Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach($cart as $item)
+                    <tr>
+                        <td>{{ $item['name'] ?? 'Unknown' }}</td>
+                        <td>
+                            <img src="/{{ $item['photo'] ?? 'Unknown' }}" style="width: 100px; height: auto;">
+                        </td>
+                        <td>
+                            <form action="{{ route('cart.updateQuantity') }}" method="POST" class="d-flex align-items-center justify-content-center">
+                                @csrf
+                                <input type="hidden" name="product_id" value="{{ $item['product_id'] }}">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <button class="btn btn-outline-black decrease" type="submit" onclick="event.preventDefault(); this.closest('form').querySelector('.quantity-amount').stepDown(); this.closest('form').submit();">−</button>
+                                    </div>
+                                    <input type="number" id="quantity-{{ $item['product_id'] }}" name="quantity" class="form-control text-center quantity-amount" value="{{ $item['quantity'] ?? 1 }}" min="1">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-outline-black increase" type="submit" onclick="event.preventDefault(); this.closest('form').querySelector('.quantity-amount').stepUp(); this.closest('form').submit();">+</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </td>
+                        <td>${{ $item['price'] ?? '0.00' }}</td>
+                        <td>${{ ($item['price'] ?? 0) * ($item['quantity'] ?? 1) }}</td>
+                        <td>
+                            <form action="{{ route('cart.remove') }}" method="POST" onsubmit="return confirm('Are you sure you want to remove this item?');">
+                                @csrf
+                                <input type="hidden" name="product_id" value="{{ $item['product_id'] }}">
+                                <button type="submit" class="btn btn-danger btn-sm">Remove</button>
+                            </form>
+                        </td>
+                    </tr>
+                @endforeach
+                </tbody>
+            </table>
 
-        <div>
-            <strong>Total: $<span id="cart-total">0.00</span></strong>
-        </div>
+            <div>
+                <strong>Total: ${{ $total }}</strong>
+            </div>
+            <!-- Cart table -->
+            <!-- Cart table -->
 
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#clientModal">
-            Shop
-        </button>
+            <!-- Shop button to trigger modal -->
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#clientModal">
+                Shop
+            </button>
 
-        <div class="modal fade" id="clientModal" tabindex="-1" aria-labelledby="clientModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <form action="{{ route('cart.checkout') }}" method="POST">
-                        @csrf
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="clientModalLabel">Client Information</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <div class="form-group">
-                                <label for="first_name">First Name</label>
-                                <input type="text" class="form-control" id="first_name" name="first_name" required>
+            <!-- Client Modal -->
+            <div class="modal fade" id="clientModal" tabindex="-1" aria-labelledby="clientModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <form action="{{ route('cart.checkout') }}" method="POST">
+                            @csrf
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="clientModalLabel">Client Information</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
-                            <div class="form-group">
-                                <label for="last_name">Last Name</label>
-                                <input type="text" class="form-control" id="last_name" name="last_name" required>
+                            <div class="modal-body">
+                                <div class="form-group">
+                                    <label for="first_name">First Name</label>
+                                    <input type="text" class="form-control" id="first_name" name="first_name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="last_name">Last Name</label>
+                                    <input type="text" class="form-control" id="last_name" name="last_name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone_number">Phone Number</label>
+                                    <input type="text" class="form-control" id="phone_number" name="phone_number" required>
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <label for="phone_number">Phone Number</label>
-                                <input type="text" class="form-control" id="phone_number" name="phone_number" required>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-primary">Checkout</button>
                             </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-primary">Checkout</button>
-                        </div>
-                    </form>
+                        </form>
+                    </div>
                 </div>
             </div>
-        </div>
+
+        @else
+            <p>Your cart is empty!</p>
+        @endif
     </div>
+    <!-- Modal -->
 
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            loadCartItems();
-            updateCartTotal();
-        });
-
-        function loadCartItems() {
-            let cartItems = JSON.parse(localStorage.getItem('productsLocal')) || {};
-
-            for (const [key, value] of Object.entries(cartItems)) {
-                let productId = key.replace('productI', '');
-                addCartItemRow(productId, value);
-            }
-        }
-
-        function addCartItemRow(productId, quantity) {
-            let cartTable = document.getElementById('cart-items');
-            let row = document.createElement('tr');
-
-            // Here, you would replace with actual product data, assuming you have a function to fetch product details
-            let product = getProductDetails(productId);
-
-            row.innerHTML = `
-            <td>${product.name}</td>
-            <td>
-                <div class="input-group">
-                    <div class="input-group-prepend">
-                        <button class="btn btn-outline-black decrease" onclick="changeQuantity(-1, ${productId})">−</button>
-                    </div>
-                    <input type="number" id="quantity-${productId}" name="quantity" class="form-control text-center quantity-amount" value="${quantity}" min="1" readonly>
-                    <div class="input-group-append">
-                        <button class="btn btn-outline-black increase" onclick="changeQuantity(1, ${productId})">+</button>
-                    </div>
-                </div>
-            </td>
-            <td>$${product.price.toFixed(2)}</td>
-            <td>$<span id="total-${productId}">${(product.price * quantity).toFixed(2)}</span></td>
-            <td>
-                <button class="btn btn-danger btn-sm" onclick="removeCartItem(${productId})">Remove</button>
-            </td>
-        `;
-            cartTable.appendChild(row);
-        }
-
-        function getProductDetails(productId) {
-            // This is a mock function. Replace it with actual logic to get product details from your server or data source.
-            const products = {
-                1: { name: "Product 1", price: 10.00 },
-                2: { name: "Product 2", price: 15.00 },
-                3: { name: "Product 3", price: 20.00 }
-            };
-            return products[productId] || { name: "Unknown", price: 0.00 };
-        }
-
-        function changeQuantity(amount, productId) {
-            let input = document.getElementById('quantity-' + productId);
-            let currentValue = parseInt(input.value);
-            let newValue = currentValue + amount;
-
-            if (newValue < 1) {
-                newValue = 1; // Minimal qiymat 1 bo'lishi kerak
-            }
-            input.value = newValue;
-
-            let productsLocal = JSON.parse(localStorage.getItem('productsLocal')) || {};
-            productsLocal['productI' + productId] = newValue;
-            localStorage.setItem('productsLocal', JSON.stringify(productsLocal));
-
-            updateTotalPrice(productId, newValue);
-            updateCartTotal();
-        }
-
-        function updateTotalPrice(productId, quantity) {
-            let product = getProductDetails(productId);
-            let total = product.price * quantity;
-            document.getElementById('total-' + productId).innerText = total.toFixed(2);
-        }
-
         function updateCartTotal() {
-            let total = 0;
-            let cartItems = JSON.parse(localStorage.getItem('productsLocal')) || {};
-
-            for (const [key, value] of Object.entries(cartItems)) {
-                let productId = key.replace('productI', '');
-                let product = getProductDetails(productId);
-                total += product.price * value;
-            }
-
-            document.getElementById('cart-total').innerText = total.toFixed(2);
+            var total = 0;
+            @foreach($cart as $item)
+                var quantity = parseInt(localStorage.getItem('quantity-{{ $item['product_id'] }}')) || {{ $item['quantity'] ?? 1 }};
+                var price = parseFloat('{{ $item['price'] ?? 0 }}');
+                total += price * quantity;
+            @endforeach
+            document.querySelector('strong').innerText = 'Total: $' + total.toFixed(2);
         }
 
-        function removeCartItem(productId) {
-            let productsLocal = JSON.parse(localStorage.getItem('productsLocal')) || {};
-            delete productsLocal['productI' + productId];
-            localStorage.setItem('productsLocal', JSON.stringify(productsLocal));
-
-            document.getElementById('quantity-' + productId).closest('tr').remove();
-            updateCartTotal();
+        function removeItem(productId) {
+            localStorage.removeItem('quantity-' + productId);
         }
     </script>
-
-    </body>
 
 @endsection

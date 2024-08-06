@@ -100,3 +100,11 @@ Route::post('orders', [\App\Http\Controllers\OrderLineController::class, 'store'
 Route::get('clients', [\App\Http\Controllers\ClientController::class, 'index'])->name('clients.index');
 Route::put('clients/{client}', [ClientController::class, 'update'])->name('clients.update');
 Route::delete('clients/{client}', [ClientController::class, 'destroy'])->name('clients.destroy');
+
+
+
+Route::get('/lang', function ($lang){
+    session()->put(['lang'=>$lang]);
+    return back();
+
+})->where('lang', 'en|ru|uz');

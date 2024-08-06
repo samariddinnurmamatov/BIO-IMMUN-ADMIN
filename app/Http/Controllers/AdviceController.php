@@ -9,7 +9,7 @@ class AdviceController extends Controller
 {
     public function index()
     {
-        $advices = Advice::all();
+        $advices = Advice::latest()->paginate(8);
         return view('admin.advice.index', compact('advices'));
     }
 
@@ -21,8 +21,12 @@ class AdviceController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'title' => 'required',
-            'description' => 'required',
+            'title_uz' => 'required',
+            'title_ru' => 'required',
+            'title_en' => 'required',
+            'description_uz' => 'required',
+            'description_ru' => 'required',
+            'description_en' => 'required',
             'photos.*' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
@@ -36,9 +40,13 @@ class AdviceController extends Controller
         }
 
         Advice::create([
-            'title' => $request->title,
+            'title_uz' => $request->title_uz,
+            'title_ru' => $request->title_ru,
+            'title_en' => $request->title_en,
             'photos' => $fileNames,
-            'description' => $request->description,
+            'description_uz' => $request->description_uz,
+            'description_ru' => $request->description_ru,
+            'description_en' => $request->description_en,
         ]);
 
         return redirect()->route('advices.index')->with('success', 'Advice created successfully.');
@@ -60,8 +68,12 @@ class AdviceController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'title' => 'required',
-            'description' => 'required',
+            'title_uz' => 'required',
+            'title_ru' => 'required',
+            'title_en' => 'required',
+            'description_uz' => 'required',
+            'description_ru' => 'required',
+            'description_en' => 'required',
             'photos.*' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
@@ -85,6 +97,13 @@ class AdviceController extends Controller
         $advice->update($data);
 
         return redirect()->route('advices.index')->with('success', 'Advice updated successfully.');
+
+    }
+
+    public function advice_page(){
+        $advices = Advice::latest()->paginate(12);
+        return view('front.advice.index', compact('advices'));
+
     }
     // public function advice_page(){
     //     $advices = Advice::latest()->paginate(12);
