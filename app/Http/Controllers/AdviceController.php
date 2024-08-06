@@ -47,8 +47,13 @@ class AdviceController extends Controller
 
 
     public function advice_page(){
-        $advices = Advice::all();
+        $advices = Advice::latest()->paginate(12);
         return view('front.advice.index', compact('advices'));
+    }
+    public  function advice_details_page($id)
+    {
+        $advice=Advice::findOrFail($id);
+        return view('front.advice.show', compact('advice'));
     }
 
 }

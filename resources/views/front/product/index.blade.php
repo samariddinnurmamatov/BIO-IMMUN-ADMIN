@@ -1,81 +1,113 @@
 @extends('layout.helper')
 @section('content')
-    <!-- Page Header Start -->
-    <div class="container-fluid page-header py-5 mb-5 wow fadeIn" data-wow-delay="0.1s">
-        <div class="container text-center py-5">
-            <h1 class="display-3 text-white mb-4 animated slideInDown">Products</h1>
-            <nav aria-label="breadcrumb animated slideInDown">
-                <ol class="breadcrumb justify-content-center mb-0">
-                    <li class="breadcrumb-item"><a href="#">Home</a></li>
-                    <li class="breadcrumb-item"><a href="#">Pages</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Products</li>
-                </ol>
-            </nav>
-        </div>
-    </div>
-    <!-- Page Header End -->
+    <?php
+    $categories=\App\Models\Category::all();
+    ?>
+    <main>
 
-    <!-- Product Start -->
-    <div class="container-xxl py-5">
-        <div class="container">
-            <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
-                <p class="section-title bg-white text-center text-primary px-3">Our Products</p>
-                <h1 class="mb-5">Our Dairy Products For Healthy Living</h1>
-            </div>
-            <div class="row gx-4">
-                <!-- Mahsulot sahifasida -->
-                @foreach($products as $product)
-                    <div class="col-md-6 col-lg-4 col-xl-3">
-                        <div class="product-item">
-                            <div class="position-relative">
-                                <img class="img-fluid" style="height: 200px; width: 100%" src="/{{ $product->photo }}" alt="">
-                            </div>
-                            <div class="text-center p-4">
-                                <a class="d-block h5" href="">{{ $product->name }}</a>
-                                <p>{{ $product->description }}</p>
-                                <span class="text-primary me-1">${{ ($product->price) * (100 - $product->percentage) / 100 }}</span>
-                                @if($product->percentage != 0)
-                                    <span class="text-decoration-line-through">${{ $product->price }}</span>
-                                @endif
-                                <form class="add-to-cart-form mt-2" method="POST" action="{{ route('cart.addItem', ['id'=>$product->id]) }}">
-                                    @csrf
-                                    <input type="hidden" name="product_id" value="{{ $product->id }}">
-                                    <label for="quantity{{ $product->id }}"></label>
-                                    <input hidden type="number" id="quantity{{ $product->id }}" name="quantity" min="1" value="1">
-                                    <button type="submit" class="btn btn-primary mt-2">Add to Cart</button>
-                                </form>
+        <!-- breadcrumb-area -->
+        <section class="breadcrumb-area d-flex  p-relative align-items-center" style="background-image:url(/assets/front/img/bg/video-img.png)">
+
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-xl-12 col-lg-12">
+                        <div class="breadcrumb-wrap text-left">
+                            <div class="breadcrumb-title">
+                                <h2>Mahsulotlar</h2>
+                                <div class="breadcrumb-wrap">
+
+                                    <nav aria-label="breadcrumb">
+                                        <ol class="breadcrumb">
+                                            <li class="breadcrumb-item"><a href="{{route('home')}}">Bosh Sahifa</a></li>
+                                            <li class="breadcrumb-item active" aria-current="page">Mahsulotlar </li>
+                                        </ol>
+                                    </nav>
+                                </div>
                             </div>
                         </div>
+
                     </div>
-                @endforeach
+                </div>
             </div>
-        </div>
-    </div>
-    <!-- Product End -->
+        </section>
+        <!-- breadcrumb-area-end -->
+        <!-- shop-area -->
+        <section class="shop-area pt-120 pb-120 p-relative " data-animation="fadeInUp animated" data-delay=".2s">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-sm-6">
+                    </div>
+                    <div class="col-lg-6 col-sm-6 text-right">
+                        <select name="orderby" class="orderby" aria-label="Shop order">
+                            <option value="menu_order" selected="selected">Kategoriyalar</option>
+                            @foreach($categories as $category)
+                                <option value="popularity">{{$category->name}}</option>
+                            @endforeach
 
-    <!-- Include jQuery -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+                        </select>
+                    </div>
+                </div>
+                <div class="row align-items-center">
+                    @foreach($products as $product=>$value)
+                        <div class="col-lg-3 col-md-6">
+                            <div class="product mb-40">
+                                <div class="product__img">
+                                    <a href="{{route('product.details', $value->id)}}"><img src="{{ $value->photo }}" alt=""></a>
+                                    <div class="product-action text-center">
 
-    <script>
-        $(document).ready(function() {
-            $('.add-to-cart-form').on('submit', function(event) {
-                // event.preventDefault();
+                                        <a href="{{route('product.details', $value->id)}}">Sotib Olish</a>
 
-                var form = $(this);
-                var url = form.attr('action');
-                var formData = form.serialize();
+                                    </div>
+                                </div>
+                                <div class="product__content text-center pt-30">
+                                    <span class="pro-cat"><a href="#">{{$value->category->name}}</a></span>
+                                    <h4 class="pro-title"><a href="{{route('product.details', $value->id)}}">{{$value->name}}</a></h4>
+                                    <p>
+                                        {{  Str::limit($value->description, 20) }}
+                                    </p>
+                                    <div class="price">
+                                        @if($value->percentage != '0')
+                                            <span class="old-price">{{$value->price}} sum</span>
+                                            <span>{{ ($value->price) * (100 - $value->percentage) / 100 }} sum</span>
+                                        @else
+                                            <span>{{ $value->price }} sum</span>
+                                        @endif
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="pagination-wrap mt-50 text-center">
 
-                $.ajax({
-                    type: 'POST',
-                    url: url,
-                    data: formData,
-                    // success: function(response) {
-                    // },
-                    // error: function(response) {
-                    //     alert('Failed to add product to cart. Please try again.');
-                    // }
-                });
-            });
-        });
-    </script>
+                                    {{$products->links('pagination.custom_two')}}
+
+                                </div>
+                            </div>
+                        </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="pagination-wrap mt-50 text-center">
+                            <nav>
+                                <ul class="pagination">
+                                    <li class="page-item"><a href="#"><i class="fas fa-angle-double-left"></i></a></li>
+                                    <li class="page-item active"><a href="#">1</a></li>
+                                    <li class="page-item"><a href="#">2</a></li>
+                                    <li class="page-item"><a href="#">3</a></li>
+                                    <li class="page-item"><a href="#">...</a></li>
+                                    <li class="page-item"><a href="#">10</a></li>
+                                    <li class="page-item"><a href="#"><i class="fas fa-angle-double-right"></i></a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                    <div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- shop-area-end -->
+    </main>
 @endsection
