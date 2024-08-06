@@ -97,6 +97,7 @@ class AdviceController extends Controller
         $advice->update($data);
 
         return redirect()->route('advices.index')->with('success', 'Advice updated successfully.');
+
     }
 
     public function advice_page(){
@@ -104,6 +105,11 @@ class AdviceController extends Controller
         return view('front.advice.index', compact('advices'));
 
     }
+    // public function advice_page(){
+    //     $advices = Advice::latest()->paginate(12);
+    //     return view('front.advice.index', compact('advices'));
+
+    // }
     public  function advice_details_page($id)
     {
         $advice=Advice::findOrFail($id);

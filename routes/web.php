@@ -35,6 +35,9 @@ Route::get('/', function (){
 Route::get('/about', function (){
     return view('front.about.index');
 })->name('about');
+Route::get('/contact', function (){
+    return view('front.contact.index');
+})->name('contact');
 
 
 
