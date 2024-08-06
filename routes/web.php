@@ -31,14 +31,14 @@ Route::get('/', function (){
     return view('front.home.home');
 })->name('home');
 
+
 Route::get('/about', function (){
-    return view('front.home.about');
+    return view('front.about.index');
 })->name('about');
 
 
 
-Route::get('/product', [ProductController::class, 'product_page'])->name('product.page');
-Route::get('/advice', [AdviceController::class, 'advice_page'])->name('advice.page');
+
 
 
 Route::get('category', [CategoryController::class, 'index'])-> name('category.index');
@@ -65,12 +65,19 @@ Route::post('logout', [Authenticate::class, 'logout'])->name('logout');
 Route::get('user/{id}', [Authenticate::class, 'showUserProfile'])->name('users.edit');
 Route::put('user/{id}', [Authenticate::class, 'updateUserProfile'])->name('users.update');
 
-
+Route::get('/blog/page', [BlogController::class, 'blogs_page'])->name('blog.page'); // Change the URL to avoid conflict
 Route::resource('blogs', BlogController::class);
+Route::get('/blog/{blog}/details', [BlogController::class, 'blog_details_page'])->name('blog.details'); // Change the URL to avoid conflict
+
+
 
 Route::resource('advices', AdviceController::class);
+Route::get('/advice', [AdviceController::class, 'advice_page'])->name('advice.page');
+Route::get('/advice/{advice}', [AdviceController::class, 'advice_details_page'])->name('advice.details');
 
 Route::resource('products', ProductController::class);
+Route::get('/product', [ProductController::class, 'product_page'])->name('product.page');
+Route::get('/product/{product}', [ProductController::class, 'product_details_page'])->name('product.details');
 
 
 Route::resource('stocks', StockController::class);

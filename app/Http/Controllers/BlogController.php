@@ -49,7 +49,7 @@ class BlogController extends Controller
 
     public function show($id)
     {
-        $blog=Blog::findOrFail($id);
+        $blog = Blog::findOrFail($id);
         return view('admin.blog.show', compact('blog'));
     }
 
@@ -90,6 +90,7 @@ class BlogController extends Controller
 
         return redirect()->route('blogs.index')->with('success', 'Blog updated successfully.');
     }
+
     public function destroy($id)
     {
         $blog = Blog::findOrFail($id);
@@ -104,6 +105,16 @@ class BlogController extends Controller
         return redirect()->route('blogs.index')->with('success', 'Blog deleted successfully.');
     }
 
+    public function blogs_page()
+    {
+        $blogs = Blog::latest()->paginate(12);
+        return view('front.blog.index', compact('blogs'));
+    }
+    public function blog_details_page($id)
+    {
+        $blog=Blog::findOrFail($id);
+        return view('front.blog.show', compact('blog'));
 
+    }
 
 }

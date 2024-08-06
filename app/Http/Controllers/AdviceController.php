@@ -50,6 +50,7 @@ class AdviceController extends Controller
         return view('admin.advice.show', compact('advice'));
     }
 
+
     public function edit($id)
     {
         $advice = Advice::findOrFail($id);
@@ -84,6 +85,16 @@ class AdviceController extends Controller
         $advice->update($data);
 
         return redirect()->route('advices.index')->with('success', 'Advice updated successfully.');
+
+    public function advice_page(){
+        $advices = Advice::latest()->paginate(12);
+        return view('front.advice.index', compact('advices'));
+
+    }
+    public  function advice_details_page($id)
+    {
+        $advice=Advice::findOrFail($id);
+        return view('front.advice.show', compact('advice'));
     }
 
     public function destroy($id)

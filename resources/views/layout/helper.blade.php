@@ -1,9 +1,13 @@
 <!doctype html>
+<?php
+$categories = \App\Models\Category::all();
+
+?>
 <html class="no-js" lang="zxx">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Dcfarm - Agriculture and Dairy Farm  HTML Template</title>
+    <title>BIO IMMUN</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" type="image/x-icon" href="/assets/front/img/favicon.ico">
@@ -20,6 +24,31 @@
     <link rel="stylesheet" href="/assets/front/css/default.css">
     <link rel="stylesheet" href="/assets/front/css/style.css">
     <link rel="stylesheet" href="/assets/front/css/responsive.css">
+    <style>
+        .cart1 {
+            position: relative;
+            display: inline-block;
+        }
+
+        .count {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background: red;
+            color: white;
+            border-radius: 50%;
+            padding: 5px 10px;
+            font-size: 12px;
+            font-weight: bold;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .cart-icon {
+            font-size: 24px;
+        }
+    </style>
 </head>
 <body>
 <!-- Cursor -->
@@ -32,7 +61,7 @@
             <div class="row align-items-center">
                 <div class="col-lg-2 col-md-12 d-none d-md-block">
                     <div class="logo">
-                        <a href="index.html"><img src="/assets/front/img/logo/logo.png" alt="logo"></a>
+                        <a href="{{route('home')}}"><img src="/assets/front/img/logo/logo.png" alt="logo"></a>
                     </div>
                 </div>
                 <div class="col-lg-10 col-md-10 text-right d-none d-lg-block">
@@ -44,7 +73,7 @@
                                         <img src="/assets/front/img/icon/phone-call.png" alt="img">
                                     </div>
                                     <div class="text">
-                                        <span>Call Now !</span>
+                                        <span>Qo'ng'iroq qiling!</span>
                                         <strong>+91 854 789-8746</strong>
                                     </div>
                                 </div>
@@ -55,7 +84,7 @@
                                         <img src="/assets/front/img/icon/mailing.png" alt="img">
                                     </div>
                                     <div class="text">
-                                        <span>Email Now</span>
+                                        <span>Elektron pochta</span>
                                         <strong>info@gmail.com</strong>
                                     </div>
                                 </div>
@@ -82,12 +111,12 @@
                 <div class="row align-items-center">
                     <div class="col-lg-2 col-md-12 d-xl-none d-lg-none d-sm-block">
                         <div class="logo">
-                            <a href="index.html"><img src="img/logo/logo.png" alt="logo"></a>
+                            <a href="{{route('home')}}"><img src="img/logo/logo.png" alt="logo"></a>
                         </div>
                     </div>
                     <div class="col-lg-2 col-md-12 d-sm-none d-xl-none d-md-block">
                         <div class="logo">
-                            <a href="index.html"><img src="img/logo/f_logo.png" alt="logo"></a>
+                            <a href="{{route('home')}}"><img src="img/logo/f_logo.png" alt="logo"></a>
                         </div>
                     </div>
                     <div class="col-xl-11 col-lg-10">
@@ -95,36 +124,47 @@
                             <nav id="mobile-menu">
                                 <ul>
                                     <li class="has-sub">
-                                        <a href="{{route('home')}}">Home</a>
+                                        <a href="{{route('home')}}">Bosh Sahifa</a>
                                     </li>
                                     <li class="has-sub">
-                                        <a href="{{route('home')}}">About Us</a>
+                                        <a href="{{route('about')}}">Biz Haqimizda</a>
                                     </li>
                                     <li class="has-sub">
-                                        <a href="">Categories</a>
+                                        <a href="">Kategoriya</a>
                                         <ul>
-                                            <li><a href="projects.html">Gallery</a></li>
+                                            @foreach($categories as $category)
+                                                <li><a href="">{{$category->name}}</a></li>
+                                            @endforeach
 
                                         </ul>
                                     </li>
-                                    <li><a href="">Products</a></li>
+                                    <li><a href="{{route('product.page')}}">Mahsulotlar</a></li>
                                     <li class="has-sub">
-                                        <a href="#">Blogs</a>
+                                        <a href="/blog/page">Yangiliklar</a>
                                     </li>
                                     <li class="has-sub">
-                                        <a href="services.html">Advices</a>
+                                        <a href="{{route('advice.page')}}">Maslahatlar</a>
                                     </li>
 
 
-                                    <li><a href="contact.html">Contact Us</a></li>
+                                    <li><a href="contact.html">Kontakt</a></li>
                                 </ul>
                             </nav>
                         </div>
                     </div>
                     <div class="col-xl-1 col-lg-1 text-right d-none d-xl-block">
                         <div class="header-cta3">
-                            <ul>
+                            <ul style="display: flex; gap: 10px;">
                                 <li><a href="#" class="top-btn menu-tigger"><i class="fal fa-search"></i></a></li>
+                                <li style="position: relative;">
+                                    <a href="/cart" class="top-btn">
+                                        <div class="cart1">
+                                            <span class="count" id="countProduct"></span>
+                                            <i class="cart-icon fa fa-shopping-cart"></i>
+                                        </div>
+                                    </a>
+                                </li>
+
                             </ul>
                         </div>
                     </div>
@@ -140,26 +180,26 @@
 <!-- offcanvas-area -->
 <div class="offcanvas-menu">
     <span class="menu-close"><i class="fas fa-times"></i></span>
-    <form role="search" method="get" id="searchform"   class="searchform" action="http://wordpress.zcube.in/xconsulta/">
+    <form role="search" method="get" id="searchform" class="searchform" action="http://wordpress.zcube.in/xconsulta/">
         <input type="text" name="s" id="search" placeholder="Search"/>
         <button><i class="fa fa-search"></i></button>
     </form>
     <div id="cssmenu3" class="menu-one-page-menu-container">
-        <ul  class="menu">
-            <li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="index.html">Home</a></li>
-            <li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="about.html">About Us</a></li>
-            <li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="services.html">Services</a></li>
-            <li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="pricing.html">Pricing </a></li>
-            <li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="team.html">Team </a></li>
-            <li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="projects.html">Cases Study</a></li>
-            <li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="blog.html">Blog</a></li>
-            <li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="contact.html">Contact</a></li>
+        <ul class="menu">
+            <li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="index.html">Bosh Sahifa</a></li>
+            <li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="about.html">Biz Haqimizda</a></li>
+            <li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="services.html">Mahsulotlar</a></li>
+            <li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="pricing.html">Yangiliklar </a></li>
+            <li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="team.html">Maslahatlar </a></li>
+            <li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="contact.html">Kontakt</a></li>
         </ul>
     </div>
     <div id="cssmenu2" class="menu-one-page-menu-container">
         <ul id="menu-one-page-menu-12" class="menu">
-            <li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="#home"><span>+8 12 3456897</span></a></li>
-            <li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="#howitwork"><span>info@example.com</span></a></li>
+            <li class="menu-item menu-item-type-custom menu-item-object-custom"><a
+                    href="#home"><span>+8 12 3456897</span></a></li>
+            <li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="#howitwork"><span>info@example.com</span></a>
+            </li>
         </ul>
     </div>
 </div>
@@ -168,7 +208,8 @@
 
 @yield('content')
 <!-- footer -->
-<footer class="footer-bg footer-p pt-150" style="background-color: #fff; background-image: url(/assets/front/img/bg/footer-bg.png); background-position: 0 0;">
+<footer class="footer-bg footer-p pt-150"
+        style="background-color: #fff; background-image: url(/assets/front/img/bg/footer-bg.png); background-position: 0 0;">
     <div class="footer-top pb-70">
         <div class="container">
             <div class="row justify-content-between">
@@ -176,11 +217,7 @@
                 <div class="col-xl-4 col-lg-4 col-sm-6">
                     <div class="footer-widget mb-30">
                         <div class="f-widget-title mb-30">
-                            <a href="index.html"><img src="img/logo/f_logo.png" alt="img"></a>
-                        </div>
-                        <div class="f-contact">
-                            <p>Suspendisse non sem ante. Cras pretium gravida leo a convallis. Nam malesuada interdum metus, sit amet dictum ante congue eu. Maecenas ut maximus enim.</p>
-
+                            <a href="{{route('home')}}"><img src="img/logo/f_logo.png" alt="img"></a>
                         </div>
                         <div class="footer-social mt-10">
                             <a href="#"><i class="fab fa-facebook-f"></i></a>
@@ -192,15 +229,16 @@
                 <div class="col-xl-2 col-lg-2 col-sm-6">
                     <div class="footer-widget mb-30">
                         <div class="f-widget-title">
-                            <h2>Our Links</h2>
+                            <h2>Sahifalar</h2>
                         </div>
                         <div class="footer-link">
                             <ul>
-                                <li><a href="index.html">Home</a></li>
-                                <li><a href="about.html"> About</a></li>
-                                <li><a href="services.html"> Services </a></li>
-                                <li><a href="contact.html"> Contact Us</a></li>
-                                <li><a href="blog.html">Blog </a></li>
+                                <li><a href="{{route('home')}}">Bosh Sahifa</a></li>
+                                <li><a href="{{route('about')}}"> Biz Haqimizda</a></li>
+                                <li><a href="{{route('product.page')}}"> Mahsulotlar </a></li>
+                                <li><a href="/blog/page"> Yangiliklar</a></li>
+                                <li><a href="{{route('advice.page')}}">Maslahatlar </a></li>
+                                <li><a href="">Kontakt </a></li>
                             </ul>
                         </div>
                     </div>
@@ -215,7 +253,8 @@
                             <ul>
                                 <li>
                                     <i class="icon fal fa-phone"></i>
-                                    <span><a href="tel:+14440008888">+1 (444) 000-8888</a><br><a href="tel:+917052101786">+91 7052 101 786</a></span>
+                                    <span><a href="tel:+14440008888">+1 (444) 000-8888</a><br><a
+                                            href="tel:+917052101786">+91 7052 101 786</a></span>
                                 </li>
                                 <li><i class="icon fal fa-envelope"></i>
                                     <span>
@@ -235,31 +274,6 @@
 
                     </div>
                 </div>
-                <div class="col-xl-3 col-lg-3 col-sm-6">
-                    <div class="footer-widget mb-30">
-                        <div class="f-widget-title">
-                            <h2>Latest Post</h2>
-                        </div>
-                        <div class="recent-blog-footer">
-                            <ul>
-                                <li>
-                                    <div class="thum"> <img src="/assets/front/img/blog/s-blogimg-01.png" alt="img"></div>
-                                    <div class="text"> <a href="#">Nothing impossble to need hard work</a>
-                                        <span>7 March, 2020</span></div>
-                                </li>
-
-                                <li>
-                                    <div class="thum"> <img src="/assets/front/img/blog/s-blogimg-02.png" alt="img"></div>
-                                    <div class="text"> <a href="#">Nothing impossble to need hard work</a>
-                                        <span>7 March, 2020</span></div>
-                                </li>
-
-                            </ul>
-
-
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
@@ -267,7 +281,7 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6">
-                    Copyright &copy; Dcfarm 2023 . All rights reserved.
+                    DORA - International & Marketing Company   2024 © DORA
                 </div>
                 <div class="col-lg-6 text-right text-xl-right">
                     <ul>
@@ -281,6 +295,27 @@
     </div>
 </footer>
 <!-- footer-end -->
+
+<script>
+    document.addEventListener('click', function(event) {
+        calcF()
+    });
+
+    function calcF(){
+        let countP = 0
+        let productsLocal = window.localStorage.getItem('productsLocal')
+        if (!productsLocal) {
+            productsLocal = {};
+        } else {
+            productsLocal = JSON.parse(productsLocal);
+        }
+        Object.values(productsLocal).forEach(item => {
+            countP += item;
+        });
+        document.getElementById('countProduct').innerHTML = countP
+    }
+    calcF()
+</script>
 
 <!-- JS here -->
 <script src="/assets/front/js/vendor/modernizr-3.5.0.min.js"></script>

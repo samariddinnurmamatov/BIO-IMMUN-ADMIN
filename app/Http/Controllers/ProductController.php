@@ -51,7 +51,8 @@ class ProductController extends Controller
     }
 
     // Update an existing category
-    public function update(Request $request, Product $product) {
+    public function update(Request $request, Product $product)
+    {
         $request->validate([
             'name' => 'required|string|max:255',
             'photo' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
@@ -84,6 +85,16 @@ class ProductController extends Controller
         return redirect()->route('products.index')->with('success', 'Product deleted successfully.');
     }
 
+    public function product_page()
+    {
+        $products = Product::latest()->paginate(12);
+        return view('front.product.index', compact('products'));
+    }
 
+    public function product_details_page($id)
+    {
+        $product = Product::findOrFail($id);
+        return view('front.product.show', compact('product'));
+    }
 
 }
