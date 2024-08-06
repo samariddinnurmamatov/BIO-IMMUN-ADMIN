@@ -1,5 +1,6 @@
 <!doctype html>
 <?php
+    $lang = \Illuminate\Support\Facades\App::getLocale();
 $categories = \App\Models\Category::all();
 
 ?>
@@ -24,12 +25,12 @@ $categories = \App\Models\Category::all();
     <link rel="stylesheet" href="/assets/front/css/default.css">
     <link rel="stylesheet" href="/assets/front/css/style.css">
     <link rel="stylesheet" href="/assets/front/css/responsive.css">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
     <style>
         .cart1 {
             position: relative;
             display: inline-block;
         }
-
         .count {
             position: absolute;
             top: -10px;
@@ -47,6 +48,18 @@ $categories = \App\Models\Category::all();
 
         .cart-icon {
             font-size: 24px;
+        }
+        .language-selection a {
+            margin-right: 10px;
+            text-decoration: none;
+            padding: 5px 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .language-selection a.active {
+            background-color: #007bff;
+            color: white;
+            border-color: #007bff;
         }
     </style>
 </head>
@@ -98,6 +111,14 @@ $categories = \App\Models\Category::all();
                                  </span>
                                     <!--  /social media icon redux -->
                                 </div>
+                            </li>
+                            <li class="has-sub">
+                                <ul>
+
+                                        <li> <a href="/en" class="{{ $lang == 'en' ? 'active' : '' }}">Eng</a></li>
+                                        <li> <a href="/ru" class="{{ $lang == 'ru' ? 'active' : '' }}">Рус</a></li>
+                                        <li> <a href="/uz" class="{{ $lang == 'uz' ? 'active' : '' }}">Uz</a></li>
+                                </ul>
                             </li>
                         </ul>
                     </div>
@@ -296,26 +317,6 @@ $categories = \App\Models\Category::all();
 </footer>
 <!-- footer-end -->
 
-<script>
-    document.addEventListener('click', function(event) {
-        calcF()
-    });
-
-    function calcF(){
-        let countP = 0
-        let productsLocal = window.localStorage.getItem('productsLocal')
-        if (!productsLocal) {
-            productsLocal = {};
-        } else {
-            productsLocal = JSON.parse(productsLocal);
-        }
-        Object.values(productsLocal).forEach(item => {
-            countP += item;
-        });
-        document.getElementById('countProduct').innerHTML = countP
-    }
-    calcF()
-</script>
 
 <!-- JS here -->
 <script src="/assets/front/js/vendor/modernizr-3.5.0.min.js"></script>
@@ -337,5 +338,8 @@ $categories = \App\Models\Category::all();
 <script src="/assets/front/js/jquery.magnific-popup.min.js"></script>
 <script src="/assets/front/js/element-in-view.js"></script>
 <script src="/assets/front/js/main.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>

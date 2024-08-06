@@ -54,9 +54,11 @@
                                 <div class="product__img">
                                     <a href="{{route('product.details', $value->id)}}"><img src="{{ $value->photo }}" alt=""></a>
                                     <div class="product-action text-center">
-
-                                        <a href="{{route('product.details', $value->id)}}">Sotib Olish</a>
-
+                                        <form action="{{ route('cart.addItem', $value->id) }}" method="POST">
+                                            @csrf
+                                            <input type="hidden" name="product_id" value="{{ $value->id }}">
+                                            <button type="submit" class="btn btn-primary">Savatga qo'shish</button>
+                                        </form>
                                     </div>
                                 </div>
                                 <div class="product__content text-center pt-30">

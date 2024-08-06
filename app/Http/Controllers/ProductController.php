@@ -87,7 +87,7 @@ class ProductController extends Controller
 
     public function product_page()
     {
-        $products = Product::latest()->paginate(12);
+        $products = Product::latest()->paginate(1);
         return view('front.product.index', compact('products'));
     }
 

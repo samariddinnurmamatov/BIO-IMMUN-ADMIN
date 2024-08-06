@@ -9,7 +9,7 @@ class BlogController extends Controller
 {
     public function index()
     {
-        $blogs = Blog::all();
+        $blogs = Blog::latest()->paginate(8);
         return view('admin.blog.index', compact('blogs'));
     }
 
@@ -21,8 +21,12 @@ class BlogController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'title' => 'required',
-            'description' => 'required',
+            'title_uz' => 'required',
+            'title_ru' => 'required',
+            'title_en' => 'required',
+            'description_uz' => 'required',
+            'description_ru' => 'required',
+            'description_en' => 'required',
             'photos.*' => 'image|mimes:jpeg,png,jpg,gif',
         ]);
 
@@ -35,9 +39,13 @@ class BlogController extends Controller
             }
 
             Blog::create([
-                'title' => $request->title,
+                'title_uz' => $request->title_uz,
+                'title_ru' => $request->title_ru,
+                'title_en' => $request->title_en,
                 'photos' => $fileNames, // Avtomatik ravishda JSON formatga o'giradi
-                'description' => $request->description,
+                'description_uz' => $request->description_uz,
+                'description_ru' => $request->description_ru,
+                'description_en' => $request->description_en,
             ]);
 
             return redirect()->route('blogs.index')->with('success', 'Blog created successfully.');
@@ -62,33 +70,38 @@ class BlogController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'title' => 'required',
-            'description' => 'required',
-            'photo' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'title_uz' => 'required',
+            'title_ru' => 'required',
+            'title_en' => 'required',
+            'description_uz' => 'required',
+            'description_ru' => 'required',
+            'description_en' => 'required',
+            'photos.*' => 'image|mimes:jpeg,png,jpg,gif',
         ]);
 
         $blog = Blog::findOrFail($id);
 
-        $data = [
-            'title' => $request['title'],
-            'description' => $request['description'],
-        ];
+        $fileNames = $blog->photos ?? [];
 
-        if ($request->hasFile('photo')) {
-            if ($blog->photo && file_exists(public_path('uploads/' . $blog->photo))) {
-                unlink(public_path('uploads/' . $blog->photo));
+        if ($request->hasFile('photos')) {
+            foreach ($request->file('photos') as $file) {
+                $filename = time() . '_' . $file->getClientOriginalName();
+                $file->storeAs('public/uploads', $filename);
+                $fileNames[] = $filename;
             }
-
-            $file = $request->file('photo');
-            $filename = time() . '_' . $file->getClientOriginalName();
-            $file->move(public_path('uploads'), $filename);
-
-            $data['photo'] = $filename;
         }
 
-        $blog->update($data);
+        $blog->update([
+            'title_uz' => $request->title_uz,
+            'title_ru' => $request->title_ru,
+            'title_en' => $request->title_en,
+            'photos' => $fileNames, // Avtomatik ravishda JSON formatga o'giradi
+            'description_uz' => $request->description_uz,
+            'description_ru' => $request->description_ru,
+            'description_en' => $request->description_en,
+        ]);
 
-        return redirect()->route('blogs.index')->with('success', 'Blog updated successfully.');
+        return redirect()->route('blogs.index')->with('success', 'Blog post updated successfully.');
     }
 
     public function destroy($id)
