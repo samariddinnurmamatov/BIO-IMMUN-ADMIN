@@ -1,8 +1,7 @@
 <!doctype html>
 <?php
     $lang = \Illuminate\Support\Facades\App::getLocale();
-$categories = \App\Models\Category::all();
-
+    $categories = \App\Models\Category::all();
 ?>
 <html class="no-js" lang="zxx">
 <head>
@@ -45,21 +44,48 @@ $categories = \App\Models\Category::all();
             justify-content: center;
             align-items: center;
         }
-
         .cart-icon {
             font-size: 24px;
         }
-        .language-selection a {
-            margin-right: 10px;
-            text-decoration: none;
-            padding: 5px 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
+        .language-selection {
+            position: relative;
+            display: inline-block;
         }
-        .language-selection a.active {
-            background-color: #007bff;
+        .language-selection .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            border-radius: 4px;
+            top: 100%; /* Position below the button */
+            left: -50px;
+        }
+        .language-selection .dropdown-content a {
+            color: black;
+            padding: 7px 16px;
+            text-decoration: none;
+            display: flex;
+            align-content: flex-start;
+        }
+        .language-selection .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+        .language-selection .show {
+            display: block;
+        }
+        .language-selection .dropbtn {
+            background-color: #006e2f;
             color: white;
-            border-color: #007bff;
+            padding: 4px 15px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        .language-selection .dropbtn.active {
+            background-color: #0056b3;
         }
     </style>
 </head>
@@ -112,13 +138,13 @@ $categories = \App\Models\Category::all();
                                     <!--  /social media icon redux -->
                                 </div>
                             </li>
-                            <li class="has-sub">
-                                <ul>
-
-                                        <li> <a href="/en" class="{{ $lang == 'en' ? 'active' : '' }}">Eng</a></li>
-                                        <li> <a href="/ru" class="{{ $lang == 'ru' ? 'active' : '' }}">Рус</a></li>
-                                        <li> <a href="/uz" class="{{ $lang == 'uz' ? 'active' : '' }}">Uz</a></li>
-                                </ul>
+                            <li class="language-selection">
+                                <button class="dropbtn" id="dropdownButton">{{ strtoupper($lang) }}</button>
+                                <div class="dropdown-content" id="dropdownContent" style="z-index: 999;">
+                                    <a href="/en" data-lang="en">Eng</a>
+                                    <a href="/ru" data-lang="ru">Рус</a>
+                                    <a href="/uz" data-lang="uz">Uz</a>
+                                </div>
                             </li>
                         </ul>
                     </div>
@@ -166,8 +192,6 @@ $categories = \App\Models\Category::all();
                                     <li class="has-sub">
                                         <a href="{{route('advice.page')}}">Maslahatlar</a>
                                     </li>
-
-
                                     <li><a href="{{route('contact')}}">Kontakt</a></li>
                                 </ul>
                             </nav>
@@ -185,7 +209,6 @@ $categories = \App\Models\Category::all();
                                         </div>
                                     </a>
                                 </li>
-
                             </ul>
                         </div>
                     </div>
@@ -198,6 +221,7 @@ $categories = \App\Models\Category::all();
     </div>
 </header>
 <!-- header-end -->
+
 <!-- offcanvas-area -->
 <div class="offcanvas-menu">
     <span class="menu-close"><i class="fas fa-times"></i></span>
@@ -228,13 +252,13 @@ $categories = \App\Models\Category::all();
 <!-- offcanvas-end -->
 
 @yield('content')
+
 <!-- footer -->
 <footer class="footer-bg footer-p pt-150"
         style="background-color: #fff; background-image: url(/assets/front/img/bg/footer-bg.png); background-position: 0 0;">
     <div class="footer-top pb-70">
         <div class="container">
             <div class="row justify-content-between">
-
                 <div class="col-xl-4 col-lg-4 col-sm-6">
                     <div class="footer-widget mb-30">
                         <div class="f-widget-title mb-30">
@@ -264,7 +288,6 @@ $categories = \App\Models\Category::all();
                         </div>
                     </div>
                 </div>
-
                 <div class="col-xl-3 col-lg-3 col-sm-6">
                     <div class="footer-widget mb-30">
                         <div class="f-widget-title">
@@ -288,11 +311,8 @@ $categories = \App\Models\Category::all();
                                     <i class="icon fal fa-map-marker-check"></i>
                                     <span>1247/Plot No. 39, 15th Phase,<br> LHB Colony, Kanpur</span>
                                 </li>
-
                             </ul>
-
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -317,7 +337,6 @@ $categories = \App\Models\Category::all();
 </footer>
 <!-- footer-end -->
 
-
 <!-- JS here -->
 <script src="/assets/front/js/vendor/modernizr-3.5.0.min.js"></script>
 <script src="/assets/front/js/vendor/jquery-3.6.4.min.js"></script>
@@ -341,5 +360,17 @@ $categories = \App\Models\Category::all();
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
 
+<script>
+    document.getElementById('dropdownButton').addEventListener('click', function() {
+        document.getElementById('dropdownContent').classList.toggle('show');
+    });
+
+    document.querySelectorAll('.dropdown-content a').forEach(function(link) {
+        link.addEventListener('click', function() {
+            document.getElementById('dropdownButton').innerText = this.innerText;
+            document.getElementById('dropdownContent').classList.remove('show');
+        });
+    });
+</script>
 </body>
 </html>
