@@ -6,14 +6,14 @@
 
             <div class="flex flex-col gap-2 py-4 md:flex-row md:items-center print:hidden">
                 <div class="grow">
-                    <h5 class="text-16">Blog Show</h5>
+                    <h5 class="text-16">Advice Show</h5>
                 </div>
                 <ul class="flex items-center gap-2 text-sm font-normal shrink-0">
                     <li class="relative before:content-['\ea54'] before:font-remix ltr:before:-right-1 rtl:before:-left-1  before:absolute before:text-[18px] before:-top-[3px] ltr:pr-4 rtl:pl-4 before:text-slate-400 dark:text-zink-200">
-                        <a href="{{route('blogs.index')}}" class="text-slate-400 dark:text-zink-200">Blogs</a>
+                        <a href="{{route('advices.index')}}" class="text-slate-400 dark:text-zink-200">Advices</a>
                     </li>
                     <li class="text-slate-700 dark:text-zink-100">
-                        Blog Show
+                        Advice Show
                     </li>
                 </ul>
             </div>
@@ -21,18 +21,18 @@
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 justify-between" style="margin-top: 20px; padding: 0px 20px; width: 100%;">
                 <div class="lg:col-span-6 px-2">
                     <div class="relative before:absolute " data-aos="zoom-out-up">
-                        <div id="carousel-{{ $blog->id }}" class="custom-carousel">
+                        <div id="carousel-{{ $advice->id }}" class="custom-carousel">
                             <div class="carousel-inner">
-                                @foreach($blog->photos as $index => $photo)
+                                @foreach($advice->photos as $index => $photo)
                                     <div class="carousel-item {{ $index === 0 ? 'active' : '' }}">
-                                        <img src="{{ url('storage/uploads/'.$photo) }}" class="d-block w-100" alt="Blog Photo">
+                                        <img src="{{ url('storage/uploads/'.$photo) }}" class="d-block w-100" alt="Advice Photo">
                                     </div>
                                 @endforeach
                             </div>
-                            <button class="carousel-control-prev" onclick="prevSlide({{ $blog->id }})" style="padding: 2px 11px; border-radius: 20px;">
+                            <button class="carousel-control-prev" onclick="prevSlide({{ $advice->id }})" style="padding: 2px 11px; border-radius: 20px;">
                                 <span class="carousel-control-prev-icon" aria-hidden="true">&#10094;</span>
                             </button>
-                            <button class="carousel-control-next" onclick="nextSlide({{ $blog->id }})" style="padding: 2px 11px; border-radius: 20px;">
+                            <button class="carousel-control-next" onclick="nextSlide({{ $advice->id }})" style="padding: 2px 11px; border-radius: 20px;">
                                 <span class="carousel-control-next-icon" aria-hidden="true">&#10095;</span>
                             </button>
                         </div>
@@ -41,8 +41,8 @@
 
                 <div class="ml-auto lg:col-span-6" style="display: flex; flex-direction: column; align-items: start; justify-content: center; width: 100%">
                     <p class="mb-2 text-purple-500 text-15 aos-init" data-aos="fade-left" data-aos-delay="300"></p>
-                    <h1 class="mb-3 leading-normal capitalize aos-init" data-aos="fade-left" data-aos-delay="400">{{$blog->title}}</h1>
-                    <p class="mb-5 text-lg text-slate-500 dark:text-zinc-400 aos-init" data-aos="fade-left" data-aos-delay="500">{{$blog->description}}</p>
+                    <h1 class="mb-3 leading-normal capitalize aos-init" data-aos="fade-left" data-aos-delay="400">{{$advice->title}}</h1>
+                    <p class="mb-5 text-lg text-slate-500 dark:text-zinc-400 aos-init" data-aos="fade-left" data-aos-delay="500">{{$advice->description}}</p>
                     <button type="button" class="px-8 py-3 text-white border-0 text-15 btn bg-gradient-to-r from-custom-500 to-purple-500 hover:text-white hover:from-purple-500 hover:to-custom-500 aos-init aos-animate" data-aos="fade-left" data-aos-delay="600">Shop now
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="move-right" class="lucide lucide-move-right inline-block align-middle size-4 rtl:mr-1 ltr:ml-1">
                             <path d="M18 8L22 12L18 16"></path>
@@ -119,6 +119,6 @@
     }
 
     document.addEventListener('DOMContentLoaded', () => {
-        initCarousel({{ $blog->id }});
+        initCarousel({{ $advice->id }});
     });
 </script>

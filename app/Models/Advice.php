@@ -8,9 +8,17 @@ use Illuminate\Database\Eloquent\Model;
 class Advice extends Model
 {
     use HasFactory;
-    protected $fillable = [
+    
+    protected $table = 'advices';
+
+    protected $fillable=[
         'title',
-        'photo',
+        'photos',
         'description',
     ];
+    protected $casts = [
+        'photos' => 'array',
+    ];
 }
+
+

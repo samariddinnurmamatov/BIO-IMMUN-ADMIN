@@ -6,14 +6,14 @@
 
             <div class="flex flex-col gap-2 py-4 md:flex-row md:items-center print:hidden">
                 <div class="grow">
-                    <h5 class="text-16">Add Advice</h5>
+                    <h5 class="text-16">Add New</h5>
                 </div>
                 <ul class="flex items-center gap-2 text-sm font-normal shrink-0">
                     <li class="relative before:content-['\ea54'] before:font-remix ltr:before:-right-1 rtl:before:-left-1  before:absolute before:text-[18px] before:-top-[3px] ltr:pr-4 rtl:pl-4 before:text-slate-400 dark:text-zink-200">
-                        <a href="#!" class="text-slate-400 dark:text-zink-200">Advices</a>
+                        <a href="{{route('advices.index')}}" class="text-slate-400 dark:text-zink-200">Advice</a>
                     </li>
                     <li class="text-slate-700 dark:text-zink-100">
-                        Add New
+                        Edit Advice
                     </li>
                 </ul>
             </div>
@@ -23,12 +23,13 @@
                         <div class="card-body">
                             <h6 class="mb-4 text-15">Create Advice</h6>
 
-                            <form action="{{route('advices.store')}}" method="POST" enctype="multipart/form-data">
+                            <form action="{{route('advices.update', ['advice'=>$advice->id])}}" method="POST" enctype="multipart/form-data">
+                                @method('PUT')
                                 @csrf
                                 <div class="grid grid-cols-1 gap-5 lg:grid-cols-2 xl:grid-cols-12">
                                     <div class="xl:col-span-6">
                                         <label for="productNameInput" class="inline-block mb-2 text-base font-medium">Advice Title</label>
-                                        <input type="text" name="title"   id="productNameInput" class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Advice title"     >
+                                        <input type="text" name="title"  value="{{$advice->title ?? ''}}"  id="productNameInput" class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Advice title"     >
                                         @error('title')
                                         <p class="mt-1 text-sm text-slate-400 dark:text-zink-200">{{$message}}.</p>
                                         @enderror
@@ -37,7 +38,7 @@
                                     <div class="lg:col-span-2 xl:col-span-12">
                                         <label for="genderSelect" class="inline-block mb-2 text-base font-medium">Advice Images</label>
                                         <div class="flex items-center justify-center bg-white border border-dashed rounded-md cursor-pointer dropzone border-slate-300 dark:bg-zink-700 dark:border-zink-500 dropzone2 dz-clickable" onclick="document.getElementById('fileInput').click()">
-                                            <input type="file" name="photo" id="fileInput" class="hidden"  multiple>
+                                            <input type="file" name="photo" id="fileInput" class="hidden">
                                             <div class="w-full py-5 text-lg text-center dz-message needsclick">
                                                 <div class="mb-3">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="upload-cloud" class="lucide lucide-upload-cloud block mx-auto size-12 text-slate-500 fill-slate-200 dark:text-zink-200 dark:fill-zink-500">
@@ -47,7 +48,7 @@
                                                     </svg>
                                                 </div>
                                                 <h5 class="mb-0 font-normal text-slate-500 dark:text-zink-200 text-15">
-                                                    Drag and drop your advice image or <a href="#!" onclick="document.getElementById('fileInput').click()">browse</a> your advice images
+                                                    Drag and drop your advice images or <a href="#!" onclick="document.getElementById('fileInput').click()">browse</a> your advice images
                                                 </h5>
                                             </div>
                                         </div>
@@ -62,7 +63,7 @@
                                     <div class="lg:col-span-2 xl:col-span-12">
                                         <div>
                                             <label for="productDescription" class="inline-block mb-2 text-base font-medium">Description</label>
-                                            <textarea  name="description"  class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" id="productDescription" placeholder="Enter Description" rows="5"></textarea>
+                                            <textarea  name="description"  class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" id="productDescription" placeholder="Enter Description" rows="5">{{$advice->description ?? ''}}</textarea>
                                             @error('description')
                                             <p class="mt-1 text-sm text-slate-400 dark:text-zink-200">{{$message}}.</p>
                                             @enderror
@@ -71,7 +72,7 @@
                                 </div><!--end grid-->
                                 <div class="flex justify-end gap-2 mt-4">
                                     <button type="reset" class="text-red-500 bg-white btn hover:text-red-500 hover:bg-red-100 focus:text-red-500 focus:bg-red-100 active:text-red-500 active:bg-red-100 dark:bg-zink-700 dark:hover:bg-red-500/10 dark:focus:bg-red-500/10 dark:active:bg-red-500/10">Reset</button>
-                                    <button type="submit" class="text-white btn bg-custom-500 border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:ring-custom-400/20">Create Advice</button>
+                                    <button type="submit" class="text-white btn bg-custom-500 border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:ring-custom-400/20">Edit Advice</button>
                                     <button type="button" class="text-white bg-green-500 border-green-500 btn hover:text-white hover:bg-green-600 hover:border-green-600 focus:text-white focus:bg-green-600 focus:border-green-600 focus:ring focus:ring-green-100 active:text-white active:bg-green-600 active:border-green-600 active:ring active:ring-green-100 dark:ring-green-400/10">Draft &amp; Preview</button>
                                 </div>
                             </form>
@@ -81,7 +82,7 @@
                 <div class="xl:col-span-3">
                     <div class="card sticky top-[calc(theme('spacing.header')_*_1.3)]">
                         <div class="card-body">
-                            <h6 class="mb-4 text-15">Advice Card Preview</h6>
+                            <h6 class="mb-4 text-15">Product Card Preview</h6>
 
                             <div class="px-5 py-8 rounded-md bg-sky-50 dark:bg-zink-600">
                                 <img src="assets/images/img-03.png" alt="" class="block mx-auto h-44">
