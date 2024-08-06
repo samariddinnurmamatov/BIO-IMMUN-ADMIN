@@ -21,21 +21,7 @@
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 justify-between" style="margin-top: 20px; padding: 0px 20px; width: 100%;">
                 <div class="lg:col-span-6 px-2">
                     <div class="relative before:absolute " data-aos="zoom-out-up">
-                        <div id="carousel-{{ $advice->id }}" class="custom-carousel">
-                            <div class="carousel-inner">
-                                @foreach($advice->photos as $index => $photo)
-                                    <div class="carousel-item {{ $index === 0 ? 'active' : '' }}">
-                                        <img src="{{ url('storage/uploads/'.$photo) }}" class="d-block w-100" alt="Advice Photo">
-                                    </div>
-                                @endforeach
-                            </div>
-                            <button class="carousel-control-prev" onclick="prevSlide({{ $advice->id }})" style="padding: 2px 11px; border-radius: 20px;">
-                                <span class="carousel-control-prev-icon" aria-hidden="true">&#10094;</span>
-                            </button>
-                            <button class="carousel-control-next" onclick="nextSlide({{ $advice->id }})" style="padding: 2px 11px; border-radius: 20px;">
-                                <span class="carousel-control-next-icon" aria-hidden="true">&#10095;</span>
-                            </button>
-                        </div>
+                        <img src="{{ url('storage/uploads/'.$photo) }}" class="d-block w-100" alt="Advice Photo">
                     </div>
                 </div>
 

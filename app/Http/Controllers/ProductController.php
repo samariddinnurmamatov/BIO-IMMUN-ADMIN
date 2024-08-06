@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
@@ -18,14 +19,18 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required|string|max:255',
+            'name_uz' => 'required|string|max:255',
+            'name_ru' => 'required|string|max:255',
+            'name_en' => 'required|string|max:255',
             'photo' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
             'price' => 'required|numeric',
             'quantity' => 'required|numeric',
             'status' => 'required',
             'percentage' => 'required',
             'category_id' => 'required|numeric',
-            'description' => 'nullable',
+            'description_uz' => 'nullable',
+            'description_ru' => 'nullable',
+            'description_en' => 'nullable',
         ]);
 
         $photoPath = '';
@@ -37,42 +42,72 @@ class ProductController extends Controller
         }
 
         Product::create([
-            'name' => $request->name,
+            'name_uz' => $request->name_uz,
+            'name_ru' => $request->name_ru,
+            'name_en' => $request->name_en,
             'photo' => $photoPath,
             'price' => $request->price,
             'quantity' => $request->quantity,
             'status' => $request->status,
             'percentage' => $request->percentage,
             'category_id' => $request->category_id,
-            'description' => $request->description,
+            'description_uz' => $request->description_uz,
+            'description_ru' => $request->description_ru,
+            'description_en' => $request->description_en,
         ]);
 
         return redirect()->route('products.index')->with('success', 'Product created successfully.');
     }
 
-    public function update(Request $request, Product $product)
+    public function update(Request $request, $id)
     {
         $request->validate([
-            'name' => 'required|string|max:255',
+            'name_uz' => 'required|string|max:255',
+            'name_ru' => 'required|string|max:255',
+            'name_en' => 'required|string|max:255',
             'photo' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'price' => 'required|numeric',
             'quantity' => 'required|numeric',
             'status' => 'required',
             'percentage' => 'required',
             'category_id' => 'required|numeric',
-            'description' => 'nullable',
+            'description_uz' => 'nullable',
+            'description_ru' => 'nullable',
+            'description_en' => 'nullable',
         ]);
 
-        $data = $request->only(['name', 'price', 'quantity', 'status', 'percentage', 'category_id', 'description']);
 
+        $product = Product::findOrFail($id);
+
+        // Eski rasmni o'chirish va yangi rasmni yuklash
         if ($request->hasFile('photo')) {
+            if ($product->photo) {
+                Storage::disk('public')->delete(str_replace('storage/', '', $product->photo));
+            }
+
+            // Yangi rasmni yuklash
             $file = $request->file('photo');
             $filename = time() . '_' . $file->getClientOriginalName();
             $file->storeAs('photos', $filename, 'public');
-            $data['photo'] = 'storage/photos/' . $filename;
+            $photoPath = 'storage/photos/' . $filename;
+        } else {
+            $photoPath = $product->photo;
         }
 
-        $product->update($data);
+        $product->update([
+            'name_uz' => $request->name_uz,
+            'name_ru' => $request->name_ru,
+            'name_en' => $request->name_en,
+            'photo' => $photoPath,
+            'price' => $request->price,
+            'quantity' => $request->quantity,
+            'status' => $request->status,
+            'percentage' => $request->percentage,
+            'category_id' => $request->category_id,
+            'description_uz' => $request->description_uz,
+            'description_ru' => $request->description_ru,
+            'description_en' => $request->description_en,
+        ]);
 
         return redirect()->route('products.index')->with('success', 'Product updated successfully.');
     }

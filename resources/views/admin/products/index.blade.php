@@ -190,10 +190,10 @@
                                         <input class="border rounded-sm appearance-none cursor-pointer size-4 bg-slate-100 border-slate-200 dark:bg-zink-600 dark:border-zink-500 checked:bg-custom-500 checked:border-custom-500 dark:checked:bg-custom-500 dark:checked:border-custom-500 checked:disabled:bg-custom-400 checked:disabled:border-custom-400" type="checkbox" name="chk_child">
                                     </th>
                                     <td class="px-3.5 py-2.5 border-y border-slate-200 dark:border-zink-500 id" style="display:none;"><a href="javascript:void(0);" class="fw-medium link-primary id">#VZ2101</a></td>
-                                    <td class="px-3.5 py-2.5 border-y border-slate-200 dark:border-zink-500 customer_name">{{ $value->category->name }}</td>
-                                    <td class="px-3.5 py-2.5 border-y border-slate-200 dark:border-zink-500 name">{{ $value->name }}</td>
+                                    <td class="px-3.5 py-2.5 border-y border-slate-200 dark:border-zink-500 customer_name">{{ $value->category->name_uz }}</td>
+                                    <td class="px-3.5 py-2.5 border-y border-slate-200 dark:border-zink-500 name">{{ $value->name_uz }}</td>
                                     <td class="px-3.5 py-2.5 border-y border-slate-200 dark:border-zink-500 price">{{ $value->price }}</td>
-                                    <td class="px-3.5 py-2.5 border-y border-slate-200 dark:border-zink-500 desc">{{ $value->description }}</td>
+                                    <td class="px-3.5 py-2.5 border-y border-slate-200 dark:border-zink-500 desc">{{ $value->description_uz }}</td>
                                     <td class="px-3.5 py-2.5 border-y border-slate-200 dark:border-zink-500 quantity">{{ $value->quantity }}</td>
                                     <td class="px-3.5 py-2.5 border-y border-slate-200 dark:border-zink-500 percentage">{{ $value->percentage }}</td>
                                     <td class="px-3.5 py-2.5 border-y border-slate-200 dark:border-zink-500 status">
@@ -216,7 +216,7 @@
                                                         <button data-modal-close="editModal{{$value->id}}" class="transition-all duration-200 ease-linear text-slate-400 hover:text-slate-500"><i data-lucide="x" class="size-5"></i></button>
                                                     </div>
                                                     <div class="max-h-[calc(theme('height.screen')_-_180px)] overflow-y-auto p-4">
-                                                        <form class="tablelist-form" action="{{ route('products.update', $value->id) }}" method="POST">
+                                                        <form class="tablelist-form" action="{{ route('products.update', $value->id) }}" method="POST" enctype="multipart/form-data">
                                                             @csrf
                                                             @method('PUT')
                                                             <div class="mb-3" id="modal-id" style="display: none;">
@@ -226,12 +226,20 @@
                                                             <div class="mb-3">
                                                                 <label for="customername-field" class="inline-block mb-2 text-base font-medium">Kategoriya <span class="text-red-500">*</span></label>
                                                                 <select name="category_id" id="category_id" class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" >
-                                                                    <option value="{{ $value->id }}">{{ $value->category->name}}</option>
+                                                                    <option value="{{ $value->id }}">{{ $value->category->name_uz}}</option>
                                                                 </select>
                                                             </div>
                                                             <div class="mb-3">
-                                                                <label for="customername-field" class="inline-block mb-2 text-base font-medium">Mahsulot Nomi <span class="text-red-500">*</span></label>
-                                                                <input name="name" type="text" value="{{ $value->name }}" id="customername-field" class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Mahsulot Nomini Kiriting" required="">
+                                                                <label for="customername-field" class="inline-block mb-2 text-base font-medium">Mahsulot Nomi Uz <span class="text-red-500">*</span></label>
+                                                                <input name="name_uz" type="text" value="{{ $value->name_uz }}" id="customername-field" class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Mahsulot Nomini Kiriting" required="">
+                                                            </div>
+                                                            <div class="mb-3">
+                                                                <label for="customername-field" class="inline-block mb-2 text-base font-medium">Mahsulot Nomi Ru <span class="text-red-500">*</span></label>
+                                                                <input name="name_ru" type="text" value="{{ $value->name_ru }}" id="customername-field" class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Mahsulot Nomini Kiriting" required="">
+                                                            </div>
+                                                            <div class="mb-3">
+                                                                <label for="customername-field" class="inline-block mb-2 text-base font-medium">Mahsulot Nomi En <span class="text-red-500">*</span></label>
+                                                                <input name="name_en" type="text" value="{{ $value->name_en }}" id="customername-field" class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Mahsulot Nomini Kiriting" required="">
                                                             </div>
                                                             <div class="mb-3">
                                                                 <label for="customername-field" class="inline-block mb-2 text-base font-medium">Narxi <span class="text-red-500">*</span></label>
@@ -239,9 +247,25 @@
                                                             </div>
                                                             <div>
                                                                 <div class="mb-3">
-                                                                    <label for="customername-field" class="inline-block mb-2 text-base font-medium">Tavsifi <span class="text-red-500">*</span></label>
-                                                                    <textarea name="description"   type="text" id="customername-field" class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Tavsif" required="">
-                                                                        {{ $value->description }}
+                                                                    <label for="customername-field" class="inline-block mb-2 text-base font-medium">Tavsifi Uz<span class="text-red-500">*</span></label>
+                                                                    <textarea name="description_uz"   type="text" id="customername-field" class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Tavsif" required="">
+                                                                        {{ $value->description_uz }}
+                                                                    </textarea>
+                                                                </div>
+                                                            </div>
+                                                            <div>
+                                                                <div class="mb-3">
+                                                                    <label for="customername-field" class="inline-block mb-2 text-base font-medium">Tavsifi Ru<span class="text-red-500">*</span></label>
+                                                                    <textarea name="description_ru"   type="text" id="customername-field" class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Tavsif" required="">
+                                                                        {{ $value->description_ru }}
+                                                                    </textarea>
+                                                                </div>
+                                                            </div>
+                                                            <div>
+                                                                <div class="mb-3">
+                                                                    <label for="customername-field" class="inline-block mb-2 text-base font-medium">Tavsifi En<span class="text-red-500">*</span></label>
+                                                                    <textarea name="description_en"   type="text" id="customername-field" class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Tavsif" required="">
+                                                                        {{ $value->description_en }}
                                                                     </textarea>
                                                                 </div>
                                                             </div>
@@ -349,13 +373,21 @@
                 <select name="category_id" id="category_id" class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" >
                     <option value="">Kategoriyani tanlang</option>
                     @foreach($categories as $category)
-                            <option value="{{ $category->id }}">{{ $category->name }}</option>
+                            <option value="{{ $category->id }}">{{ $category->name_uz }}</option>
                     @endforeach
                 </select>
             </div>
             <div class="mb-3">
-                <label for="customername-field" class="inline-block mb-2 text-base font-medium">Mahsulot nomi<span class="text-red-500">*</span></label>
-                <input name="name" type="text" id="customername-field" class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Mahsulot nomini kiriting">
+                <label for="customername-field" class="inline-block mb-2 text-base font-medium">Mahsulot nomi Uz<span class="text-red-500">*</span></label>
+                <input name="name_uz" type="text" id="customername-field" class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Mahsulot nomini kiriting">
+            </div>
+            <div class="mb-3">
+                <label for="customername-field" class="inline-block mb-2 text-base font-medium">Mahsulot nomi Ru<span class="text-red-500">*</span></label>
+                <input name="name_ru" type="text" id="customername-field" class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Mahsulot nomini kiriting">
+            </div>
+            <div class="mb-3">
+                <label for="customername-field" class="inline-block mb-2 text-base font-medium">Mahsulot nomi En<span class="text-red-500">*</span></label>
+                <input name="name_en" type="text" id="customername-field" class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Mahsulot nomini kiriting">
             </div>
             <div class="mb-3">
                 <label for="price-field" class="inline-block mb-2 text-base font-medium">Narx <span class="text-red-500">*</span></label>
@@ -385,8 +417,22 @@
             </div>
             <div>
                 <div class="mb-3">
-                    <label for="customername-field" class="inline-block mb-2 text-base font-medium">Tavsif <span class="text-red-500">*</span></label>
-                    <textarea name="description" type="text" id="customername-field" class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" >
+                    <label for="customername-field" class="inline-block mb-2 text-base font-medium">Tavsif Uz<span class="text-red-500">*</span></label>
+                    <textarea name="description_uz" type="text" id="customername-field" class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" >
+                    </textarea>
+                </div>
+            </div>
+            <div>
+                <div class="mb-3">
+                    <label for="customername-field" class="inline-block mb-2 text-base font-medium">Tavsif Ru<span class="text-red-500">*</span></label>
+                    <textarea name="description_ru" type="text" id="customername-field" class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" >
+                    </textarea>
+                </div>
+            </div>
+            <div>
+                <div class="mb-3">
+                    <label for="customername-field" class="inline-block mb-2 text-base font-medium">Tavsif En<span class="text-red-500">*</span></label>
+                    <textarea name="description_en" type="text" id="customername-field" class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" >
                     </textarea>
                 </div>
             </div>

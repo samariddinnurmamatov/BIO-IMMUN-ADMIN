@@ -99,25 +99,7 @@
                             @foreach($advices as $advice)
                                 <div class="card md:group-[.gridView]:flex relative" style="display: flex; flex-direction: column; justify-content: space-between">
                                     <div class="relative group-[.gridView]:static p-8 group-[.gridView]:p-5">
-                                        @if(is_array($advice->photos) && count($advice->photos) > 0)
-                                            <div id="carousel-{{ $advice->id }}" class="custom-carousel">
-                                                <div class="carousel-inner">
-                                                    @foreach($advice->photos as $index => $photo)
-                                                        <div class="carousel-item {{ $index === 0 ? 'active' : '' }}">
-                                                            <img src="{{ url('storage/uploads/'.$photo) }}" class="d-block w-100" alt="Advice Photo">
-                                                        </div>
-                                                    @endforeach
-                                                </div>
-                                                <button class="carousel-control-prev" onclick="prevSlide({{ $advice->id }})" style="padding: 2px 11px; border-radius: 20px;">
-                                                    <span class="carousel-control-prev-icon" aria-hidden="true">&#10094;</span>
-                                                    <span class="visually-hidden"></span>
-                                                </button>
-                                                <button class="carousel-control-next" onclick="nextSlide({{ $advice->id }})" style="padding: 2px 11px; border-radius: 20px;">
-                                                    <span class="carousel-control-next-icon" aria-hidden="true">&#10095;</span>
-                                                    <span class="visually-hidden"></span>
-                                                </button>
-                                            </div>
-                                        @endif
+                                        <img src="/{{('/'$advice->photo)}}" class="d-block w-100" alt="Advice Photo">
                                         <br><br>
                                         <h6 class="font-bold">{{ $advice->title_uz }}</h6>
                                         <br>

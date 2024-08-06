@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Advice;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Storage;
 class AdviceController extends Controller
 {
     public function index()
@@ -27,30 +27,29 @@ class AdviceController extends Controller
             'description_uz' => 'required',
             'description_ru' => 'required',
             'description_en' => 'required',
-            'photos.*' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+            'photo' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
-        $fileNames = [];
-        if ($request->hasFile('photos')) {
-            foreach ($request->file('photos') as $file) {
-                $filename = time() . '_' . $file->getClientOriginalName();
-                $file->storeAs('public/uploads', $filename);
-                $fileNames[] = $filename;
-            }
+        $filename = null;
+        if ($request->hasFile('photo')) {
+            $file = $request->file('photo');
+            $filename = time() . '_' . $file->getClientOriginalName();
+            $file->storeAs('public/uploads', $filename);
         }
 
         Advice::create([
             'title_uz' => $request->title_uz,
             'title_ru' => $request->title_ru,
             'title_en' => $request->title_en,
-            'photos' => $fileNames,
+            'photo' => $filename,
             'description_uz' => $request->description_uz,
             'description_ru' => $request->description_ru,
             'description_en' => $request->description_en,
         ]);
 
-        return redirect()->route('advices.index')->with('success', 'Advice created successfully.');
+        return redirect()->route('blogs.index')->with('success', 'Blog post created successfully.');
     }
+
 
     public function show($id)
     {
@@ -74,30 +73,31 @@ class AdviceController extends Controller
             'description_uz' => 'required',
             'description_ru' => 'required',
             'description_en' => 'required',
-            'photos.*' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'photo' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
-        $advice = Advice::findOrFail($id);
+        $blog = Advice::findOrFail($id);
 
-        $data = [
-            'title' => $request->title,
-            'description' => $request->description,
-        ];
-
-        if ($request->hasFile('photos')) {
-            $fileNames = [];
-            foreach ($request->file('photos') as $file) {
-                $filename = time() . '_' . $file->getClientOriginalName();
-                $file->storeAs('public/uploads', $filename);
-                $fileNames[] = $filename;
+        if ($request->hasFile('photo')) {
+            if ($blog->photo) {
+                Storage::delete('public/uploads/' . $blog->photo);
             }
-            $data['photos'] = $fileNames;
+            $file = $request->file('photo');
+            $filename = time() . '_' . $file->getClientOriginalName();
+            $file->storeAs('public/uploads', $filename);
+            $blog->photo = $filename;
         }
 
-        $advice->update($data);
+        $blog->update([
+            'title_uz' => $request->title_uz,
+            'title_ru' => $request->title_ru,
+            'title_en' => $request->title_en,
+            'description_uz' => $request->description_uz,
+            'description_ru' => $request->description_ru,
+            'description_en' => $request->description_en,
+        ]);
 
-        return redirect()->route('advices.index')->with('success', 'Advice updated successfully.');
-
+        return redirect()->route('advices.index')->with('success', 'Advices post updated successfully.');
     }
 
     public function advice_page(){
@@ -105,11 +105,7 @@ class AdviceController extends Controller
         return view('front.advice.index', compact('advices'));
 
     }
-    // public function advice_page(){
-    //     $advices = Advice::latest()->paginate(12);
-    //     return view('front.advice.index', compact('advices'));
 
-    // }
     public  function advice_details_page($id)
     {
         $advice=Advice::findOrFail($id);
