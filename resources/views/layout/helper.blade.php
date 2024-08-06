@@ -52,7 +52,7 @@ $categories = \App\Models\Category::all();
 </head>
 <body>
 <!-- Cursor -->
-<div class="cursor js-cursor"></div>
+{{-- <div class="cursor js-cursor"></div> --}}
 <!-- header -->
 <header class="header-area header-three">
 
@@ -147,7 +147,7 @@ $categories = \App\Models\Category::all();
                                     </li>
 
 
-                                    <li><a href="contact.html">Kontakt</a></li>
+                                    <li><a href="{{route('contact')}}">Kontakt</a></li>
                                 </ul>
                             </nav>
                         </div>

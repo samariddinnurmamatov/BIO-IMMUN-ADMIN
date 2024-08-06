@@ -11,24 +11,24 @@ class ProductController extends Controller
     public function index()
     {
         $categories = Category::all();
-        $products = Product::paginate(10);
+        $products = Product::paginate(1); // 10 items per page
         return view('admin.products.index', compact('products', 'categories'));
     }
-
 
     public function store(Request $request)
     {
         $request->validate([
             'name' => 'required|string|max:255',
             'photo' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'price' => 'required|numeric', // Changed to 'numeric'
-            'quantity' => 'required|numeric', // Changed to 'numeric'
+            'price' => 'required|numeric',
+            'quantity' => 'required|numeric',
             'status' => 'required',
             'percentage' => 'required',
             'category_id' => 'required|numeric',
             'description' => 'nullable',
         ]);
 
+        $photoPath = '';
         if ($request->hasFile('photo')) {
             $file = $request->file('photo');
             $filename = time() . '_' . $file->getClientOriginalName();
@@ -50,7 +50,6 @@ class ProductController extends Controller
         return redirect()->route('products.index')->with('success', 'Product created successfully.');
     }
 
-    // Update an existing category
     public function update(Request $request, Product $product)
     {
         $request->validate([
@@ -81,13 +80,12 @@ class ProductController extends Controller
     public function destroy(Product $product)
     {
         $product->delete();
-
         return redirect()->route('products.index')->with('success', 'Product deleted successfully.');
     }
 
     public function product_page()
     {
-        $products = Product::latest()->paginate(12);
+        $products = Product::latest()->paginate(1); // 10 items per page
         return view('front.product.index', compact('products'));
     }
 
@@ -96,5 +94,4 @@ class ProductController extends Controller
         $product = Product::findOrFail($id);
         return view('front.product.show', compact('product'));
     }
-
 }
