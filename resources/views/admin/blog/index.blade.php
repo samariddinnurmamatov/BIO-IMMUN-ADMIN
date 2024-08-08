@@ -41,11 +41,11 @@
 
                 <div class="flex flex-col gap-2 py-4 md:flex-row md:items-center print:hidden">
                     <div class="grow">
-                        <h5 class="text-16">Blogs News</h5>
+                        <h5 class="text-16">Bloglar yangiliklari</h5>
                     </div>
                     <ul class="flex items-center gap-2 text-sm font-normal shrink-0">
                         <li class="text-slate-700 dark:text-zink-100">
-                            Blogs News
+                            Bloglar yangiliklari
                         </li>
                     </ul>
                 </div>
@@ -59,7 +59,7 @@
                                         <div class="relative">
                                             <input type="text"
                                                    class="ltr:pl-8 rtl:pr-8 search form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200"
-                                                   placeholder="Search for ..." autocomplete="off">
+                                                   placeholder="Qidirish ..." autocomplete="off">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                                                  stroke-linecap="round" stroke-linejoin="round" data-lucide="search"
@@ -74,7 +74,7 @@
                                             <input type="text"
                                                    class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200 flatpickr-input"
                                                    data-provider="flatpickr" data-date-format="d M, Y"
-                                                   data-range-date="true" readonly="readonly" placeholder="Select Date">
+                                                   data-range-date="true" readonly="readonly" placeholder="Sana-ni tanlang">
                                         </div>
                                     </div><!--end col-->
                                     <div
@@ -88,7 +88,7 @@
                                                 <path d="M5 12h14"></path>
                                                 <path d="M12 5v14"></path>
                                             </svg>
-                                            <span class="align-middle">Add Blog</span></a>
+                                            <span class="align-middle">Blog qo'shish</span></a>
                                     </div>
                                 </div><!--end grid-->
                             </div>
@@ -127,7 +127,7 @@
                                         <div class="flex items-center gap-2 mt-4 group-[.gridView]:mt-0 group-[.gridView]:self-end">
                                             <a href="{{ route('blogs.show', ['blog' => $blog->id]) }}" type="button"
                                                class="w-full bg-white border-dashed text-slate-500 btn border-slate-500 hover:text-slate-500 hover:bg-slate-50 hover:border-slate-600 focus:text-slate-600 focus:bg-slate-50 focus:border-slate-600 active:text-slate-600 active:bg-slate-50 active:border-slate-600 dark:bg-zink-700 dark:text-zink-200 dark:border-zink-400 dark:ring-zink-400/20 dark:hover:bg-zink-600 dark:hover:text-zink-100 dark:focus:bg-zink-600 dark:focus:text-zink-100 dark:active:bg-zink-600 dark:active:text-zink-100">
-                                                <span class="align-middle">More</span></a>
+                                                <span class="align-middle">Ko'proq</span></a>
                                             <div class="relative float-right dropdown">
                                                 <button class="flex items-center justify-center w-[38.39px] h-[38.39px] dropdown-toggle p-0 text-slate-500 btn bg-slate-100 hover:text-white hover:bg-slate-600 focus:text-white focus:bg-slate-600 focus:ring focus:ring-slate-100 active:text-white active:bg-slate-600 active:ring active:ring-slate-100 dark:bg-slate-500/20 dark:text-slate-400 dark:hover:bg-slate-500 dark:hover:text-white dark:focus:bg-slate-500 dark:focus:text-white dark:active:bg-slate-500 dark:active:text-white dark:ring-slate-400/20" id="productList1" data-bs-toggle="dropdown">
                                                     <i data-lucide="more-horizontal" class="w-3 h-3"></i>
@@ -136,13 +136,13 @@
                                                     <li>
                                                         <a class="block px-4 py-1.5 text-base transition-all duration-200 ease-linear text-slate-600 dropdown-item hover:bg-slate-100 hover:text-slate-500 focus:bg-slate-100 focus:text-slate-500 dark:text-zink-100 dark:hover:bg-zink-500 dark:hover:text-zink-200 dark:focus:bg-zink-500 dark:focus:text-zink-200" href="{{ route('blogs.edit', $blog->id) }}">
                                                             <i data-lucide="file-edit" class="inline-block w-3 h-3 ltr:mr-1 rtl:ml-1"></i>
-                                                            <span class="align-middle">Edit</span>
+                                                            <span class="align-middle">Tahrirlash</span>
                                                         </a>
                                                     </li>
                                                     <li>
                                                         <a data-modal-target="deleteModal{{$blog->id}}" class="block px-4 py-1.5 text-base transition-all duration-200 ease-linear text-slate-600 dropdown-item hover:bg-slate-100 hover:text-slate-500 focus:bg-slate-100 focus:text-slate-500 dark:text-zink-100 dark:hover:bg-zink-500 dark:hover:text-zink-200 dark:focus:bg-zink-500 dark:focus:text-zink-200" href="#!">
                                                             <i data-lucide="trash-2" class="inline-block w-3 h-3 ltr:mr-1 rtl:ml-1"></i>
-                                                            <span class="align-middle">Delete</span>
+                                                            <span class="align-middle">O'chirish</span>
                                                         </a>
                                                     </li>
                                                 </ul>
