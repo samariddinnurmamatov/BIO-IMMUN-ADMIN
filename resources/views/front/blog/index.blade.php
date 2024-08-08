@@ -1,6 +1,9 @@
 @extends('layout.helper')
 
 @section('content')
+    <?php
+    $lang = \Illuminate\Support\Facades\App::getLocale();
+    ?>
     <main>
         <section class="breadcrumb-area d-flex  p-relative align-items-center"
                  style="background-image:url(/assets/front/img/bg/video-img.png)">
@@ -10,12 +13,12 @@
                     <div class="col-xl-12 col-lg-12">
                         <div class="breadcrumb-wrap text-left">
                             <div class="breadcrumb-title">
-                                <h2>Yangiliklar</h2>
+                                <h2>{{__('main.blog')}}</h2>
                                 <div class="breadcrumb-wrap">
                                     <nav aria-label="breadcrumb">
                                         <ol class="breadcrumb">
-                                            <li class="breadcrumb-item"><a href="{{route('home')}}">Bosh Sahifa</a></li>
-                                            <li class="breadcrumb-item active" aria-current="page">Yangiliklar</li>
+                                            <li class="breadcrumb-item"><a href="{{route('home')}}">{{__('main.home')}}</a></li>
+                                            <li class="breadcrumb-item active" aria-current="page">{{__('main.blog')}}</li>
                                         </ol>
                                     </nav>
                                 </div>
@@ -42,16 +45,15 @@
                                     <a href="{{route('blog.details', $value->id)}}"><img style="height: 200px"
                                                                                          src="{{ url('storage/uploads/'.$firstPhoto) }}"
                                                                                          alt="icon01"></a>
-                                    {{--                                <a href="single-service.html"><img src="" alt="icon01"></a>--}}
                                 </div>
                                 <div class="services-content-05">
                                     <div class="icon">
                                         <h4>
-                                            <a href="{{route('blog.details', $value->id)}}">{{  Str::limit($value->title, 36) }}</a>
+                                            <a href="{{route('blog.details', $value->id)}}">{{  Str::limit($value['title_' . $lang], 36) }}</a>
                                         </h4>
                                     </div>
 
-                                    <p>{{  Str::limit($value->description, 50) }}</p>
+                                    <p>{{  Str::limit($value['description_' . $lang], 50) }}</p>
                                 </div>
                             </div>
                         </div>

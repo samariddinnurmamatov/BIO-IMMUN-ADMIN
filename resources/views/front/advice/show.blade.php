@@ -2,7 +2,9 @@
 @section('content')
     @php
     use Carbon\Carbon;
+    $lang = \Illuminate\Support\Facades\App::getLocale();
     @endphp
+
     <main>
 
         <!-- breadcrumb-area -->
@@ -13,13 +15,13 @@
                     <div class="col-xl-12 col-lg-12">
                         <div class="breadcrumb-wrap text-left">
                             <div class="breadcrumb-title">
-                                <h2>Advice details</h2>
+                                <h2>{{__('main.detail2')}}</h2>
                                 <div class="breadcrumb-wrap">
 
                                     <nav aria-label="breadcrumb">
                                         <ol class="breadcrumb">
-                                            <li class="breadcrumb-item"><a href="{{route('home')}}">Home</a></li>
-                                            <li class="breadcrumb-item active" aria-current="page">Advice details</li>
+                                            <li class="breadcrumb-item"><a href="{{route('home')}}">{{__('main.home')}}</a></li>
+                                            <li class="breadcrumb-item active" aria-current="page">{{__('main.detail2')}}</li>
                                         </ol>
                                     </nav>
                                 </div>
@@ -39,13 +41,13 @@
                     <div class="col-lg-6">
                         <div class="blog-details-wrap">
                             <div class="details__content pb-30">
-                                <h2>{{$advice->title}}.</h2>
+                                <h2>{{$advice['title_' . $lang]}}.</h2>
                                 <div class="meta-info">
                                     <ul>
                                         <li><i class="fal fa-calendar-alt"></i> {{Carbon::parse($advice->created_at)->format('jS F Y')}}</li>
                                     </ul>
                                 </div>
-                                <p>{{$advice->description}}</p>
+                                <p>{{$advice['description_' . $lang]}}</p>
                             </div>
 
                         </div>

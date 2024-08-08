@@ -1,5 +1,8 @@
 @extends('layout.helper')
 @section('content')
+    <?php
+    $lang = \Illuminate\Support\Facades\App::getLocale();
+    ?>
     <main>
 
         <!-- breadcrumb-area -->
@@ -10,13 +13,13 @@
                     <div class="col-xl-12 col-lg-12">
                         <div class="breadcrumb-wrap text-left">
                             <div class="breadcrumb-title">
-                                <h2>Yangilik Haqida</h2>
+                                <h2>{{__('main.detail1')}}</h2>
                                 <div class="breadcrumb-wrap">
 
                                     <nav aria-label="breadcrumb">
                                         <ol class="breadcrumb">
-                                            <li class="breadcrumb-item"><a href="{{route('home')}}">Bosh Sahifa</a></li>
-                                            <li class="breadcrumb-item active" aria-current="page">Yangilik Haqida</li>
+                                            <li class="breadcrumb-item"><a href="{{route('home')}}">{{__('main.home')}}</a></li>
+                                            <li class="breadcrumb-item active" aria-current="page">{{__('main.detail1')}}</li>
                                         </ol>
                                     </nav>
                                 </div>
@@ -41,7 +44,7 @@
                                 <!-- Two Column -->
                                 <div class="two-column">
                                     <div class="row">
-                                        <h3>{{$blog->title}}</h3>
+                                        <h3>{{$blog['title_' . $lang]}}</h3>
                                         <div class="image-column col-xl-6 col-lg-12 col-md-12">
                                             @php
                                                     $firstPhoto = $blog->photos[0] ?? 'default.jpg'; // Agar array bo'sh bo'lsa, default.jpg ishlatiladi
@@ -54,7 +57,7 @@
                                             @endphp
                                             <figure class="image"><img src="{{ url('storage/uploads/'.$thirdPhoto) }}" alt=""></figure>
                                         </div>
-                                        <p>{{$blog->description}}</p>
+                                        <p>{{$blog['description_' . $lang]}}</p>
 
                                     </div>
                                 </div>

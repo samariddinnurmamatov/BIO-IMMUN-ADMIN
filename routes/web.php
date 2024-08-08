@@ -48,7 +48,7 @@ Route::post('category', [CategoryController::class, 'store']) -> name("category.
 Route::get('/cart', [CartController::class, 'show'])->name('cart.show');
 Route::put('category/{category}', [CategoryController::class, 'update'])->name('category.update');
 Route::delete('category/{category}', [CategoryController::class, 'destroy'])->name('category.destroy');
-
+Route::get('/category/{id}', [CategoryController::class, 'showPage'])->name('category.showPage');
 
 
 Route::get('cart', [CartController::class, 'showCart'])->name('cart.index');
@@ -67,7 +67,7 @@ Route::post('logout', [Authenticate::class, 'logout'])->name('logout');
 Route::get('user/{id}', [Authenticate::class, 'showUserProfile'])->name('users.edit');
 Route::put('user/{id}', [Authenticate::class, 'updateUserProfile'])->name('users.update');
 
-Route::get('/blog/page', [BlogController::class, 'blogs_page'])->name('blog.page'); // Change the URL to avoid conflict
+Route::get('/blog', [BlogController::class, 'blogs_page'])->name('blog.page'); // Change the URL to avoid conflict
 Route::resource('blogs', BlogController::class);
 Route::get('/blog/{blog}/details', [BlogController::class, 'blog_details_page'])->name('blog.details'); // Change the URL to avoid conflict
 

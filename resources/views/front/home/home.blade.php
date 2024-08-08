@@ -1,7 +1,11 @@
 @extends('layout.helper')
 @section('content')
+
     @php
+    $lang = \Illuminate\Support\Facades\App::getLocale();
+        use Carbon\Carbon;
     $products=\App\Models\Product::latest()->take(4)->get();
+    $advices=\App\Models\Advice::latest()->take(3)->get();
     @endphp
 <main>
     <!-- slider-area -->
@@ -14,12 +18,12 @@
 
                         <div class="col-lg-7 col-md-6">
                             <div class="slider-content s-slider-content">
-                                <h5 data-animation="fadeInUp" data-delay=".4s">Pure & organic milk products</h5>
-                                <h2 data-animation="fadeInUp" data-delay=".4s">We Are The Best Milk <span>Dairy Farm</span></h2>
-                                <p data-animation="fadeInUp" data-delay=".6s">Fusce accumsan nulla ac iaculis posuere. Suspendisse potenti. Vivamus lorem lectus.</p>
+                                <h5 data-animation="fadeInUp" data-delay=".4s">{{__('main.home1')}}</h5>
+                                <h2 data-animation="fadeInUp" data-delay=".4s">{{__('main.home2')}}   <span>{{__('main.home3')}}</span></h2>
+                                <p data-animation="fadeInUp" data-delay=".6s">{{__('main.home5')}}.</p>
 
                                 <div class="slider-btn mt-30">
-                                    <a href="about.html" class="btn ss-btn mr-15" data-animation="fadeInLeft" data-delay=".4s">Discover More <i class="fal fa-long-arrow-right"></i></a>
+                                    <a href="{{route('about')}}" class="btn ss-btn mr-15" data-animation="fadeInLeft" data-delay=".4s">{{__('main.home4')}} <i class="fal fa-long-arrow-right"></i></a>
                                 </div>
 
                             </div>
@@ -30,29 +34,7 @@
                     </div>
                 </div>
             </div>
-            <div class="single-slider slider-bg d-flex align-items-center" style="background-image: url(/assets/front/img/slider/slider_bg_4.png); background-size: cover;">
-                <div class="container">
-                    <div class="row">
-
-                        <div class="col-lg-7 col-md-6">
-                            <div class="slider-content s-slider-content">
-                                <h5 data-animation="fadeInUp" data-delay=".4s">Pure & organic milk products</h5>
-                                <h2 data-animation="fadeInUp" data-delay=".4s">We Are The Best Milk <span>Dairy Farm</span></h2>
-                                <p data-animation="fadeInUp" data-delay=".6s">Fusce accumsan nulla ac iaculis posuere. Suspendisse potenti. Vivamus lorem lectus.</p>
-
-                                <div class="slider-btn mt-30">
-                                    <a href="{{route('about')}}" class="btn ss-btn mr-15" data-animation="fadeInLeft" data-delay=".4s">Discover More <i class="fal fa-long-arrow-right"></i></a>
-                                </div>
-
-                            </div>
-                        </div>
-                        <div class="col-lg-5 col-md-6 p-relative">
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </div>
+           </div>
 
 
     </section>
@@ -76,17 +58,17 @@
                 <div class="col-lg-7 col-md-12 col-sm-12">
                     <div class="about-content s-about-content pl-60 wow fadeInRight  animated" data-animation="fadeInRight" data-delay=".4s">
                         <div class="about-title second-title pb-25">
-                            <h5>About Us</h5>
-                            <h2>We Have Been Milk Harvesting</h2>
+                            <h5>{{__('main.about')}}</h5>
+                            <h2>{{__('main.home6')}}</h2>
                         </div>
-                        <p >Our community is being called to reimagine the future. As the only university where a renowned design school comes together with premier colleges, we are making learning more relevant and transformational Aliquam at magna et mi interdum rhoncus quis sit amet lorem.</p>
-                        <p>We are proud to offer top ranige in employment services such and asser payroll and benefits administrato managemen and asistance with global business range ployment employer  readings from religious texts or literature are also commonly inc compliance.</p>
+                        <p >{{__('main.home7')}}</p>
+                        <p>{{__('main.home8')}}</p>
                         <div class="about-content2">
                             <div class="row">
                                 <div class="col-md-12">
                                     <ul class="green2">
-                                        <li><div class="abcontent"><div class="ano"><span><img src="/assets/front/img/icon/ab-icon-01.png" alt="img">   </span></div> <div class="text"><h3>Best Ingredients</h3> <p>consectetur adipiscing elit sed do eiusmod tem incid idunt.</p></div></div></li>
-                                        <li><div class="abcontent"><div class="ano"><span><img src="/assets/front/img/icon/ab-icon-02.png" alt="img"> </span></div> <div class="text"><h3>Big Milk Farm</h3> <p>consectetur adipiscing elit sed do eiusmod tem incid idunt.</p></div></div></li>
+                                        <li><div class="abcontent"><div class="ano"><span><img src="/assets/front/img/icon/ab-icon-01.png" alt="img">   </span></div> <div class="text"><h3>{{__('main.home9')}}</h3> <p>{{__('main.home10')}}</p></div></div></li>
+                                        <li><div class="abcontent"><div class="ano"><span><img src="/assets/front/img/icon/ab-icon-02.png" alt="img"> </span></div> <div class="text"><h3>{{__('main.home111')}} </h3> <p>{{__('main.home12')}}</p></div></div></li>
 
                                     </ul>
                                 </div>
@@ -105,27 +87,27 @@
             <div class="row align-items-center">
                 <div class="col-lg-6 col-md-12">
                     <div class="section-title center-align mb-20">
-                        <h5>Our Services</h5>
+                        <h5>{{__('main.home13')}}</h5>
                         <h2>
-                            What We Provide
+                            {{__('main.home14')}}
                         </h2>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6 text-right  d-none d-lg-block">
-                    <a href="#contact" class="btn ss-btn wow fadeInDown animated" data-animation="fadeInDown" data-delay=".4s">View Al Services</a>
+                    <a href="#contact" class="btn ss-btn wow fadeInDown animated" data-animation="fadeInDown" data-delay=".4s">{{__('main.home15')}}</a>
                 </div>
                 <div class="col-lg-12">
                     <div class="services-active">
-                        <div class="services-box-05 wow fadeInUp  animated" data-animation="fadeInUp" data-delay=".4s">
+                        <div class="services-box-05" data-animation="fadeInUp" data-delay=".4s">
                             <div class="services-icon-05">
-                                <a href="single-service.html"><img src="/assets/front/img/bg/services-05.jpg" alt="icon01"></a>
+                                <a href=""><img src="/assets/front/img/bg/services-05.jpg" alt="icon01"></a>
                             </div>
                             <div class="services-content-05">
                                 <div class="icon">
                                     <span><img src="/assets/front/img/icon/sve-icon1.png" alt="icon01"></span>
-                                    <h4> <a href="single-service.html">Top Quality Milk Products</a></h4>
+                                    <h4> <a href="single-service.html">{{__('main.home16')}}</a></h4>
                                 </div>
-                                <p>Seamlessly visualize quality ellectual capital without superior collaboration and idea such and asser sharing listically</p>
+                                <p>{{__('main.home17')}}</p>
                             </div>
                         </div>
                         <div class="services-box-05 wow fadeInUp  animated" data-animation="fadeInUp" data-delay=".4s">
@@ -135,9 +117,9 @@
                             <div class="services-content-05">
                                 <div class="icon">
                                     <span><img src="/assets/front/img/icon/sve-icon2.png" alt="icon01"></span>
-                                    <h4> <a href="single-service.html">Natural Feeds For Cow’s</a></h4>
+                                    <h4> <a href="single-service.html">{{__('main.home18')}}</a></h4>
                                 </div>
-                                <p>Seamlessly visualize quality ellectual capital without superior collaboration and idea such and asser sharing listically</p>
+                                <p>{{__('main.home19')}}</p>
                             </div>
                         </div>
                         <div class="services-box-05 wow fadeInUp  animated" data-animation="fadeInUp" data-delay=".4s">
@@ -147,21 +129,9 @@
                             <div class="services-content-05">
                                 <div class="icon">
                                     <span><img src="assets/front/img/icon/sve-icon3.png" alt="icon01"></span>
-                                    <h4> <a href="single-service.html">Hand Milking Cow Milk</a></h4>
+                                    <h4> <a href="">{{__('main.home20')}}</a></h4>
                                 </div>
-                                <p>Seamlessly visualize quality ellectual capital without superior collaboration and idea such and asser sharing listically</p>
-                            </div>
-                        </div>
-                        <div class="services-box-05 wow fadeInUp  animated" data-animation="fadeInUp" data-delay=".4s">
-                            <div class="services-icon-05">
-                                <a href="single-service.html"><img src="assets/front/img/bg/services-06.jpg" alt="icon01"></a>
-                            </div>
-                            <div class="services-content-05">
-                                <div class="icon">
-                                    <span><img src="assets/front/img/icon/sve-icon2.png" alt="icon01"></span>
-                                    <h4> <a href="single-service.html">Natural Feeds For Cow’s</a></h4>
-                                </div>
-                                <p>Seamlessly visualize quality ellectual capital without superior collaboration and idea such and asser sharing listically</p>
+                                <p>{{__('main.home21')}}</p>
                             </div>
                         </div>
                     </div>
@@ -184,14 +154,14 @@
                                     <h2 class="mb-0">
                                         <button class="faq-btn" type="button" data-bs-toggle="collapse"
                                                 data-bs-target="#collapseThree"  >
-                                            01 Cras turpis felis, elementum sed mi at arcu ?
+                                            {{__('main.home22')}}
                                         </button>
                                     </h2>
                                 </div>
                                 <div id="collapseThree" class="collapse show"
                                      data-bs-parent="#accordionExample">
                                     <div class="card-body">
-                                        Our community is being called to reimagine the future. As the only university where a renowned design school comes together with premier colleges, we are making learning more relevant and transformational. We are enriched by the wide range.
+                                        {{__('main.home23')}}
                                     </div>
                                 </div>
                             </div>
@@ -200,14 +170,13 @@
                                     <h2 class="mb-0">
                                         <button class="faq-btn collapsed" type="button" data-bs-toggle="collapse"
                                                 data-bs-target="#collapseOne"  >
-                                            02 Vestibulum nibh risus, in neque eleifendulputate sem ?
+                                            {{__('main.home24')}}
                                         </button>
                                     </h2>
                                 </div>
                                 <div id="collapseOne" class="collapse" data-bs-parent="#accordionExample">
                                     <div class="card-body">
-                                        Our community is being called to reimagine the future. As the only university where a renowned design school comes together with premier colleges, we are making learning more relevant and transformational. We are enriched by the wide range.
-                                    </div>
+                                        {{__('main.home25')}} </div>
                                 </div>
                             </div>
                             <div class="card">
@@ -215,14 +184,13 @@
                                     <h2 class="mb-0">
                                         <button class="faq-btn collapsed" type="button" data-bs-toggle="collapse"
                                                 data-bs-target="#collapseTwo"  >
-                                            03 Donec maximus, sapien id auctor ornare ?
+                                            {{__('main.home26')}}
                                         </button>
                                     </h2>
                                 </div>
                                 <div id="collapseTwo" class="collapse" data-bs-parent="#accordionExample">
                                     <div class="card-body">
-                                        Our community is being called to reimagine the future. As the only university where a renowned design school comes together with premier colleges, we are making learning more relevant and transformational. We are enriched by the wide range.
-                                    </div>
+                                        {{__('main.home27')}}</div>
                                 </div>
                             </div>
                         </div>
@@ -230,11 +198,11 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="section-title wow fadeInLeft animated mb-20" data-animation="fadeInDown animated" data-delay=".2s">
-                        <h5>Our FAQ</h5>
-                        <h2>Get every single answer here.</h2>
+                        <h5>{{__('main.home28')}}</h5>
+                        <h2>{{__('main.home29')}}</h2>
                     </div>
-                    <p>Aliquam at magna et mi interdum rhoncus quis sit amet lorem. Mauris aliquet, nunc blandit viverra aliquam, odio quam ultrices felis, eget aliquam ipsum libero ut enim. Sed sodales, tortor eget lacinia lacinia.</p>
-                    <p>usce vel pulvinar enim. Donec mollis augue sit amet venenatis eleifend. Duis nisl arcu, posuere nec ullamcorper nec, viverra nec nisi.</p>
+                    <p>{{__('main.home30')}}</p>
+                    <p>{{__('main.home31')}}</p>
                 </div>
             </div>
         </div>
@@ -246,9 +214,9 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-title center-align mb-50 text-center wow fadeInDown  animated" data-animation="fadeInDown" data-delay=".4s">
-                        <h5>Our Products</h5>
+                        <h5>{{__('main.home32')}}</h5>
                         <h2>
-                            Best For Skin Care
+                            {{__('main.home33')}}
                         </h2>
 
                     </div>
@@ -262,18 +230,22 @@
 
                         <div class="product mb-40">
                             <div class="product__img">
-                                <a href="shop-details.html"><img src="/{{$product->photo}}" alt=""></a>
+                                <a href="{{route('product.details', $product->id)}}"><img src="/{{$product->photo}}" alt=""></a>
                                 <div class="product-action text-center">
-
-                                    <a href="shop-details.html">Add Cart</a>
-
+                                    <form action="{{ route('cart.addItem', $product->id) }}" method="POST">
+                                        @csrf
+                                        <input type="hidden" name="product_id" value="{{ $product->id }}">
+                                        <button role="button" class="btn btn-primary" type="submit">{{__('main.shop')}}</button>
+                                    </form>
                                 </div>
                             </div>
                             <div class="product__content pt-30">
 
-                                <h4 class="pro-title"><a href="shop-details.html">{{$product->name_uz}}</a></h4>
+                                <h4 class="pro-title"><a href="{{route('product.details', $product->id)}}">{{$product['name_'.$lang]}}</a></h4>
                                 <div class="price">
-                                    <span class="old-price">{{$product->price}}</span>
+                                    @if($product->percentage>0)
+                                        <span class="old-price">{{$product->price}}</span>
+                                    @endif
                                     <span>{{($product->price)*(100-$product->percentage)/100}}</span>
                                 </div>
                             </div>
@@ -290,9 +262,9 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-title mb-50 wow fadeInDown animated text-center" data-animation="fadeInDown" data-delay=".4s">
-                        <h5>Our Testimonial</h5>
+                        <h5>{{__('main.home34')}}</h5>
                         <h2>
-                            What Our Clients Says
+                            {{__('main.home35')}}
                         </h2>
                     </div>
 
@@ -305,11 +277,11 @@
                                 <img src="assets/front/img/testimonial/testi_avatar.png" alt="img">
                                 <div class="ta-info">
                                     <h6>Jina Nilson</h6>
-                                    <span>Client</span>
+                                    <span>{{__('main.home36')}}</span>
                                 </div>
                             </div>
-                            <p class="pt-10 pb-20"><img src="img/testimonial/review-icon.png" alt="img"></p>
-                            <p>“Phasellus aliquam quis lorem amet dapibus feugiat vitae purus vitae efficitur. Vestibulum sed elit id orci rhoncus ultricies. Morbi vitae semper consequat ipsum semper quam”.</p>
+                            <p class="pt-10 pb-20"><img src="assets/front/img/testimonial/review-icon.png" alt="img"></p>
+                            <p>{{__('main.home37')}}</p>
 
                             <div class="qt-img">
                                 <img src="assets/front/img/testimonial/qt-icon.png" alt="img">
@@ -320,71 +292,11 @@
                                 <img src="assets/front/img/testimonial/testi_avatar_02.png" alt="img">
                                 <div class="ta-info">
                                     <h6>Braitly Dcosta</h6>
-                                    <span>Client</span>
+                                    <span>{{__('main.home36')}}</span>
                                 </div>
                             </div>
                             <p class="pt-10 pb-20"><img src="assets/front/img/testimonial/review-icon.png" alt="img"></p>
-                            <p>“Phasellus aliquam quis lorem amet dapibus feugiat vitae purus vitae efficitur. Vestibulum sed elit id orci rhoncus ultricies. Morbi vitae semper consequat ipsum semper quam”.</p>
-
-                            <div class="qt-img">
-                                <img src="assets/front/img/testimonial/qt-icon.png" alt="img">
-                            </div>
-                        </div>
-                        <div class="single-testimonial">
-                            <div class="testi-author">
-                                <img src="assets/front/img/testimonial/testi_avatar.png" alt="img">
-                                <div class="ta-info">
-                                    <h6>Jina Nilson</h6>
-                                    <span>Client</span>
-                                </div>
-                            </div>
-                            <p class="pt-10 pb-20"><img src="assets/front/img/testimonial/review-icon.png" alt="img"></p>
-                            <p>“Phasellus aliquam quis lorem amet dapibus feugiat vitae purus vitae efficitur. Vestibulum sed elit id orci rhoncus ultricies. Morbi vitae semper consequat ipsum semper quam”.</p>
-
-                            <div class="qt-img">
-                                <img src="assets/front/img/testimonial/qt-icon.png" alt="img">
-                            </div>
-                        </div>
-                        <div class="single-testimonial">
-                            <div class="testi-author">
-                                <img src="assets/front/img/testimonial/testi_avatar_02.png" alt="img">
-                                <div class="ta-info">
-                                    <h6>Braitly Dcosta</h6>
-                                    <span>Client</span>
-                                </div>
-                            </div>
-                            <p class="pt-10 pb-20"><img src="assets/front/img/testimonial/review-icon.png" alt="img"></p>
-                            <p>“Phasellus aliquam quis lorem amet dapibus feugiat vitae purus vitae efficitur. Vestibulum sed elit id orci rhoncus ultricies. Morbi vitae semper consequat ipsum semper quam”.</p>
-
-                            <div class="qt-img">
-                                <img src="assets/front/img/testimonial/qt-icon.png" alt="img">
-                            </div>
-                        </div>
-                        <div class="single-testimonial">
-                            <div class="testi-author">
-                                <img src="assets/front/img/testimonial/testi_avatar.png" alt="img">
-                                <div class="ta-info">
-                                    <h6>Jina Nilson</h6>
-                                    <span>Client</span>
-                                </div>
-                            </div>
-                            <p class="pt-10 pb-20"><img src="assets/front/img/testimonial/review-icon.png" alt="img"></p>
-                            <p>“Phasellus aliquam quis lorem amet dapibus feugiat vitae purus vitae efficitur. Vestibulum sed elit id orci rhoncus ultricies. Morbi vitae semper consequat ipsum semper quam”.</p>
-
-                            <div class="qt-img">
-                                <img src="assets/front/img/testimonial/qt-icon.png" alt="img">
-                            </div>
-                        </div>
-                        <div class="single-testimonial">
-                            <div class="testi-author">
-                                <img src="assets/front/img/testimonial/testi_avatar_02.png" alt="img">
-                                <div class="ta-info">
-                                    <h6>Braitly Dcosta</h6>
-                                    <span>Client</span>
-                                </div>
-                            </div>
-                            <p class="pt-10 pb-20"><img src="assets/front/img/testimonial/review-icon.png" alt="img"></p>
-                            <p>“Phasellus aliquam quis lorem amet dapibus feugiat vitae purus vitae efficitur. Vestibulum sed elit id orci rhoncus ultricies. Morbi vitae semper consequat ipsum semper quam”.</p>
+                            <p>{{__('main.home38')}}</p>
 
                             <div class="qt-img">
                                 <img src="assets/front/img/testimonial/qt-icon.png" alt="img">
@@ -412,8 +324,8 @@
                 <div class="col-lg-6 col-md-12">
                     <div class="pl-60">
                         <div class="section-title mb-50 wow fadeInDown animated" data-animation="fadeInDown" data-delay=".4s">
-                            <h5>Our Steps</h5>
-                            <h2>How We Work On Quality</h2>
+                            <h5>{{__('main.home39')}}</h5>
+                            <h2>{{__('main.home40')}}</h2>
                         </div>
                         <ul>
                             <li>
@@ -422,8 +334,8 @@
                                         <div class="date-box"><img src="assets/front/img/icon/fea-icon01.png" alt="icon"></div>
                                     </div>
                                     <div class="text">
-                                        <h3>Get The Quality Milk</h3>
-                                        <p>Special wedding garments are often worn, and the ceremony is sttimes followed by a wedding reception. Music, poetry, prayers, or readings.</p>
+                                        <h3>{{__('main.home41')}}</h3>
+                                        <p>{{__('main.home42')}}</p>
                                     </div>
                                 </div>
                             </li>
@@ -433,8 +345,8 @@
                                         <div class="date-box"><img src="assets/front/img/icon/fea-icon02.png" alt="icon"></div>
                                     </div>
                                     <div class="text">
-                                        <h3>In Processing The Milk</h3>
-                                        <p>Special wedding garments are often worn, and the ceremony is sttimes followed by a wedding reception. Music, poetry, prayers, or readings.</p>
+                                        <h3>{{__('main.home43')}}</h3>
+                                        <p>{{__('main.home44')}}</p>
                                     </div>
                                 </div>
                             </li>
@@ -444,8 +356,8 @@
                                         <div class="date-box"><img src="assets/front/img/icon/fea-icon03.png" alt="icon"></div>
                                     </div>
                                     <div class="text">
-                                        <h3>Get The Final Product</h3>
-                                        <p>Special wedding garments are often worn, and the ceremony is sttimes followed by a wedding reception. Music, poetry, prayers, or readings.</p>
+                                        <h3>{{__('main.home45')}}</h3>
+                                        <p>{{__('main.home46')}}</p>
                                     </div>
                                 </div>
                             </li>
@@ -465,9 +377,9 @@
             <div class="row align-items-center">
                 <div class="col-lg-12">
                     <div class="section-title center-align mb-50 text-center wow fadeInDown animated" data-animation="fadeInDown" data-delay=".4s">
-                        <h5>Our Blog</h5>
+                        <h5>{{__('main.home47')}}</h5>
                         <h2>
-                            Latest Blog & News
+                            {{__('main.home48')}}
                         </h2>
 
                     </div>
@@ -475,77 +387,30 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-4 col-md-6">
-                    <div class="single-post2 hover-zoomin mb-30 wow fadeInUp animated" data-animation="fadeInUp" data-delay=".4s">
-                        <div class="blog-thumb2">
-                            <a href="blog-details.html"><img src="/assets/front/img/blog/inner_b1.jpg" alt="img"></a>
-                        </div>
-                        <div class="blog-content2">
-                            <div class="date-home">
-                                <i class="fal fa-calendar-alt"></i> 24th March 2023
+                @foreach($advices as $advice)
+                    <div class="col-lg-4 col-md-6">
+                        <div class="single-post2 hover-zoomin mb-30 wow fadeInUp animated" data-animation="fadeInUp" data-delay=".4s">
+                            <div class="blog-thumb2">
+                                <a href="{{route('advice.details', $advice->id)}}"><img src="{{ url('storage/uploads/'.$advice->photo) }}" alt="img"></a>
                             </div>
-                            <div class="b-meta">
-                                <div class="meta-info">
-                                    <ul>
-                                        <li><i class="fal fa-user"></i> By Admin </li>
-                                        <li><i class="fal fa-comments"></i> 3 Comments</li>
-                                    </ul>
+                            <div class="blog-content2">
+                                <div class="date-home">
+                                    <i class="fal fa-calendar-alt"></i> {{Carbon::parse($advice->created_at)->format('jS F Y')}}
                                 </div>
+                                <div class="b-meta">
+                                    <div class="meta-info">
+                                        <ul>
+                                            <li><i class="fal fa-user"></i> By Admin </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <h4><a href="blog-details.html">{{$advice['title_' . $lang]}}</a></h4>
+                                <p>{{  Str::limit($advice['description_' . $lang], 100) }}</p>
+                                <div class="blog-btn"><a href="{{route('advice.details', $advice->id)}}">Read More <i class="fal fa-long-arrow-right"></i></a></div>
                             </div>
-                            <h4><a href="blog-details.html">Cras accumsan nulla nec lacus ultricies placerat.</a></h4>
-                            <p>Curabitur sagittis libero tincidunt tempor finibus. Mauris at dignissim ligula, nec tristique orci.</p>
-                            <div class="blog-btn"><a href="blog-details.html">Read More <i class="fal fa-long-arrow-right"></i></a></div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="single-post2 mb-30 hover-zoomin wow fadeInUp animated" data-animation="fadeInUp" data-delay=".4s">
-                        <div class="blog-thumb2">
-                            <a href="blog-details.html"><img src="img/blog/inner_b2.jpg" alt="img"></a>
-                        </div>
-                        <div class="blog-content2">
-                            <div class="date-home">
-                                <i class="fal fa-calendar-alt"></i> 24th March 2023
-                            </div>
-                            <div class="b-meta">
-                                <div class="meta-info">
-                                    <ul>
-                                        <li><i class="fal fa-user"></i> By Admin </li>
-                                        <li><i class="fal fa-comments"></i> 3 Comments</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <h4><a href="blog-details.html">Dras accumsan nulla nec lacus ultricies placerat.</a></h4>
-                            <p>Curabitur sagittis libero tincidunt tempor finibus. Mauris at dignissim ligula, nec tristique orci.</p>
-                            <div class="blog-btn"><a href="blog-details.html">Read More <i class="fal fa-long-arrow-right"></i></a></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="single-post2 mb-30 hover-zoomin wow fadeInUp animated" data-animation="fadeInUp" data-delay=".4s">
-                        <div class="blog-thumb2">
-                            <a href="blog-details.html"><img src="img/blog/inner_b3.jpg" alt="img"></a>
-                        </div>
-                        <div class="blog-content2">
-                            <div class="date-home">
-                                <i class="fal fa-calendar-alt"></i> 24th March 2023
-                            </div>
-                            <div class="b-meta">
-                                <div class="meta-info">
-                                    <ul>
-                                        <li><i class="fal fa-user"></i> By Admin </li>
-                                        <li><i class="fal fa-comments"></i> 3 Comments</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <h4><a href="blog-details.html">Seas accumsan nulla nec lacus ultricies placerat.</a></h4>
-                            <p>Curabitur sagittis libero tincidunt tempor finibus. Mauris at dignissim ligula, nec tristique orci.</p>
-                            <div class="blog-btn"><a href="blog-details.html">Read More <i class="fal fa-long-arrow-right"></i></a></div>
-                        </div>
-                    </div>
-                </div>
-
-
+                @endforeach
             </div>
         </div>
     </section>

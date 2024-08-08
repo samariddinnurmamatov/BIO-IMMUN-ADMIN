@@ -1,5 +1,8 @@
 @extends('layout.helper')
 @section('content')
+    <?php
+    $lang = \Illuminate\Support\Facades\App::getLocale();
+    ?>
     <main>
 
         <!-- breadcrumb-area -->
@@ -10,13 +13,13 @@
                     <div class="col-xl-12 col-lg-12">
                         <div class="breadcrumb-wrap text-left">
                             <div class="breadcrumb-title">
-                                <h2>Shop Details</h2>
+                                <h2>{{__('main.detail')}}</h2>
                                 <div class="breadcrumb-wrap">
 
                                     <nav aria-label="breadcrumb">
                                         <ol class="breadcrumb">
-                                            <li class="breadcrumb-item"><a href="{{route('home')}}">Home</a></li>
-                                            <li class="breadcrumb-item active" aria-current="page">Shop Details </li>
+                                            <li class="breadcrumb-item"><a href="{{route('home')}}">{{__('main.home')}}</a></li>
+                                            <li class="breadcrumb-item active" aria-current="page">{{__('main.detail')}} </li>
                                         </ol>
                                     </nav>
                                 </div>
@@ -47,7 +50,7 @@
                     <div class="col-xl-5">
                         <div class="product-details mb-30">
                             <div class="product-details-title">
-                                <p>{{$product->category->name}}</p>
+                                <p>{{$product->category['name_' . $lang]}}</p>
                                 <h1>{{$product->name}}</h1>
                                 <div class="price">
                                     @if($product->percentage != '0')
@@ -58,9 +61,9 @@
                                     @endif
                                 </div>
                             </div>
-                            <p>{{$product->description}}</p>
+                            <p>{{$product['description_' . $lang]}}</p>
                             <div class="product-cat mt-30 mb-30">
-                                <span>Category: {{$product->category->name}} </span>
+                                <span>Category: {{$product->category['name_' . $lang]}} </span>
 
                             </div>
                             <div class="product-details-action">
@@ -74,7 +77,7 @@
                                     </div>
                                     <input type="hidden" id="price" value="{{ ($product->price) * (100 - $product->percentage) / 100 }}" /> <!-- Mahsulot narxi -->
                                     <p>Total Price: <span id="total-price"></span> sum</p>
-                                    <button class="btn btn-black" type="submit" style="background-color: #000; color: #fff; border: none; padding: 10px 20px; font-size: 16px; cursor: pointer; transition: background-color 0.3s;">Add to Cart</button>
+                                    <button class="btn btn-black" type="submit" style="background-color: #000; color: #fff; border: none; padding: 10px 20px; font-size: 16px; cursor: pointer; transition: background-color 0.3s;">{{__('main.shop')}}</button>
                                 </form>
                             </div>
                         </div>

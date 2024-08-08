@@ -1,6 +1,9 @@
 @extends('layout.helper')
 @section('content')
     @php
+
+        $lang = \Illuminate\Support\Facades\App::getLocale();
+
         use Carbon\Carbon;
     @endphp
         <!-- blog-area -->
@@ -13,12 +16,12 @@
                     <div class="col-xl-12 col-lg-12">
                         <div class="breadcrumb-wrap text-left">
                             <div class="breadcrumb-title">
-                                <h2>Maslahatlar</h2>
+                                <h2>{{__('main.advices')}}</h2>
                                 <div class="breadcrumb-wrap">
                                     <nav aria-label="breadcrumb">
                                         <ol class="breadcrumb">
-                                            <li class="breadcrumb-item"><a href="{{route('home')}}">Bosh Sahifa</a></li>
-                                            <li class="breadcrumb-item active" aria-current="page">Maslahatlar</li>
+                                            <li class="breadcrumb-item"><a href="{{route('home')}}">{{__('main.home')}}</a></li>
+                                            <li class="breadcrumb-item active" aria-current="page">{{__('main.advices')}}</li>
                                         </ol>
                                     </nav>
                                 </div>
@@ -47,14 +50,14 @@
                                     <div class="b-meta">
                                         <div class="meta-info">
                                             <ul>
-                                                <li><i class="fal fa-user"></i>Admin tomonidan</li>
+                                                <li><i class="fal fa-user"></i>{{__('main.admin')}}</li>
                                             </ul>
                                         </div>
                                     </div>
-                                    <h4><a href="{{route('advice.details', $value->id)}}">{{$value->title}}</a>
+                                    <h4><a href="{{route('advice.details', $value->id)}}">{{$value['title_' . $lang]}}</a>
                                     </h4>
-                                    <p>{{  Str::limit($value->description, 100) }}.</p>
-                                    <div class="blog-btn"><a href="{{route('advice.details', $value->id)}}">Ko'proq
+                                    <p>{{  Str::limit($value['description_' . $lang], 100) }}.</p>
+                                    <div class="blog-btn"><a href="{{route('advice.details', $value->id)}}">{{__('main.more')}}
                                             <i class="fal fa-long-arrow-right"></i></a></div>
                                 </div>
                             </div>

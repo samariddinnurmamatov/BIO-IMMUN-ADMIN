@@ -180,14 +180,14 @@
                                         <a href="">{{__('main.categories')}}</a>
                                         <ul>
                                             @foreach($categories as $category)
-                                                <li><a href="">{{$category->name}}</a></li>
+                                                <li><a href="{{route('category.showPage', $category->id)}}">{{($category['name_' . $lang])}}</a></li>
                                             @endforeach
 
                                         </ul>
                                     </li>
                                     <li><a href="{{route('product.page')}}">{{__('main.products')}}</a></li>
                                     <li class="has-sub">
-                                        <a href="/blog/page">{{__('main.blog')}}</a>
+                                        <a href="/blog">{{__('main.blog')}}</a>
                                     </li>
                                     <li class="has-sub">
                                         <a href="{{route('advice.page')}}">{{__('main.advices')}}</a>
@@ -262,7 +262,7 @@
                 <div class="col-xl-4 col-lg-4 col-sm-6">
                     <div class="footer-widget mb-30">
                         <div class="f-widget-title mb-30">
-                            <a href="{{route('home')}}"><img src="assets/front/img/logo/f_logo.png" alt="img"></a>
+                            <a href="{{route('home')}}"><img src="/assets/front/img/logo/f_logo.png" alt="img"></a>
                         </div>
                         <div class="footer-social mt-10">
                             <a href="#"><i class="fab fa-facebook-f"></i></a>
@@ -322,13 +322,13 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6">
-                    DORA - International & Marketing Company   2024 © DORA
+                    {{__('main.footer_item4')}}
                 </div>
                 <div class="col-lg-6 text-right text-xl-right">
                     <ul>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Terms Of Service</a></li>
-                        <li><a href="#">Legal</a></li>
+                        <li><a href="">{{__('main.footer_item1')}}</a></li>
+                        <li><a href="">{{__('main.footer_item2')}}</a></li>
+                        <li><a href="">{{__('main.footer_item3')}}</a></li>
                     </ul>
                 </div>
             </div>

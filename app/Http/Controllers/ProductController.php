@@ -22,7 +22,7 @@ class ProductController extends Controller
             'name_uz' => 'required|string|max:255',
             'name_ru' => 'required|string|max:255',
             'name_en' => 'required|string|max:255',
-            'photo' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'photo' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'price' => 'required|numeric',
             'quantity' => 'required|numeric',
             'status' => 'required',
@@ -32,7 +32,6 @@ class ProductController extends Controller
             'description_ru' => 'nullable',
             'description_en' => 'nullable',
         ]);
-        dd($request->all());
 
         $photoPath = '';
         if ($request->hasFile('photo')) {
@@ -121,7 +120,7 @@ class ProductController extends Controller
 
     public function product_page()
     {
-        $products = Product::latest()->paginate(1); // 10 items per page
+        $products = Product::latest()->paginate(12); // 10 items per page
         return view('front.product.index', compact('products'));
     }
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Models\Category;
 
@@ -50,6 +51,12 @@ class CategoryController extends Controller
         $category->delete();
 
         return redirect()->route('category.index')->with('success', 'Category deleted successfully.');
+    }
+    public function showPage($id) {
+        $categories = Category::all();
+        $category=Category::findorFail($id);
+        $products = Product::where('category_id', $id)->paginate(10);
+        return view('front.category.show', compact('category', 'products', 'categories'));
     }
 
 }

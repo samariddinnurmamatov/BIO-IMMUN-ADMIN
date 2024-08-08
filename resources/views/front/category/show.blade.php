@@ -1,23 +1,22 @@
 @extends('layout.helper')
 @section('content')
-
     <?php
     $lang = \Illuminate\Support\Facades\App::getLocale();
     ?>
     <main>
         <style>
-        .page-item.active{
-            border: none;
-            height: 50px;
-            width: 50px;
-            display: block;
-            line-height: 50px;
-            background-color: black;
-            border-radius: 50%;
-            color: #fff;
-            font-size: 14px;
-            text-align: center;
-        }
+            .page-item.active{
+                border: none;
+                height: 50px;
+                width: 50px;
+                display: block;
+                line-height: 50px;
+                background-color: black;
+                border-radius: 50%;
+                color: #fff;
+                font-size: 14px;
+                text-align: center;
+            }
         </style>
         <!-- breadcrumb-area -->
         <section class="breadcrumb-area d-flex p-relative align-items-center" style="background-image:url(/assets/front/img/bg/video-img.png)">
@@ -51,7 +50,8 @@
                         <div class="col-lg-3 col-md-6">
                             <div class="product mb-40">
                                 <div class="product__img">
-                                    <a href="{{route('product.details', $product->id)}}"><img src="{{ $product->photo }}" alt="" style="height: 180px"></a>
+                                    <a href="{{route('product.details', $product->id)}}">
+                                        <img src="/{{ $product->photo }}" alt="" style="height: 180px"></a>
                                     <div class="product-action text-center">
                                         <form action="{{ route('cart.addItem', $product->id) }}" method="POST">
                                             @csrf
@@ -90,3 +90,4 @@
         <!-- shop-area-end -->
     </main>
 @endsection
+

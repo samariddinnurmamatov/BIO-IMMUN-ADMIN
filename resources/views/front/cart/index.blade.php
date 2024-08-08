@@ -1,6 +1,9 @@
 @extends('layout.helper')
 
 @section('content')
+    @php
+        $lang = \Illuminate\Support\Facades\App::getLocale();
+    @endphp
     <div class="container">
         <h2>Shopping Cart</h2>
 
@@ -18,30 +21,43 @@
                 </thead>
                 <tbody>
                 @foreach($cart as $item)
+                        @php
+                    $product=\App\Models\Product::findOrFail($item['product_id']);
+                    @endphp
                     <tr>
-                        <td>{{ $item['name'] ?? 'Unknown' }}</td>
+                        <td>{{ $product['name_' . $lang] ?? 'Unknown' }}</td>
                         <td>
                             <img src="/{{ $item['photo'] ?? 'Unknown' }}" style="width: 100px; height: auto;">
                         </td>
                         <td>
-                            <form action="{{ route('cart.updateQuantity') }}" method="POST" class="d-flex align-items-center justify-content-center">
+                            <form action="{{ route('cart.updateQuantity') }}" method="POST"
+                                  class="d-flex align-items-center justify-content-center">
                                 @csrf
                                 <input type="hidden" name="product_id" value="{{ $item['product_id'] }}">
                                 <div class="input-group">
                                     <div class="input-group-prepend">
-                                        <button class="btn btn-outline-black decrease" type="submit" onclick="event.preventDefault(); this.closest('form').querySelector('.quantity-amount').stepDown(); this.closest('form').submit();">−</button>
+                                        <button class="btn btn-outline-black decrease" type="submit"
+                                                onclick="event.preventDefault(); this.closest('form').querySelector('.quantity-amount').stepDown(); this.closest('form').submit();">
+                                            −
+                                        </button>
                                     </div>
-                                    <input type="number" id="quantity-{{ $item['product_id'] }}" name="quantity" class="form-control text-center quantity-amount" value="{{ $item['quantity'] ?? 1 }}" min="1">
+                                    <input type="number" id="quantity-{{ $item['product_id'] }}" name="quantity"
+                                           class="form-control text-center quantity-amount"
+                                           value="{{ $item['quantity'] ?? 1 }}" min="1">
                                     <div class="input-group-append">
-                                        <button class="btn btn-outline-black increase" type="submit" onclick="event.preventDefault(); this.closest('form').querySelector('.quantity-amount').stepUp(); this.closest('form').submit();">+</button>
+                                        <button class="btn btn-outline-black increase" type="submit"
+                                                onclick="event.preventDefault(); this.closest('form').querySelector('.quantity-amount').stepUp(); this.closest('form').submit();">
+                                            +
+                                        </button>
                                     </div>
                                 </div>
                             </form>
                         </td>
-                        <td>${{ $item['price'] ?? '0.00' }}</td>
-                        <td>${{ ($item['price'] ?? 0) * ($item['quantity'] ?? 1) }}</td>
+                        <td>{{ $item['price'] ?? '0.00' }}</td>
+                        <td>{{ ($item['price'] ?? 0) * ($item['quantity'] ?? 1) }}</td>
                         <td>
-                            <form action="{{ route('cart.remove') }}" method="POST" onsubmit="return confirm('Are you sure you want to remove this item?');">
+                            <form action="{{ route('cart.remove') }}" method="POST"
+                                  onsubmit="return confirm('Are you sure you want to remove this item?');">
                                 @csrf
                                 <input type="hidden" name="product_id" value="{{ $item['product_id'] }}">
                                 <button type="submit" class="btn btn-danger btn-sm">Remove</button>
@@ -53,7 +69,7 @@
             </table>
 
             <div>
-                <strong>Total: ${{ $total }}</strong>
+                <strong>Total: {{ $total }}</strong>
             </div>
             <!-- Cart table -->
             <!-- Cart table -->
@@ -64,14 +80,16 @@
             </button>
 
             <!-- Client Modal -->
-            <div class="modal fade" id="clientModal" tabindex="-1" aria-labelledby="clientModalLabel" aria-hidden="true">
+            <div class="modal fade" id="clientModal" tabindex="-1" aria-labelledby="clientModalLabel"
+                 aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <form action="{{ route('cart.checkout') }}" method="POST">
                             @csrf
                             <div class="modal-header">
                                 <h5 class="modal-title" id="clientModalLabel">Client Information</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
                                 <div class="form-group">
@@ -84,7 +102,8 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="phone_number">Phone Number</label>
-                                    <input type="text" class="form-control" id="phone_number" name="phone_number" required>
+                                    <input type="text" class="form-control" id="phone_number" name="phone_number"
+                                           required>
                                 </div>
                             </div>
                             <div class="modal-footer">
@@ -106,9 +125,9 @@
         function updateCartTotal() {
             var total = 0;
             @foreach($cart as $item)
-                var quantity = parseInt(localStorage.getItem('quantity-{{ $item['product_id'] }}')) || {{ $item['quantity'] ?? 1 }};
-                var price = parseFloat('{{ $item['price'] ?? 0 }}');
-                total += price * quantity;
+            var quantity = parseInt(localStorage.getItem('quantity-{{ $item['product_id'] }}')) || {{ $item['quantity'] ?? 1 }};
+            var price = parseFloat('{{ $item['price'] ?? 0 }}');
+            total += price * quantity;
             @endforeach
             document.querySelector('strong').innerText = 'Total: $' + total.toFixed(2);
         }
