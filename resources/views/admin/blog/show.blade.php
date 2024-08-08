@@ -43,12 +43,6 @@
                     <p class="mb-2 text-purple-500 text-15 aos-init" data-aos="fade-left" data-aos-delay="300"></p>
                     <h1 class="mb-3 leading-normal capitalize aos-init" data-aos="fade-left" data-aos-delay="400">{{$blog->title_uz}}</h1>
                     <p class="mb-5 text-lg text-slate-500 dark:text-zinc-400 aos-init" data-aos="fade-left" data-aos-delay="500">{{$blog->description_uz}}</p>
-                    <button type="button" class="px-8 py-3 text-white border-0 text-15 btn bg-gradient-to-r from-custom-500 to-purple-500 hover:text-white hover:from-purple-500 hover:to-custom-500 aos-init aos-animate" data-aos="fade-left" data-aos-delay="600">Shop now
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="move-right" class="lucide lucide-move-right inline-block align-middle size-4 rtl:mr-1 ltr:ml-1">
-                            <path d="M18 8L22 12L18 16"></path>
-                            <path d="M2 12H22"></path>
-                        </svg>
-                    </button>
                 </div>
             </div>
 

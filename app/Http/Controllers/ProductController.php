@@ -12,7 +12,7 @@ class ProductController extends Controller
     public function index()
     {
         $categories = Category::all();
-        $products = Product::paginate(1); // 10 items per page
+        $products = Product::paginate(10); // 10 items per page
         return view('admin.products.index', compact('products', 'categories'));
     }
 
@@ -32,6 +32,7 @@ class ProductController extends Controller
             'description_ru' => 'nullable',
             'description_en' => 'nullable',
         ]);
+        dd($request->all());
 
         $photoPath = '';
         if ($request->hasFile('photo')) {
@@ -129,4 +130,5 @@ class ProductController extends Controller
         $product = Product::findOrFail($id);
         return view('front.product.show', compact('product'));
     }
+
 }

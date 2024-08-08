@@ -1,5 +1,8 @@
 @extends('layout.helper')
 @section('content')
+    @php
+    $products=\App\Models\Product::latest()->take(4)->get();
+    @endphp
 <main>
     <!-- slider-area -->
     <section id="home" class="slider-area fix p-relative">
@@ -38,7 +41,7 @@
                                 <p data-animation="fadeInUp" data-delay=".6s">Fusce accumsan nulla ac iaculis posuere. Suspendisse potenti. Vivamus lorem lectus.</p>
 
                                 <div class="slider-btn mt-30">
-                                    <a href="about.html" class="btn ss-btn mr-15" data-animation="fadeInLeft" data-delay=".4s">Discover More <i class="fal fa-long-arrow-right"></i></a>
+                                    <a href="{{route('about')}}" class="btn ss-btn mr-15" data-animation="fadeInLeft" data-delay=".4s">Discover More <i class="fal fa-long-arrow-right"></i></a>
                                 </div>
 
                             </div>
@@ -139,11 +142,11 @@
                         </div>
                         <div class="services-box-05 wow fadeInUp  animated" data-animation="fadeInUp" data-delay=".4s">
                             <div class="services-icon-05">
-                                <a href="single-service.html"><img src="img/bg/services-07.jpg" alt="icon01"></a>
+                                <a href="single-service.html"><img src="assets/front/img/bg/services-07.jpg" alt="icon01"></a>
                             </div>
                             <div class="services-content-05">
                                 <div class="icon">
-                                    <span><img src="img/icon/sve-icon3.png" alt="icon01"></span>
+                                    <span><img src="assets/front/img/icon/sve-icon3.png" alt="icon01"></span>
                                     <h4> <a href="single-service.html">Hand Milking Cow Milk</a></h4>
                                 </div>
                                 <p>Seamlessly visualize quality ellectual capital without superior collaboration and idea such and asser sharing listically</p>
@@ -151,11 +154,11 @@
                         </div>
                         <div class="services-box-05 wow fadeInUp  animated" data-animation="fadeInUp" data-delay=".4s">
                             <div class="services-icon-05">
-                                <a href="single-service.html"><img src="img/bg/services-06.jpg" alt="icon01"></a>
+                                <a href="single-service.html"><img src="assets/front/img/bg/services-06.jpg" alt="icon01"></a>
                             </div>
                             <div class="services-content-05">
                                 <div class="icon">
-                                    <span><img src="img/icon/sve-icon2.png" alt="icon01"></span>
+                                    <span><img src="assets/front/img/icon/sve-icon2.png" alt="icon01"></span>
                                     <h4> <a href="single-service.html">Natural Feeds For Cow’s</a></h4>
                                 </div>
                                 <p>Seamlessly visualize quality ellectual capital without superior collaboration and idea such and asser sharing listically</p>
@@ -237,50 +240,6 @@
         </div>
     </section>
     <!-- frequently-area-end -->
-    <!-- newslater-area -->
-    <section class="newslater-area pt-120 pb-200" style="background:url(img/bg/newslater-bg.png); background-repeat: no-repeat; background-size: contain;">
-        <div class="container" >
-            <div class="row align-items-center">
-                <div class="col-xl-7 col-lg-7">
-                    <div class="section-title newslater-title wow fadeInDown  animated" data-animation="fadeInDown" data-delay=".4s">
-                        <div class="text">
-                            <h5>Newsletter</h5>
-                            <h2>Join Us & Get Special Offers From Us</h2>
-                        </div>
-
-                    </div>
-                </div>
-                <div class="col-xl-5 col-lg-5">
-                    <form name="ajax-form" id="contact-form4" action="#" method="post" class="contact-form newslater wow fadeInDown  animated" data-animation="fadeInDown" data-delay=".4s">
-                        <div class="form-group p-relative">
-                            <input class="form-control" id="email2" name="email" type="email" placeholder="Email Address..." value="" required="">
-                            <button type="submit" class="btn btn-custom" id="send2">Subscribe Now</button>
-                        </div>
-                        <!-- /Form-email -->
-                    </form>
-                </div>
-            </div>
-
-        </div>
-    </section>
-    <!-- newslater-aread-end -->
-    <!-- video-area -->
-    <section id="video" class="video-area p-relative wow fadeInUp  animated" data-animation="fadeInUp" data-delay=".4s">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="s-video-wrap" style="background-image:url(img/bg/video-img.png)">
-                        <div class="s-video-content text-center">
-                            <h6><a href="https://www.youtube.com/watch?v=7e90gBu4pas" class="popup-video mb-50"><img src="img/bg/play-button2.png" alt="circle_right"></a></h6>
-
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-    <!-- video-area-end -->
     <!-- product-slider -->
     <section id="editor-choice" class="product-slider pt-120 pb-90 fix" style="background: url(img/bg/product-bg.png); background-size: contain; background-position: center center; background-repeat: no-repeat;">
         <div class="container">
@@ -298,144 +257,29 @@
 
             </div>
             <div class="row home-blog-active">
-                <div class="col-lg-4 col-md-12">
+                @foreach($products as $product)
+                    <div class="col-lg-4 col-md-12">
 
-                    <div class="product mb-40">
-                        <div class="product__img">
-                            <a href="shop-details.html"><img src="/assets/front/img/shop/img1.jpg" alt=""></a>
-                            <div class="product-action text-center">
+                        <div class="product mb-40">
+                            <div class="product__img">
+                                <a href="shop-details.html"><img src="/{{$product->photo}}" alt=""></a>
+                                <div class="product-action text-center">
 
-                                <a href="shop-details.html">Add Cart</a>
+                                    <a href="shop-details.html">Add Cart</a>
 
+                                </div>
                             </div>
-                        </div>
-                        <div class="product__content pt-30">
+                            <div class="product__content pt-30">
 
-                            <h4 class="pro-title"><a href="shop-details.html">Balancing Gel</a></h4>
-                            <div class="price">
-                                <span class="old-price">$20</span>
-                                <span>$15</span>
-                            </div>
-                        </div>
-                    </div>
-
-
-                </div>
-                <div class="col-lg-4 col-md-12">
-
-                    <div class="product mb-40">
-                        <div class="product__img">
-                            <a href="shop-details.html"><img src="img/shop/img2.jpg" alt=""></a>
-                            <div class="product-action text-center">
-
-                                <a href="shop-details.html">Add Cart</a>
-
-                            </div>
-                        </div>
-                        <div class="product__content pt-30">
-
-                            <h4 class="pro-title"><a href="shop-details.html">Beauty Cream</a></h4>
-                            <div class="price">
-                                <span class="old-price">$20</span>
-                                <span>$15</span>
+                                <h4 class="pro-title"><a href="shop-details.html">{{$product->name_uz}}</a></h4>
+                                <div class="price">
+                                    <span class="old-price">{{$product->price}}</span>
+                                    <span>{{($product->price)*(100-$product->percentage)/100}}</span>
+                                </div>
                             </div>
                         </div>
                     </div>
-
-
-
-                </div>
-                <div class="col-lg-4 col-md-12">
-
-                    <div class="product mb-40">
-                        <div class="product__img">
-                            <a href="shop-details.html"><img src="img/shop/img3.jpg" alt=""></a>
-                            <div class="product-action text-center">
-
-                                <a href="shop-details.html">Add Cart</a>
-
-                            </div>
-                        </div>
-                        <div class="product__content pt-30">
-
-                            <h4 class="pro-title"><a href="shop-details.html">Dry Skin</a></h4>
-                            <div class="price">
-                                <span class="old-price">$20</span>
-                                <span>$15</span>
-                            </div>
-                        </div>
-                    </div>
-
-
-
-                </div>
-                <div class="col-lg-4 col-md-12">
-
-                    <div class="product mb-40">
-                        <div class="product__img">
-                            <a href="shop-details.html"><img src="img/shop/img4.jpg" alt=""></a>
-                            <div class="product-action text-center">
-
-                                <a href="shop-details.html">Add Cart</a>
-
-                            </div>
-                        </div>
-                        <div class="product__content pt-30">
-
-                            <h4 class="pro-title"><a href="shop-details.html">Fairness Cream</a></h4>
-                            <div class="price">
-                                <span class="old-price">$20</span>
-                                <span>$15</span>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="col-lg-4 col-md-12">
-
-                    <div class="product mb-40">
-                        <div class="product__img">
-                            <a href="shop-details.html"><img src="img/shop/img5.jpg" alt=""></a>
-                            <div class="product-action text-center">
-
-                                <a href="shop-details.html">Add Cart</a>
-
-                            </div>
-                        </div>
-                        <div class="product__content pt-30">
-
-                            <h4 class="pro-title"><a href="shop-details.html">Agrofarm Onion</a></h4>
-                            <div class="price">
-                                <span class="old-price">$20</span>
-                                <span>$15</span>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="col-lg-4 col-md-12">
-
-                    <div class="product mb-40">
-                        <div class="product__img">
-                            <a href="shop-details.html"><img src="img/shop/img6.jpg" alt=""></a>
-                            <div class="product-action text-center">
-
-                                <a href="shop-details.html">Add Cart</a>
-
-                            </div>
-                        </div>
-                        <div class="product__content pt-30">
-
-                            <h4 class="pro-title"><a href="shop-details.html">Agrofarm Onion</a></h4>
-                            <div class="price">
-                                <span>$95.00</span>
-                                <span class="old-price">$120.00</span>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
+                @endforeach
             </div>
         </div>
     </section>
@@ -458,7 +302,7 @@
                     <div class="testimonial-active">
                         <div class="single-testimonial">
                             <div class="testi-author">
-                                <img src="img/testimonial/testi_avatar.png" alt="img">
+                                <img src="assets/front/img/testimonial/testi_avatar.png" alt="img">
                                 <div class="ta-info">
                                     <h6>Jina Nilson</h6>
                                     <span>Client</span>
@@ -468,82 +312,82 @@
                             <p>“Phasellus aliquam quis lorem amet dapibus feugiat vitae purus vitae efficitur. Vestibulum sed elit id orci rhoncus ultricies. Morbi vitae semper consequat ipsum semper quam”.</p>
 
                             <div class="qt-img">
-                                <img src="img/testimonial/qt-icon.png" alt="img">
+                                <img src="assets/front/img/testimonial/qt-icon.png" alt="img">
                             </div>
                         </div>
                         <div class="single-testimonial">
                             <div class="testi-author">
-                                <img src="img/testimonial/testi_avatar_02.png" alt="img">
+                                <img src="assets/front/img/testimonial/testi_avatar_02.png" alt="img">
                                 <div class="ta-info">
                                     <h6>Braitly Dcosta</h6>
                                     <span>Client</span>
                                 </div>
                             </div>
-                            <p class="pt-10 pb-20"><img src="img/testimonial/review-icon.png" alt="img"></p>
+                            <p class="pt-10 pb-20"><img src="assets/front/img/testimonial/review-icon.png" alt="img"></p>
                             <p>“Phasellus aliquam quis lorem amet dapibus feugiat vitae purus vitae efficitur. Vestibulum sed elit id orci rhoncus ultricies. Morbi vitae semper consequat ipsum semper quam”.</p>
 
                             <div class="qt-img">
-                                <img src="img/testimonial/qt-icon.png" alt="img">
+                                <img src="assets/front/img/testimonial/qt-icon.png" alt="img">
                             </div>
                         </div>
                         <div class="single-testimonial">
                             <div class="testi-author">
-                                <img src="img/testimonial/testi_avatar.png" alt="img">
+                                <img src="assets/front/img/testimonial/testi_avatar.png" alt="img">
                                 <div class="ta-info">
                                     <h6>Jina Nilson</h6>
                                     <span>Client</span>
                                 </div>
                             </div>
-                            <p class="pt-10 pb-20"><img src="img/testimonial/review-icon.png" alt="img"></p>
+                            <p class="pt-10 pb-20"><img src="assets/front/img/testimonial/review-icon.png" alt="img"></p>
                             <p>“Phasellus aliquam quis lorem amet dapibus feugiat vitae purus vitae efficitur. Vestibulum sed elit id orci rhoncus ultricies. Morbi vitae semper consequat ipsum semper quam”.</p>
 
                             <div class="qt-img">
-                                <img src="img/testimonial/qt-icon.png" alt="img">
+                                <img src="assets/front/img/testimonial/qt-icon.png" alt="img">
                             </div>
                         </div>
                         <div class="single-testimonial">
                             <div class="testi-author">
-                                <img src="img/testimonial/testi_avatar_02.png" alt="img">
+                                <img src="assets/front/img/testimonial/testi_avatar_02.png" alt="img">
                                 <div class="ta-info">
                                     <h6>Braitly Dcosta</h6>
                                     <span>Client</span>
                                 </div>
                             </div>
-                            <p class="pt-10 pb-20"><img src="img/testimonial/review-icon.png" alt="img"></p>
+                            <p class="pt-10 pb-20"><img src="assets/front/img/testimonial/review-icon.png" alt="img"></p>
                             <p>“Phasellus aliquam quis lorem amet dapibus feugiat vitae purus vitae efficitur. Vestibulum sed elit id orci rhoncus ultricies. Morbi vitae semper consequat ipsum semper quam”.</p>
 
                             <div class="qt-img">
-                                <img src="img/testimonial/qt-icon.png" alt="img">
+                                <img src="assets/front/img/testimonial/qt-icon.png" alt="img">
                             </div>
                         </div>
                         <div class="single-testimonial">
                             <div class="testi-author">
-                                <img src="img/testimonial/testi_avatar.png" alt="img">
+                                <img src="assets/front/img/testimonial/testi_avatar.png" alt="img">
                                 <div class="ta-info">
                                     <h6>Jina Nilson</h6>
                                     <span>Client</span>
                                 </div>
                             </div>
-                            <p class="pt-10 pb-20"><img src="img/testimonial/review-icon.png" alt="img"></p>
+                            <p class="pt-10 pb-20"><img src="assets/front/img/testimonial/review-icon.png" alt="img"></p>
                             <p>“Phasellus aliquam quis lorem amet dapibus feugiat vitae purus vitae efficitur. Vestibulum sed elit id orci rhoncus ultricies. Morbi vitae semper consequat ipsum semper quam”.</p>
 
                             <div class="qt-img">
-                                <img src="img/testimonial/qt-icon.png" alt="img">
+                                <img src="assets/front/img/testimonial/qt-icon.png" alt="img">
                             </div>
                         </div>
                         <div class="single-testimonial">
                             <div class="testi-author">
-                                <img src="img/testimonial/testi_avatar_02.png" alt="img">
+                                <img src="assets/front/img/testimonial/testi_avatar_02.png" alt="img">
                                 <div class="ta-info">
                                     <h6>Braitly Dcosta</h6>
                                     <span>Client</span>
                                 </div>
                             </div>
-                            <p class="pt-10 pb-20"><img src="img/testimonial/review-icon.png" alt="img"></p>
+                            <p class="pt-10 pb-20"><img src="assets/front/img/testimonial/review-icon.png" alt="img"></p>
                             <p>“Phasellus aliquam quis lorem amet dapibus feugiat vitae purus vitae efficitur. Vestibulum sed elit id orci rhoncus ultricies. Morbi vitae semper consequat ipsum semper quam”.</p>
 
                             <div class="qt-img">
-                                <img src="img/testimonial/qt-icon.png" alt="img">
+                                <img src="assets/front/img/testimonial/qt-icon.png" alt="img">
                             </div>
                         </div>
                     </div>
@@ -560,7 +404,7 @@
 
                 <div class="col-lg-6 col-md-12">
                     <div class="wow fadeInLeft animated" data-animation="fadeInLeft" data-delay=".4s">
-                        <img src="img/bg/steps-img.png" alt="class image">
+                        <img src="assets/front/img/bg/steps-img.png" alt="class image">
                     </div>
 
                 </div>
@@ -575,7 +419,7 @@
                             <li>
                                 <div class="step-box wow fadeInUp animated" data-animation="fadeInUp" data-delay=".4s">
                                     <div class="dnumber">
-                                        <div class="date-box"><img src="img/icon/fea-icon01.png" alt="icon"></div>
+                                        <div class="date-box"><img src="assets/front/img/icon/fea-icon01.png" alt="icon"></div>
                                     </div>
                                     <div class="text">
                                         <h3>Get The Quality Milk</h3>
@@ -586,7 +430,7 @@
                             <li>
                                 <div class="step-box wow fadeInUp animated" data-animation="fadeInUp" data-delay=".4s">
                                     <div class="dnumber">
-                                        <div class="date-box"><img src="img/icon/fea-icon02.png" alt="icon"></div>
+                                        <div class="date-box"><img src="assets/front/img/icon/fea-icon02.png" alt="icon"></div>
                                     </div>
                                     <div class="text">
                                         <h3>In Processing The Milk</h3>
@@ -597,7 +441,7 @@
                             <li>
                                 <div class="step-box wow fadeInUp animated" data-animation="fadeInUp" data-delay=".4s">
                                     <div class="dnumber">
-                                        <div class="date-box"><img src="img/icon/fea-icon03.png" alt="icon"></div>
+                                        <div class="date-box"><img src="assets/front/img/icon/fea-icon03.png" alt="icon"></div>
                                     </div>
                                     <div class="text">
                                         <h3>Get The Final Product</h3>
@@ -616,7 +460,7 @@
     <!-- steps-area-end -->
 
     <!-- blog-area -->
-    <section id="blog" class="blog-area p-relative fix pt-120 pb-90" style="background: url(img/bg/services-bg.png); background-repeat: no-repeat;">
+    <section id="blog" class="blog-area p-relative fix pt-120 pb-90" style="background: url(assets/front/img/bg/services-bg.png); background-repeat: no-repeat;">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-12">
@@ -713,52 +557,52 @@
             <div class="row brand-active">
                 <div class="col-xl-2">
                     <div class="single-brand">
-                        <img src="img/brand/b-logo1.png" alt="img">
+                        <img src="assets/front/img/brand/b-logo1.png" alt="img">
                     </div>
                 </div>
                 <div class="col-xl-2">
                     <div class="single-brand">
-                        <img src="img/brand/b-logo2.png" alt="img">
+                        <img src="assets/front/img/brand/b-logo2.png" alt="img">
                     </div>
                 </div>
                 <div class="col-xl-2">
                     <div class="single-brand">
-                        <img src="img/brand/b-logo3.png" alt="img">
+                        <img src="assets/front/img/brand/b-logo3.png" alt="img">
                     </div>
                 </div>
                 <div class="col-xl-2">
                     <div class="single-brand">
-                        <img src="img/brand/b-logo4.png" alt="img">
+                        <img src="assets/front/img/brand/b-logo4.png" alt="img">
                     </div>
                 </div>
                 <div class="col-xl-2">
                     <div class="single-brand">
-                        <img src="img/brand/b-logo5.png" alt="img">
+                        <img src="assets/front/img/brand/b-logo5.png" alt="img">
                     </div>
                 </div>
                 <div class="col-xl-2">
                     <div class="single-brand">
-                        <img src="img/brand/b-logo1.png" alt="img">
+                        <img src="assets/front/img/brand/b-logo1.png" alt="img">
                     </div>
                 </div>
                 <div class="col-xl-2">
                     <div class="single-brand">
-                        <img src="img/brand/b-logo2.png" alt="img">
+                        <img src="assets/front/img/brand/b-logo2.png" alt="img">
                     </div>
                 </div>
                 <div class="col-xl-2">
                     <div class="single-brand">
-                        <img src="img/brand/b-logo3.png" alt="img">
+                        <img src="assets/front/img/brand/b-logo3.png" alt="img">
                     </div>
                 </div>
                 <div class="col-xl-2">
                     <div class="single-brand">
-                        <img src="img/brand/b-logo4.png" alt="img">
+                        <img src="assets/front/img/brand/b-logo4.png" alt="img">
                     </div>
                 </div>
                 <div class="col-xl-2">
                     <div class="single-brand">
-                        <img src="img/brand/b-logo5.png" alt="img">
+                        <img src="assets/front/img/brand/b-logo5.png" alt="img">
                     </div>
                 </div>
             </div>

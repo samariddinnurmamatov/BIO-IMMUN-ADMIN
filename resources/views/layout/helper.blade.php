@@ -112,7 +112,7 @@
                                         <img src="/assets/front/img/icon/phone-call.png" alt="img">
                                     </div>
                                     <div class="text">
-                                        <span>Qo'ng'iroq qiling!</span>
+                                        <span>{{__('main.call')}}</span>
                                         <strong>+91 854 789-8746</strong>
                                     </div>
                                 </div>
@@ -123,7 +123,7 @@
                                         <img src="/assets/front/img/icon/mailing.png" alt="img">
                                     </div>
                                     <div class="text">
-                                        <span>Elektron pochta</span>
+                                        <span>{{__('main.email')}}</span>
                                         <strong>info@gmail.com</strong>
                                     </div>
                                 </div>
@@ -171,13 +171,13 @@
                             <nav id="mobile-menu">
                                 <ul>
                                     <li class="has-sub">
-                                        <a href="{{route('home')}}">Bosh Sahifa</a>
+                                        <a href="{{route('home')}}">{{__('main.home')}}</a>
                                     </li>
                                     <li class="has-sub">
-                                        <a href="{{route('about')}}">Biz Haqimizda</a>
+                                        <a href="{{route('about')}}">{{__('main.about')}}</a>
                                     </li>
                                     <li class="has-sub">
-                                        <a href="">Kategoriya</a>
+                                        <a href="">{{__('main.categories')}}</a>
                                         <ul>
                                             @foreach($categories as $category)
                                                 <li><a href="">{{$category->name}}</a></li>
@@ -185,14 +185,14 @@
 
                                         </ul>
                                     </li>
-                                    <li><a href="{{route('product.page')}}">Mahsulotlar</a></li>
+                                    <li><a href="{{route('product.page')}}">{{__('main.products')}}</a></li>
                                     <li class="has-sub">
-                                        <a href="/blog/page">Yangiliklar</a>
+                                        <a href="/blog/page">{{__('main.blog')}}</a>
                                     </li>
                                     <li class="has-sub">
-                                        <a href="{{route('advice.page')}}">Maslahatlar</a>
+                                        <a href="{{route('advice.page')}}">{{__('main.advices')}}</a>
                                     </li>
-                                    <li><a href="{{route('contact')}}">Kontakt</a></li>
+                                    <li><a href="{{route('contact')}}">{{__('main.contact')}}</a></li>
                                 </ul>
                             </nav>
                         </div>
@@ -262,7 +262,7 @@
                 <div class="col-xl-4 col-lg-4 col-sm-6">
                     <div class="footer-widget mb-30">
                         <div class="f-widget-title mb-30">
-                            <a href="{{route('home')}}"><img src="img/logo/f_logo.png" alt="img"></a>
+                            <a href="{{route('home')}}"><img src="assets/front/img/logo/f_logo.png" alt="img"></a>
                         </div>
                         <div class="footer-social mt-10">
                             <a href="#"><i class="fab fa-facebook-f"></i></a>
@@ -274,16 +274,16 @@
                 <div class="col-xl-2 col-lg-2 col-sm-6">
                     <div class="footer-widget mb-30">
                         <div class="f-widget-title">
-                            <h2>Sahifalar</h2>
+                            <h2>{{__('main.menu')}}</h2>
                         </div>
                         <div class="footer-link">
                             <ul>
-                                <li><a href="{{route('home')}}">Bosh Sahifa</a></li>
-                                <li><a href="{{route('about')}}"> Biz Haqimizda</a></li>
-                                <li><a href="{{route('product.page')}}"> Mahsulotlar </a></li>
-                                <li><a href="/blog/page"> Yangiliklar</a></li>
-                                <li><a href="{{route('advice.page')}}">Maslahatlar </a></li>
-                                <li><a href="">Kontakt </a></li>
+                                <li><a href="{{route('home')}}">{{__('main.home')}}</a></li>
+                                <li><a href="{{route('about')}}"> {{__('main.about')}}</a></li>
+                                <li><a href="{{route('product.page')}}"> {{__('main.products')}} </a></li>
+                                <li><a href="/blog/page"> {{__('main.blog')}}</a></li>
+                                <li><a href="{{route('advice.page')}}">{{__('main.advices')}} </a></li>
+                                <li><a href="">{{__('main.contact')}} </a></li>
                             </ul>
                         </div>
                     </div>
@@ -291,7 +291,7 @@
                 <div class="col-xl-3 col-lg-3 col-sm-6">
                     <div class="footer-widget mb-30">
                         <div class="f-widget-title">
-                            <h2>Contact Us</h2>
+                            <h2>{{__('main.contact')}}</h2>
                         </div>
                         <div class="f-contact">
                             <ul>

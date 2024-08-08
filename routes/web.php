@@ -31,7 +31,6 @@ Route::get('/', function (){
     return view('front.home.home');
 })->name('home');
 
-
 Route::get('/about', function (){
     return view('front.about.index');
 })->name('about');
@@ -103,8 +102,7 @@ Route::delete('clients/{client}', [ClientController::class, 'destroy'])->name('c
 
 
 
-Route::get('/lang', function ($lang){
+Route::get('/{lang}', function ($lang){
     session()->put(['lang'=>$lang]);
     return back();
-
 })->where('lang', 'en|ru|uz');

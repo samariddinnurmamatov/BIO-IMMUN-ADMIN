@@ -15,7 +15,7 @@
             border-radius: 50%;
             color: #fff;
             font-size: 14px;
-            text-align: center; 
+            text-align: center;
         }
         </style>
         <!-- breadcrumb-area -->
@@ -41,7 +41,7 @@
             </div>
         </section>
         <!-- breadcrumb-area-end -->
-        
+
         <!-- shop-area -->
         <section class="shop-area pt-120 pb-120 p-relative" data-animation="fadeInUp animated" data-delay=".2s">
             <div class="container">
@@ -64,11 +64,11 @@
                                 <div class="product__img">
                                     <a href="{{route('product.details', $product->id)}}"><img src="{{ $product->photo }}" alt="" style="height: 180px"></a>
                                     <div class="product-action text-center">
-                                        <a href="{{route('product.details', $product->id)}}">Sotib Olish</a>
-                                        <form action="{{ route('cart.addItem', $value->id) }}" method="POST">
+                                        <form action="{{ route('cart.addItem', $product->id) }}" method="POST">
                                             @csrf
-                                            <input type="hidden" name="product_id" value="{{ $value->id }}">
-                                            <button type="submit" class="btn btn-primary">Savatga qo'shish</button>
+                                            <input type="hidden" name="product_id" value="{{ $product->id }}">
+                                            <button role="button" class="btn btn-primary" type="submit">Sotib Olish</button>
+
                                         </form>
                                     </div>
                                 </div>

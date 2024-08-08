@@ -29,8 +29,6 @@ class AdviceController extends Controller
             'description_en' => 'required',
             'photo' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
-
-        $filename = null;
         if ($request->hasFile('photo')) {
             $file = $request->file('photo');
             $filename = time() . '_' . $file->getClientOriginalName();
@@ -47,7 +45,7 @@ class AdviceController extends Controller
             'description_en' => $request->description_en,
         ]);
 
-        return redirect()->route('blogs.index')->with('success', 'Blog post created successfully.');
+        return redirect()->route('advices.index')->with('success', 'Blog post created successfully.');
     }
 
 
@@ -100,18 +98,6 @@ class AdviceController extends Controller
         return redirect()->route('advices.index')->with('success', 'Advices post updated successfully.');
     }
 
-    public function advice_page(){
-        $advices = Advice::latest()->paginate(12);
-        return view('front.advice.index', compact('advices'));
-
-    }
-
-    public  function advice_details_page($id)
-    {
-        $advice=Advice::findOrFail($id);
-        return view('front.advice.show', compact('advice'));
-    }
-
     public function destroy($id)
     {
         $advice = Advice::findOrFail($id);
@@ -127,5 +113,17 @@ class AdviceController extends Controller
 
         $advice->delete();
         return redirect()->route('advices.index')->with('success', 'Advice deleted successfully.');
+    }
+
+    public function advice_page(){
+        $advices = Advice::latest()->paginate(12);
+        return view('front.advice.index', compact('advices'));
+
+    }
+
+    public  function advice_details_page($id)
+    {
+        $advice=Advice::findOrFail($id);
+        return view('front.advice.show', compact('advice'));
     }
 }
