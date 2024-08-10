@@ -1,5 +1,10 @@
 @extends('layout.helper')
 @section('content')
+    @php
+        $lang = \Illuminate\Support\Facades\App::getLocale();
+       $says=\App\Models\Say::latest()->take(4)->get();
+       $photos=\App\Models\Photo::latest()->take(5)->get();
+    @endphp
     <main>
 
         <!-- breadcrumb-area -->
@@ -83,39 +88,27 @@
                         </div>
 
                     </div>
-
                     <div class="col-lg-12">
                         <div class="testimonial-active">
-                            <div class="single-testimonial">
-                                <div class="testi-author">
-                                    <img src="assets/front/img/testimonial/testi_avatar.png" alt="img">
-                                    <div class="ta-info">
-                                        <h6>Jina Nilson</h6>
-                                        <span>{{__('main.home36')}}</span>
+                            @foreach($says as $say=>$value)
+                                <div class="single-testimonial">
+                                    <div class="testi-author">
+                                        <img src="/{{ $value->photo }}" alt="img">
+                                        <div class="ta-info">
+                                            <h6>{{$value->name}}</h6>
+                                            <span>{{$value['position_'.$lang]}}</span>
+                                        </div>
+                                    </div>
+                                    <p class="pt-10 pb-20"><img src="assets/front/img/testimonial/review-icon.png" alt="img"></p>
+                                    <p>{{$value['description_'.$lang]}}</p>
+
+                                    <div class="qt-img">
+                                        <img src="assets/front/img/testimonial/qt-icon.png" alt="img">
                                     </div>
                                 </div>
-                                <p class="pt-10 pb-20"><img src="assets/front/img/testimonial/review-icon.png" alt="img"></p>
-                                <p>{{__('main.home37')}}</p>
+                            @endforeach
 
-                                <div class="qt-img">
-                                    <img src="assets/front/img/testimonial/qt-icon.png" alt="img">
-                                </div>
-                            </div>
-                            <div class="single-testimonial">
-                                <div class="testi-author">
-                                    <img src="assets/front/img/testimonial/testi_avatar_02.png" alt="img">
-                                    <div class="ta-info">
-                                        <h6>Braitly Dcosta</h6>
-                                        <span>{{__('main.home36')}}</span>
-                                    </div>
-                                </div>
-                                <p class="pt-10 pb-20"><img src="assets/front/img/testimonial/review-icon.png" alt="img"></p>
-                                <p>{{__('main.home38')}}</p>
 
-                                <div class="qt-img">
-                                    <img src="assets/front/img/testimonial/qt-icon.png" alt="img">
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -141,91 +134,7 @@
                     </div>
 
                 </div>
-                <div class="row">
-                    <div class="col-xl-3 col-md-6">
-                        <div class="single-team mb-40" >
-                            <div class="team-thumb">
-                                <div class="brd">
-                                    <a href=""><img src="/assets/front/img/team/team01.jpg" alt="img"></a>
 
-                                </div>
-                            </div>
-                            <div class="team-info">
-                                <h4><a href="">Howard Holmes</a></h4>
-                                <p>CEO & Founder</p>
-                                <div class="team-social">
-                                    <ul>
-                                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                        <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                                        <li> <a href="#"><i class="fab fa-twitter"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-md-6">
-                        <div class="single-team mb-40" >
-                            <div class="team-thumb">
-                                <div class="brd">
-                                    <a href=""><img src="/assets/front/img/team/team02.jpg" alt="img"></a>
-                                </div>
-                            </div>
-                            <div class="team-info">
-                                <h4><a href="">Ella Thompson</a></h4>
-                                <p>Dcfarm Team</p>
-                                <div class="team-social">
-                                    <ul>
-                                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                        <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                                        <li> <a href="#"><i class="fab fa-twitter"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-md-6">
-                        <div class="single-team mb-40" >
-                            <div class="team-thumb">
-                                <div class="brd">
-                                    <a href=""><img src="/assets/front/img/team/team03.jpg" alt="img"></a>
-                                </div>
-
-                            </div>
-                            <div class="team-info">
-                                <h4><a href="">Vincent Cooper</a></h4>
-                                <p>Dcfarm Team</p>
-                                <div class="team-social">
-                                    <ul>
-                                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                        <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                                        <li> <a href="#"><i class="fab fa-twitter"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-md-6">
-                        <div class="single-team mb-40" >
-                            <div class="team-thumb">
-                                <div class="brd">
-                                    <a href=""><img src="/assets/front/img/team/team04.jpg" alt="img"></a>
-                                </div>
-
-                            </div>
-                            <div class="team-info">
-                                <h4><a href="">Danielle Bryant</a></h4>
-                                <p>Dcfarm Team</p>
-                                <div class="team-social">
-                                    <ul>
-                                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                        <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                                        <li> <a href="#"><i class="fab fa-twitter"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </section>
         <!-- team-area-end -->
@@ -296,56 +205,13 @@
         <div class="brand-area pb-120">
             <div class="container">
                 <div class="row brand-active">
-                    <div class="col-xl-2">
-                        <div class="single-brand">
-                            <img src="/assets/front/img/brand/b-logo1.png" alt="img">
+                    @foreach($photos as $photo)
+                        <div class="col-xl-2">
+                            <div class="single-brand">
+                                <img src="{{$photo->photo}}" alt="img">
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-xl-2">
-                        <div class="single-brand">
-                            <img src="/assets/front/img/brand/b-logo2.png" alt="img">
-                        </div>
-                    </div>
-                    <div class="col-xl-2">
-                        <div class="single-brand">
-                            <img src="/assets/front/img/brand/b-logo3.png" alt="img">
-                        </div>
-                    </div>
-                    <div class="col-xl-2">
-                        <div class="single-brand">
-                            <img src="/assets/front/img/brand/b-logo4.png" alt="img">
-                        </div>
-                    </div>
-                    <div class="col-xl-2">
-                        <div class="single-brand">
-                            <img src="/assets/front/img/brand/b-logo5.png" alt="img">
-                        </div>
-                    </div>
-                    <div class="col-xl-2">
-                        <div class="single-brand">
-                            <img src="/assets/front/img/brand/b-logo1.png" alt="img">
-                        </div>
-                    </div>
-                    <div class="col-xl-2">
-                        <div class="single-brand">
-                            <img src="/assets/front/img/brand/b-logo2.png" alt="img">
-                        </div>
-                    </div>
-                    <div class="col-xl-2">
-                        <div class="single-brand">
-                            <img src="/assets/front/img/brand/b-logo3.png" alt="img">
-                        </div>
-                    </div>
-                    <div class="col-xl-2">
-                        <div class="single-brand">
-                            <img src="/assets/front/img/brand/b-logo4.png" alt="img">
-                        </div>
-                    </div>
-                    <div class="col-xl-2">
-                        <div class="single-brand">
-                            <img src="/assets/front/img/brand/b-logo5.png" alt="img">
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>

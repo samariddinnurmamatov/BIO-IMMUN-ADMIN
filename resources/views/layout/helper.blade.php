@@ -1,8 +1,12 @@
 <!doctype html>
 <?php
-    $lang = \Illuminate\Support\Facades\App::getLocale();
-    $categories = \App\Models\Category::all();
+$lang = \Illuminate\Support\Facades\App::getLocale();
+$categories = \App\Models\Category::all();
+$cart = session()->get('cart', []);
+$productCount = count($cart);
+$settings = json_decode(Illuminate\Support\Facades\File::get(storage_path('app/settings.json')), true);
 ?>
+
 <html class="no-js" lang="zxx">
 <head>
     <meta charset="utf-8">
@@ -30,6 +34,7 @@
             position: relative;
             display: inline-block;
         }
+
         .count {
             position: absolute;
             top: -10px;
@@ -44,24 +49,28 @@
             justify-content: center;
             align-items: center;
         }
+
         .cart-icon {
             font-size: 24px;
         }
+
         .language-selection {
             position: relative;
             display: inline-block;
         }
+
         .language-selection .dropdown-content {
             display: none;
             position: absolute;
             background-color: #f9f9f9;
             min-width: 160px;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
             z-index: 1;
             border-radius: 4px;
             top: 100%; /* Position below the button */
             left: -50px;
         }
+
         .language-selection .dropdown-content a {
             color: black;
             padding: 7px 16px;
@@ -69,12 +78,15 @@
             display: flex;
             align-content: flex-start;
         }
+
         .language-selection .dropdown-content a:hover {
             background-color: #f1f1f1;
         }
+
         .language-selection .show {
             display: block;
         }
+
         .language-selection .dropbtn {
             background-color: #006e2f;
             color: white;
@@ -84,6 +96,7 @@
             cursor: pointer;
             border-radius: 4px;
         }
+
         .language-selection .dropbtn.active {
             background-color: #0056b3;
         }
@@ -113,7 +126,7 @@
                                     </div>
                                     <div class="text">
                                         <span>{{__('main.call')}}</span>
-                                        <strong>+91 854 789-8746</strong>
+                                        <strong>{{ $settings['phone_number'] }}</strong>
                                     </div>
                                 </div>
                             </li>
@@ -124,16 +137,16 @@
                                     </div>
                                     <div class="text">
                                         <span>{{__('main.email')}}</span>
-                                        <strong>info@gmail.com</strong>
+                                        <strong>{{ $settings['email_address'] }}</strong>
                                     </div>
                                 </div>
                             </li>
                             <li>
                                 <div class="header-social">
                                  <span>
-                                 <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-                                 <a href="#" title="LinkedIn"><i class="fab fa-instagram"></i></a>
-                                 <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+                                 <a href="{{ $settings['facebook'] }}" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                                 <a href="{{ $settings['instagram'] }}" title="LinkedIn"><i class="fab fa-instagram"></i></a>
+                                 <a href="{{$settings['telegram'] }}" title="Telegram"><i class="fab fa-telegram"></i></a>
                                  </span>
                                     <!--  /social media icon redux -->
                                 </div>
@@ -180,7 +193,9 @@
                                         <a href="">{{__('main.categories')}}</a>
                                         <ul>
                                             @foreach($categories as $category)
-                                                <li><a href="{{route('category.showPage', $category->id)}}">{{($category['name_' . $lang])}}</a></li>
+                                                <li>
+                                                    <a href="{{route('category.showPage', $category->id)}}">{{($category['name_' . $lang])}}</a>
+                                                </li>
                                             @endforeach
 
                                         </ul>
@@ -200,11 +215,10 @@
                     <div class="col-xl-1 col-lg-1 text-right d-none d-xl-block">
                         <div class="header-cta3">
                             <ul style="display: flex; gap: 10px;">
-                                <li><a href="#" class="top-btn menu-tigger"><i class="fal fa-search"></i></a></li>
                                 <li style="position: relative;">
                                     <a href="/cart" class="top-btn">
                                         <div class="cart1">
-                                            <span class="count" id="countProduct"></span>
+                                            <span class="count" id="countProduct">{{ $productCount }}</span>
                                             <i class="cart-icon fa fa-shopping-cart"></i>
                                         </div>
                                     </a>
@@ -212,44 +226,12 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="col-12">
-                        <div class="mobile-menu"></div>
-                    </div>
                 </div>
             </div>
         </div>
     </div>
 </header>
 <!-- header-end -->
-
-<!-- offcanvas-area -->
-<div class="offcanvas-menu">
-    <span class="menu-close"><i class="fas fa-times"></i></span>
-    <form role="search" method="get" id="searchform" class="searchform" action="http://wordpress.zcube.in/xconsulta/">
-        <input type="text" name="s" id="search" placeholder="Search"/>
-        <button><i class="fa fa-search"></i></button>
-    </form>
-    <div id="cssmenu3" class="menu-one-page-menu-container">
-        <ul class="menu">
-            <li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="index.html">Bosh Sahifa</a></li>
-            <li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="about.html">Biz Haqimizda</a></li>
-            <li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="services.html">Mahsulotlar</a></li>
-            <li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="pricing.html">Yangiliklar </a></li>
-            <li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="team.html">Maslahatlar </a></li>
-            <li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="contact.html">Kontakt</a></li>
-        </ul>
-    </div>
-    <div id="cssmenu2" class="menu-one-page-menu-container">
-        <ul id="menu-one-page-menu-12" class="menu">
-            <li class="menu-item menu-item-type-custom menu-item-object-custom"><a
-                    href="#home"><span>+8 12 3456897</span></a></li>
-            <li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="#howitwork"><span>info@example.com</span></a>
-            </li>
-        </ul>
-    </div>
-</div>
-<div class="offcanvas-overly"></div>
-<!-- offcanvas-end -->
 
 @yield('content')
 
@@ -265,9 +247,9 @@
                             <a href="{{route('home')}}"><img src="/assets/front/img/logo/f_logo.png" alt="img"></a>
                         </div>
                         <div class="footer-social mt-10">
-                            <a href="#"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#"><i class="fab fa-instagram"></i></a>
-                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="{{$settings['facebook']}}"><i class="fab fa-facebook-f"></i></a>
+                            <a href="{{$settings['instagram']}}"><i class="fab fa-instagram"></i></a>
+                            <a href="{{$settings['instagram']}}"><i class="fab fa-twitter"></i></a>
                         </div>
                     </div>
                 </div>
@@ -297,19 +279,19 @@
                             <ul>
                                 <li>
                                     <i class="icon fal fa-phone"></i>
-                                    <span><a href="tel:+14440008888">+1 (444) 000-8888</a><br><a
-                                            href="tel:+917052101786">+91 7052 101 786</a></span>
+                                    <span><a href="tel:+14440008888">{{ $settings['phone_number'] }}</a><br><a
+                                                href="tel:+917052101786">{{ $settings['phone_number2'] }}</a></span>
                                 </li>
                                 <li><i class="icon fal fa-envelope"></i>
                                     <span>
-                                            <a href="mailto:info@example.com">info@example.com</a>
+                                            <a href="{{ $settings['email_address'] }}">{{ $settings['email_address'] }}</a>
                                        <br>
-                                       <a href="mailto:help@example.com">help@example.com</a>
+                                        <a href="{{ $settings['email_address2'] }}">{{ $settings['email_address2'] }}</a>
                                        </span>
                                 </li>
                                 <li>
                                     <i class="icon fal fa-map-marker-check"></i>
-                                    <span>1247/Plot No. 39, 15th Phase,<br> LHB Colony, Kanpur</span>
+                                    <span>{{ $settings['address'] }}<br>{{ $settings['address2'] }}</span>
                                 </li>
                             </ul>
                         </div>
@@ -323,13 +305,6 @@
             <div class="row align-items-center">
                 <div class="col-lg-6">
                     {{__('main.footer_item4')}}
-                </div>
-                <div class="col-lg-6 text-right text-xl-right">
-                    <ul>
-                        <li><a href="">{{__('main.footer_item1')}}</a></li>
-                        <li><a href="">{{__('main.footer_item2')}}</a></li>
-                        <li><a href="">{{__('main.footer_item3')}}</a></li>
-                    </ul>
                 </div>
             </div>
         </div>

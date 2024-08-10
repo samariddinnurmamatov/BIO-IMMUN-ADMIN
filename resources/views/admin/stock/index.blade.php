@@ -85,9 +85,7 @@
                                 <th class="px-3.5 py-2.5 font-semibold border border-custom-500 dark:border-custom-800">
                                     Soni
                                 </th>
-                                <th class="px-3.5 py-2.5 font-semibold border border-custom-500 dark:border-custom-800">
-                                    Narxi
-                                </th>
+
                                 <th class="px-3.5 py-2.5 font-semibold border border-custom-500 dark:border-custom-800">
                                     Sanasi
                                 </th>
@@ -112,8 +110,6 @@
                                     </td>
                                     <td class="px-3.5 py-2.5 border border-custom-500 dark:border-custom-800">
                                         {{$value->quantity}}
-                                    </td>
-                                    <td class="px-3.5 py-2.5 border border-custom-500 dark:border-custom-800">$4,521
                                     </td>
                                     <td class="px-3.5 py-2.5 border border-custom-500 dark:border-custom-800">{{ Carbon::parse($value->created_at)->format('d M, Y') }}
                                     </td>

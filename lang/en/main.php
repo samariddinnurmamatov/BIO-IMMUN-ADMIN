@@ -27,7 +27,7 @@ return [
     'home10' => 'We use only the finest ingredients, adhering to the highest standards of quality and excellence.',
     'home11' => 'Big Milk Farm',
     'home12' => 'Our farm is known for its large-scale operations and commitment to producing high-quality milk products.',
-    'home13' => 'Our Services',
+    'home13' => 'Latest News',
     'home14' => 'What We Provide',
     'home15' => 'View All Services',
     'home16' => 'Top Quality Milk Products',
@@ -79,6 +79,6 @@ return [
     'more'=>'More',
     'detail'=>'Shop details',
     'detail1'=>'Blog details',
-    'detail2'=>'Advice details'
+    'detail2'=>'Advice details',
 
 ];

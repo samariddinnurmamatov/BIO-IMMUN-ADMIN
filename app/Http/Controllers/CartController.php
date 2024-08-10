@@ -23,22 +23,32 @@ class CartController extends Controller
         $product = Product::findOrFail($id);
         $cart = session()->get('cart', []);
 
+        // Mahsulot mavjudligini tekshirish
         if (isset($cart[$id])) {
-            $cart[$id]['quantity'] += $request->quantity;
+            // Tugmalar bosilganda miqdorni o'zgartirish
+            $cart[$id]['quantity'] += $request->input('change_quantity');
+
+            // Agar miqdor noldan past bo'lsa, uni 0 ga o'rnatish
+            if ($cart[$id]['quantity'] < 0) {
+                $cart[$id]['quantity'] = 0;
+            }
         } else {
+            // Yangi mahsulotni qo'shish
             $cart[$id] = [
                 'product_id' => $id,
-                'quantity' => $request->quantity,
-                'price' => $product->price * (100 - $product->percentage) / 100,
+                'quantity' => max($request->input('change_quantity'), 0), // Miqdorni kamida 0 ga o'rnatish
+                'price' => $request->price,
                 'name' => $product->name,
                 'photo' => $product->photo
             ];
         }
 
+        // Sessiyaga cartni saqlash
         session()->put('cart', $cart);
 
         return redirect()->back()->with('success', 'Product added to cart successfully!');
     }
+
 
     public function updateCartProductQuantity(Request $request)
     {

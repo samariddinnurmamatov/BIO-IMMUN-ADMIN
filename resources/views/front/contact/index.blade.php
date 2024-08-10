@@ -1,5 +1,8 @@
 @extends('layout.helper')
 @section('content')
+    @php
+        $settings = json_decode(Illuminate\Support\Facades\File::get(storage_path('app/settings.json')), true);
+ @endphp
     <main>
 
         <!-- breadcrumb-area -->
@@ -120,7 +123,7 @@
                                <img src="/assets/front/img/bg/contact-icon01.png" alt="image">
                             </div>
                            <div class="services-content2">
-                                <h5><a href="tel:+14440008888">+1 (444) 000-8888</a></h5>
+                                <h5><a href="tel:{{ $settings['phone_number'] }}">{{ $settings['phone_number'] }}</a></h5>
                                 <p>{{__('main.contact7')}}</p>
                             </div>
                         </div>
@@ -134,7 +137,7 @@
                               <img src="/assets/front/img/bg/contact-icon02.png" alt="image">
                             </div>
                            <div class="services-content2">
-                                <h5><a href="mailto:jobs@webtrueexample.com">jobs@example.com</a></h5>
+                                <h5><a href="mailto:{{ $settings['email_address'] }}">{{ $settings['email_address'] }}</a></h5>
                                  <p>{{__('main.email')}}</p>
 
                             </div>
@@ -149,7 +152,7 @@
                              <img src="/assets/front/img/bg/contact-icon03.png" alt="image">
                             </div>
                            <div class="services-content2">
-                                <h5>12/A, New Jone, NYC</h5>
+                                <h5>{{ $settings['address'] }}</h5>
                                 <p>{{__('main.contact8')}}</p>
                             </div>
                         </div>

@@ -67,18 +67,20 @@
 
                             </div>
                             <div class="product-details-action">
-                                <form action="#">
+                                <form action="{{ route('cart.addItem', $product->id) }}" method="POST">
+                                    @csrf
                                     <div class="plus-minus">
                                         <div class="cart-plus-minus" style="display: flex; align-items: center; border: 1px solid #ddd; border-radius: 4px; overflow: hidden; margin-right: 20px;">
-                                            <button type="button" style="background-color: #f8f9fa; border: none; padding: 10px; font-size: 16px; cursor: pointer;" onclick="changeQuantity(-1,{{$product->id}})">-</button>
-                                            <input id="quantity-input" type="text" value="0" readonly style="width: 60px; text-align: center; border: none; font-size: 16px; padding: 10px; border-radius: 4px; border: 1px solid #ddd; margin: 0 5px;" />
-                                            <button type="button" style="background-color: #f8f9fa; border: none; padding: 10px; font-size: 16px; cursor: pointer;" onclick="changeQuantity(1,{{$product->id}})">+</button>
+                                            <button type="submit" name="change_quantity" value="-1" style="background-color: #f8f9fa; border: none; padding: 10px; font-size: 16px; cursor: pointer;">-</button>
+                                            <input id="quantity-input" type="text" value="{{ session('cart.'.$product->id.'.quantity', 0) }}" readonly style="width: 60px; text-align: center; border: none; font-size: 16px; padding: 10px; border-radius: 4px; border: 1px solid #ddd; margin: 0 5px;" />
+                                            <button type="submit" name="change_quantity" value="1" style="background-color: #f8f9fa; border: none; padding: 10px; font-size: 16px; cursor: pointer;">+</button>
                                         </div>
                                     </div>
-                                    <input type="hidden" id="price" value="{{ ($product->price) * (100 - $product->percentage) / 100 }}" /> <!-- Mahsulot narxi -->
-                                    <p>Total Price: <span id="total-price"></span> sum</p>
+                                    <input type="hidden" name="price" value="{{ ($product->price) * (100 - $product->percentage) / 100 }}" /> <!-- Mahsulot narxi -->
+                                    <p>Total Price: <span id="total-price">{{ session('cart.'.$product->id.'.quantity', 0) * ($product->price * (100 - $product->percentage) / 100) }}</span> sum</p>
                                     <button class="btn btn-black" type="submit" style="background-color: #000; color: #fff; border: none; padding: 10px 20px; font-size: 16px; cursor: pointer; transition: background-color 0.3s;">{{__('main.shop')}}</button>
                                 </form>
+
                             </div>
                         </div>
                     </div>
@@ -87,5 +89,19 @@
         </section>
         <!-- shop-banner-area end -->
     </main>
+    <script>
+        function changeQuantity(change, productId) {
+            let quantityInput = document.getElementById('quantity-input');
+            let quantity = parseInt(quantityInput.value) + change;
+            if (quantity < 0) quantity = 0;
+            quantityInput.value = quantity;
+
+            let price = document.getElementById('price').value;
+            let totalPrice = quantity * price;
+            document.getElementById('total-price').innerText = totalPrice + ' sum';
+        }
+    </script>
+
+
 
 @endsection

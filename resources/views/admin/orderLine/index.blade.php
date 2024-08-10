@@ -187,8 +187,8 @@
                                                     </div>
                                                 </div>
                                             </td>
-                                            <td class="px-3.5 py-2.5 first:pl-5 last:pr-5 email">{{$value->product->category->name}}</td>
-                                            <td class="px-3.5 py-2.5 first:pl-5 last:pr-5 location">{{$value->product->name}}</td>
+                                            <td class="px-3.5 py-2.5 first:pl-5 last:pr-5 email">{{$value->product->category->name_uz}}</td>
+                                            <td class="px-3.5 py-2.5 first:pl-5 last:pr-5 location">{{$value->product->name_uz}}</td>
                                             <td class="px-3.5 py-2.5 first:pl-5 last:pr-5 phone-number">{{$value->quantity}}</td>
                                             <td class="px-3.5 py-2.5 first:pl-5 last:pr-5 joining-date">{{ $value->created_at->format('d M, Y') }}
                                             </td>
@@ -264,37 +264,5 @@
         </div>
         <!-- container-fluid -->
     </div>
-    <!-- Modal -->
-{{--    <script>--}}
-{{--        document.getElementById('statusForm').addEventListener('submit', function(event) {--}}
-{{--            event.preventDefault();--}}
 
-{{--            const form = event.target;--}}
-{{--            const formData = new FormData(form);--}}
-{{--            const orderId = form.getAttribute('data-order-id'); // Order IDni olish--}}
-
-{{--            fetch(`/orders/${orderId}/status`, {--}}
-{{--                method: 'POST',--}}
-{{--                body: formData,--}}
-{{--                headers: {--}}
-{{--                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')--}}
-{{--                }--}}
-{{--            })--}}
-{{--                .then(response => response.json())--}}
-{{--                .then(data => {--}}
-{{--                    if (data.success) {--}}
-{{--                        alert('Status updated and stock recorded.');--}}
-{{--                        window.location.reload(); // Yangi holatni ko'rsatish uchun sahifani qayta yuklash--}}
-{{--                    } else {--}}
-{{--                        alert('Error updating status.');--}}
-{{--                    }--}}
-{{--                })--}}
-{{--                .catch(error => {--}}
-{{--                    console.error('Error:', error);--}}
-{{--                    alert('Error updating status.');--}}
-{{--                });--}}
-{{--        });--}}
-
-
-{{--    </script>--}}
 @endsection

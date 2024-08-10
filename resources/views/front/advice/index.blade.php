@@ -41,7 +41,7 @@
                             <div class="single-post2 hover-zoomin mb-30 wow fadeInUp animated" data-animation="fadeInUp"
                                  data-delay=".4s">
                                 <div class="blog-thumb2">
-                                    <a href=""><img src="{{ url('storage/uploads/'.$value->photo) }}" alt="img"></a>
+                                    <a href="{{route('advice.details', $value->id)}}"><img src="{{ url('storage/uploads/'.$value->photo) }}" alt="img"></a>
                                 </div>
                                 <div class="blog-content2">
                                     <div class="date-home">

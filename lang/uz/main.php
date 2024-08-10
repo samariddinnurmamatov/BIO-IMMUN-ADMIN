@@ -26,7 +26,7 @@ return [
     'home10' => 'Biz faqat eng yaxshi ingredientlardan foydalanamiz, yuqori sifat va mukammallik standartlariga amal qilamiz.',
     'home11' => 'Katta Sut Ferma',
     'home12' => 'Bizning fermamiz katta o\'lchamli operatsiyalari va yuqori sifatli sut mahsulotlarini ishlab chiqarishga bo\'lgan sadoqati bilan tanilgan.',
-    'home13' => 'Bizning xizmatlarimiz',
+    'home13' => 'So\'ngi yangiliklar',
     'home14' => 'Biz nimani taqdim etamiz',
     'home15' => 'Barcha xizmatlarni ko\'ring',
     'home16' => 'Eng yuqori sifatli sut mahsulotlari',

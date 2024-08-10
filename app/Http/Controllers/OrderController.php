@@ -64,26 +64,8 @@ class OrderController extends Controller
                 }
             }
 
-        } elseif ($order->order_status === 'rad_etildi') {
-            // Buyurtma qatorlarini olish
-            $orderLines = OrderLine::where('order_id', $orderId)->get();
-
-            foreach ($orderLines as $orderLine) {
-                // Stokni yangilash
-                $stock = new Stock();
-                $stock->product_id = $orderLine->product_id;
-                $stock->quantity = $orderLine->quantity; // Rad etilganda miqdorni qaytarish
-                $stock->type = 'in'; // Ma'lumot turini qo'shish
-                $stock->save();
-
-                // Mahsulotni yangilash
-                $product = Product::find($orderLine->product_id);
-                if ($product) {
-                    $product->quantity += $orderLine->quantity;
-                    $product->save();
-                }
-            }
         }
+
 
         return redirect()->back()->with('success', 'Order status updated and stock adjusted.');
     }
