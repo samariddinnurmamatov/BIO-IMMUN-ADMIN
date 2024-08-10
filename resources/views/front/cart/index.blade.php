@@ -5,18 +5,17 @@
         $lang = \Illuminate\Support\Facades\App::getLocale();
     @endphp
     <div class="container">
-        <h2>Shopping Cart</h2>
 
         @if(count($cart) > 0)
-            <table class="table table-striped table-bordered">
+            <table class="table table-striped table-bordered mt-5">
                 <thead>
                 <tr>
-                    <th>Nomi</th>
-                    <th>Rasmi</th>
-                    <th>Soni</th>
-                    <th>Narxi</th>
-                    <th>Umumiy</th>
-                    <th>Action</th>
+                    <th>{{__('main.cart1')}}</th>
+                    <th>{{__('main.cart2')}}</th>
+                    <th>{{__('main.cart3')}}</th>
+                    <th>{{__('main.cart4')}}</th>
+                    <th>{{__('main.cart5')}}</th>
+                    <th>{{__('main.cart6')}}</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -25,7 +24,7 @@
                     $product=\App\Models\Product::findOrFail($item['product_id']);
                     @endphp
                     <tr>
-                        <td>{{ $product['name_' . $lang] ?? 'Unknown' }}</td>
+                        <td>{{ $product['name_'.$lang] ?? 'Unknown' }}</td>
                         <td>
                             <img src="/{{ $item['photo'] ?? 'Unknown' }}" style="width: 100px; height: auto;">
                         </td>
@@ -53,14 +52,14 @@
                                 </div>
                             </form>
                         </td>
-                        <td>{{ $item['price'] ?? '0.00' }}</td>
-                        <td>{{ ($item['price'] ?? 0) * ($item['quantity'] ?? 1) }}</td>
+                        <td>{{ $item['price'] ?? '0.00' }} sum </td>
+                        <td>{{ ($item['price'] ?? 0) * ($item['quantity'] ?? 1) }} sum</td>
                         <td>
                             <form action="{{ route('cart.remove') }}" method="POST"
                                   onsubmit="return confirm('Are you sure you want to remove this item?');">
                                 @csrf
                                 <input type="hidden" name="product_id" value="{{ $item['product_id'] }}">
-                                <button type="submit" class="btn btn-danger btn-sm">Remove</button>
+                                <button type="submit" class="btn btn-danger btn-sm">{{__('main.cart7')}}</button>
                             </form>
                         </td>
                     </tr>
@@ -69,7 +68,7 @@
             </table>
 
             <div>
-                <strong>Total: {{ $total }}</strong>
+                <strong>Total: {{ $total }} sum</strong>
             </div>
             <!-- Cart table -->
             <!-- Cart table -->

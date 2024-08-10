@@ -13,7 +13,7 @@ return [
     'footer_item1' => 'Maxfiylik siyosati',
     'footer_item2' => 'Xizmat shartlari',
     'footer_item3' => 'Huquqiy',
-    'footer_item4' => 'DORA - Xalqaro va Marketing Kompaniyasi 2024 © DORA',
+    'footer_item4' => '2024 © DORA Barcha huquqlar himoyalangan.',
     'home1' => 'SOF VA ORGANIK SUT MAHSULOTLARI',
     'home2' => 'Biz eng yaxshi sut ishlab chiqaramiz.',
     'home3' => 'Sut fermasi',
@@ -79,5 +79,14 @@ return [
     'detail' => 'Do‘kon tafsilotlari',
     'detail1' => 'Blog tafsilotlari',
     'detail2' => 'Maslahat tafsilotlari',
+    'cart1' => 'Nomi',
+    'cart2' => 'Rasm',
+    'cart3' => 'Miqdor',
+    'cart4' => 'Narx',
+    'cart5' => 'Jami',
+    'cart6' => 'Harakat',
+    'cart7' => 'O‘chirish',
+    'cart8' => 'Kategoriya:',
+
 
 ];

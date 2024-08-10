@@ -14,7 +14,7 @@ return [
     'footer_item1' => 'Privacy Policy ',
     'footer_item2' => 'Terms Of Service ',
     'footer_item3' => 'Legal',
-    'footer_item4' => 'DORA - International & Marketing Company 2024 © DORA ',
+    'footer_item4' => '2024 © DORA All rights reserved.',
     'home1' => 'PURE & ORGANIC MILK PRODUCTS',
     'home2' => 'We Are The Best Milk',
     'home3' => 'Dairy Farm',
@@ -80,5 +80,13 @@ return [
     'detail'=>'Shop details',
     'detail1'=>'Blog details',
     'detail2'=>'Advice details',
+    'cart1'=>'Name',
+    'cart2'=>'Photo',
+    'cart3'=>'Quantity',
+    'cart4'=>'Price',
+    'cart5'=>'Total price:',
+    'cart6'=>'Action',
+    'cart7'=>'Remove',
+    'cart8'=>'Category:',
 
 ];

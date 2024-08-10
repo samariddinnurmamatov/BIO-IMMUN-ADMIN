@@ -6,20 +6,20 @@
     <main>
 
         <!-- breadcrumb-area -->
-        <section class="breadcrumb-area d-flex  p-relative align-items-center" style="background-image:url(img/bg/bdrc-bg.jpg)">
+        <section class="breadcrumb-area d-flex  p-relative align-items-center" style="background-image:url(/assets/front/img/bg/video-img.png)">
 
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-xl-12 col-lg-12">
                         <div class="breadcrumb-wrap text-left">
                             <div class="breadcrumb-title">
-                                <h2>{{__('main.detail')}}</h2>
+                                <h2>{{$product['name_'.$lang]}}</h2>
                                 <div class="breadcrumb-wrap">
 
                                     <nav aria-label="breadcrumb">
                                         <ol class="breadcrumb">
                                             <li class="breadcrumb-item"><a href="{{route('home')}}">{{__('main.home')}}</a></li>
-                                            <li class="breadcrumb-item active" aria-current="page">{{__('main.detail')}} </li>
+                                            <li class="breadcrumb-item active" aria-current="page">{{__('main.products')}} </li>
                                         </ol>
                                     </nav>
                                 </div>
@@ -63,7 +63,7 @@
                             </div>
                             <p>{{$product['description_' . $lang]}}</p>
                             <div class="product-cat mt-30 mb-30">
-                                <span>Category: {{$product->category['name_' . $lang]}} </span>
+                                <span>{{__('main.cart8')}}: {{$product->category['name_' . $lang]}} </span>
 
                             </div>
                             <div class="product-details-action">
@@ -77,7 +77,7 @@
                                         </div>
                                     </div>
                                     <input type="hidden" name="price" value="{{ ($product->price) * (100 - $product->percentage) / 100 }}" /> <!-- Mahsulot narxi -->
-                                    <p>Total Price: <span id="total-price">{{ session('cart.'.$product->id.'.quantity', 0) * ($product->price * (100 - $product->percentage) / 100) }}</span> sum</p>
+                                    <p>{{__('main.cart5')}} <span id="total-price">{{ session('cart.'.$product->id.'.quantity', 0) * ($product->price * (100 - $product->percentage) / 100) }}</span> sum</p>
                                     <button class="btn btn-black" type="submit" style="background-color: #000; color: #fff; border: none; padding: 10px 20px; font-size: 16px; cursor: pointer; transition: background-color 0.3s;">{{__('main.shop')}}</button>
                                 </form>
 

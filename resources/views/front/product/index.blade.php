@@ -51,13 +51,16 @@
                         <div class="col-lg-3 col-md-6">
                             <div class="product mb-40">
                                 <div class="product__img">
-                                    <a href="{{route('product.details', $product->id)}}"><img src="{{ $product->photo }}" alt="" style="height: 180px"></a>
-                                    <div class="product-action text-center">
-                                        <form action="{{ route('cart.addItem', $product->id) }}" method="POST">
+                                    <a href="{{route('product.details', $product->id)}}"><img src="{{ $product->photo }}" alt=""></a>
+                                    <div class="product-action text-center mt-3">
+                                        <a href="{{ route('cart.addItem', $product->id) }}"
+                                           onclick="event.preventDefault(); document.getElementById('add-to-cart-form-{{ $product->id }}').submit();"
+                                           class="btn btn-primary btn-sm px-4 py-2" style="border-radius: 50px; background-color: #ff7f50; border: none; transition: background-color 0.3s ease;">
+                                            <i class="fas fa-shopping-cart"></i> {{__('main.shop')}}
+                                        </a>
+                                        <form id="add-to-cart-form-{{ $product->id }}" action="{{ route('cart.addItem', $product->id) }}" method="POST" style="display: none;">
                                             @csrf
                                             <input type="hidden" name="product_id" value="{{ $product->id }}">
-                                            <button role="button" class="btn btn-primary" type="submit">{{__('main.shop')}}</button>
-
                                         </form>
                                     </div>
                                 </div>

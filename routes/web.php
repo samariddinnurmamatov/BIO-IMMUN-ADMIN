@@ -70,8 +70,8 @@ Route::middleware('auth')->group(function () {
     Route::put('user/{id}', [Authenticate::class, 'updateUserProfile'])->name('users.update');
 });
 
+Route::resource('blogs', BlogController::class)->middleware('auth');
 Route::get('/blog', [BlogController::class, 'blogs_page'])->name('blog.page'); // Change the URL to avoid conflict
-Route::resource('blogs', BlogController::class);
 Route::get('/blog/{blog}', [BlogController::class, 'blog_details_page'])->name('blog.details'); // Change the URL to avoid conflict
 
 

@@ -301,8 +301,6 @@
                                             <span>{{$value['position_'.$lang]}}</span>
                                         </div>
                                     </div>
-                                    <p class="pt-10 pb-20"><img src="assets/front/img/testimonial/review-icon.png"
-                                                                alt="img"></p>
                                     <p>{{$value['description_'.$lang]}}</p>
 
                                     <div class="qt-img">
