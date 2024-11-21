@@ -9,9 +9,13 @@ class Blog extends Model
 {
     use HasFactory;
     protected $fillable=[
-        'title',
+        'title_uz',
+        'title_ru',
+        'title_en',
         'photos',
-        'description',
+        'description_uz',
+        'description_ru',
+        'description_en',
     ];
     protected $casts = [
         'photos' => 'array',

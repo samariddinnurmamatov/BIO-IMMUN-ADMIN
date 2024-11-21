@@ -9,17 +9,27 @@ class Product extends Model
 {
     use HasFactory;
     protected $fillable=[
-        'name',
+        'name_uz',
+        'name_ru',
+        'name_en',
         'photo',
         'price',
         'quantity',
         'category_id',
         'status',
         'percentage',
-        'description',
+        'description_uz',
+        'description_ru',
+        'description_en',
     ];
     public function category() {
         return $this->belongsTo(Category::class);
     }
+
+    public function orderLines() {
+        return $this->hasMany(OrderLine::class);
+    }
+
+
 }
 

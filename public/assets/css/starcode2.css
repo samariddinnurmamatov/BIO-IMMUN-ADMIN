@@ -35244,7 +35244,7 @@ th.gridjs-th:last-child, td.gridjs-td:last-child {
     }
 
     .lg\:col-span-5 {
-        grid-column: span 5 / span 5
+        grid-column: span 4 / span 4
     }
 
     .lg\:col-span-6 {
@@ -35377,7 +35377,8 @@ th.gridjs-th:last-child, td.gridjs-td:last-child {
 
     .lg\:before\:-right-16:before {
         content: var(--tw-content);
-        right: -4rem
+        right: -2rem;
+        top: -1rem;
     }
 
     .group[data-layout=horizontal] .group-data-\[layout\=horizontal\]\:lg\:block {

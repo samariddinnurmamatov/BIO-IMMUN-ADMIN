@@ -2,23 +2,28 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Models\Category;
 
 class CategoryController extends Controller
 {
     public function  index() {
-        $categories =Category::all();
-        return view('category.index', compact('categories'));
+        $categories =Category::paginate(10);
+        return view('admin.category.index', compact('categories'));
     }
 
     public function store(Request $request) {
         $request->validate([
-            'name' => 'required|string|max:255',
+            'name_uz' => 'required|string|max:255',
+            'name_ru' => 'required|string|max:255',
+            'name_en' => 'required|string|max:255',
         ]);
 
         Category::create([
-            'name' => $request->name,
+            'name_uz' => $request->name_uz,
+            'name_ru' => $request->name_ru,
+            'name_en' => $request->name_en,
         ]);
 
         return redirect()->route('category.index')->with('success', 'Category added successfully.');
@@ -27,11 +32,15 @@ class CategoryController extends Controller
     // Update an existing category
     public function update(Request $request, Category $category) {
         $request->validate([
-            'name' => 'required|string|max:255',
+            'name_uz' => 'required|string|max:255',
+            'name_ru' => 'required|string|max:255',
+            'name_en' => 'required|string|max:255',
         ]);
 
         $category->update([
-            'name' => $request->name,
+            'name_uz' => $request->name_uz,
+            'name_ru' => $request->name_ru,
+            'name_en' => $request->name_en,
         ]);
 
         return redirect()->route('category.index')->with('success', 'Category updated successfully.');
@@ -42,6 +51,12 @@ class CategoryController extends Controller
         $category->delete();
 
         return redirect()->route('category.index')->with('success', 'Category deleted successfully.');
+    }
+    public function showPage($id) {
+        $categories = Category::all();
+        $category=Category::findorFail($id);
+        $products = Product::where('category_id', $id)->paginate(10);
+        return view('front.category.show', compact('category', 'products', 'categories'));
     }
 
 }

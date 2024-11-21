@@ -330,8 +330,8 @@ var Prism = (function (_self) {
 			 * @returns {Grammar} The new language created.
 			 * @public
 			 * @example
-			 * Prism.languages['css-with-colors'] = Prism.languages.extend('css', {
-			 *     // Prism.languages.css already has a 'comment' token, so this token will overwrite CSS' 'comment' token
+			 * Prism.languages['scss-with-colors'] = Prism.languages.extend('scss', {
+			 *     // Prism.languages.scss already has a 'comment' token, so this token will overwrite CSS' 'comment' token
 			 *     // at its original position
 			 *     'comment': { ... },
 			 *     // CSS doesn't have a 'color' token, so this token will be appended
@@ -1373,7 +1373,7 @@ Object.defineProperty(Prism.languages.markup.tag, 'addInlined', {
 	 * case insensitive.
 	 * @param {string} lang The language key.
 	 * @example
-	 * addInlined('style', 'css');
+	 * addInlined('style', 'scss');
 	 */
 	value: function addInlined(tagName, lang) {
 		var includedCdataInside = {};
@@ -1416,7 +1416,7 @@ Object.defineProperty(Prism.languages.markup.tag, 'addAttribute', {
 	 * case insensitive.
 	 * @param {string} lang The language key.
 	 * @example
-	 * addAttribute('style', 'css');
+	 * addAttribute('style', 'scss');
 	 */
 	value: function (attrName, lang) {
 		Prism.languages.markup.tag.inside['special-attr'].push({
@@ -1461,7 +1461,7 @@ Prism.languages.rss = Prism.languages.xml;
 
 
 /* **********************************************
-     Begin prism-css.js
+     Begin prism-scss.js
 ********************************************** */
 
 (function (Prism) {
